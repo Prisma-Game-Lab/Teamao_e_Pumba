@@ -8,13 +8,6 @@ public class GameManager : MonoBehaviour
     public GameObject Settings;
     public GameObject ErrorText;
     private bool PlayersSelected;
-    public void OnePlayer() {
-        Players.transform.GetChild(0).gameObject.SetActive(true);
-        Players.transform.GetChild(1).gameObject.SetActive(false);
-        Players.transform.GetChild(2).gameObject.SetActive(false);
-        Players.transform.GetChild(3).gameObject.SetActive(false);
-        PlayersSelected = true;
-    }
      public void TwoPlayer() {
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
