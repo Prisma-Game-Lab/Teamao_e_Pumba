@@ -11,6 +11,9 @@ public class SceneJumper : MonoBehaviour
     public void GoCredits() {
         SceneManager.LoadScene("Credits",LoadSceneMode.Single);
     }
+    public void GoMenu() {
+        SceneManager.LoadScene("Menu",LoadSceneMode.Single);
+    }
     public void QuitGame() {
         Application.Quit();
     }
