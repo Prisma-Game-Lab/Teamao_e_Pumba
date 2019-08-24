@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/*Script Feito para fazer funções de troca de cena
 
+
+Author: Vinny */
 public class SceneJumper : MonoBehaviour
 {
     public void GoArena() {
