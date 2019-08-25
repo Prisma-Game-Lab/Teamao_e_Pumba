@@ -50,8 +50,6 @@ public class GameManager : MonoBehaviour
     public void PlayGame() { // Começa o jogo
         CharacterSelect.transform.parent.gameObject.SetActive(false);
     }
-
-
     void Start()
     {
         PlayersSelected = false;
@@ -62,8 +60,6 @@ public class GameManager : MonoBehaviour
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
     }
-
-    
     void Update()
     {
         if(PlayersSelected) {
