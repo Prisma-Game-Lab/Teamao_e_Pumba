@@ -20,5 +20,7 @@ public class SceneJumper : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
-   
+    public void Reload() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
