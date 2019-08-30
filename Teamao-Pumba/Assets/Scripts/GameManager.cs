@@ -4,14 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 /*Script para gerenciamento do jogo 
 
-Author: Vinny*/
+Author: Vinny
+*/
 public class GameManager : MonoBehaviour
 {
     public GameObject Players; // Os jogadores
     public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
     public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
+    public GameObject VictoryCanvas; // O canvas de fim de jogo
+    public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     private bool PlayersSelected;
+    private int PontosdeVitoria;
+    public int VictoryByPoint;
+    private float tempo = 5;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -55,15 +61,105 @@ public class GameManager : MonoBehaviour
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);
         CharacterSelect.SetActive(false);
+        VictoryCanvas.SetActive(false);
         Players.transform.GetChild(0).gameObject.SetActive(false);
         Players.transform.GetChild(1).gameObject.SetActive(false);
         Players.transform.GetChild(2).gameObject.SetActive(false);
-        Players.transform.GetChild(3).gameObject.SetActive(false);
+        Players.transform.GetChild(3).gameObject.SetActive(false); 
     }
     void Update()
     {
+        if(!CharacterSelect.transform.parent.gameObject.activeSelf) {
+            tempo -= Time.deltaTime;
+            Debug.Log(tempo);
+        }
         if(PlayersSelected) {
             ErrorText.text = "";
         }
+        for(int i = 0;i < 4;i++) {
+            if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
+                VictoryCanvas.SetActive(true);
+                ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints + "\n\n";
+                ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints + "\n\n";
+                if(Players.transform.GetChild(2).gameObject.activeSelf) {
+                    ResultText.text += "Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints + "\n\n";
+                    if(Players.transform.GetChild(3).gameObject.activeSelf) {
+                        ResultText.text += "Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints;
+                    }
+                }
+                if(!empate()) {
+                    ResultText.text += "\n\n\n Winner: " + MaiorValor();
+                }
+                else {
+                    ResultText.text += "\n\n\n Empate!";
+                }
+            }
+        }
+
+    }
+
+    private string MaiorValor() {
+        string nome = "";
+        int maior = 0;
+        if(Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints > maior) {
+            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            nome = "Player 1";
+        }
+        if(Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints > maior) {
+            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            nome = "Player 2";
+        }
+        if(Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints > maior) {
+            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            nome = "Player 3";
+        }
+        if(Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints > maior) {
+            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            nome = "Player 4";
+        }
+        return nome;
+    }
+    private int SegundoMelhor() {
+        int sm = 0;
+        List<GameObject> list = new List<GameObject>();
+        list.Add(Players.transform.GetChild(0).gameObject);
+        list.Add(Players.transform.GetChild(1).gameObject);
+        list.Add(Players.transform.GetChild(2).gameObject);
+        list.Add(Players.transform.GetChild(3).gameObject);
+        foreach(GameObject g in list) {
+            if(g.GetComponent<PointSystem>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystem>().RealPoints;
+            } 
+        }
+        foreach(GameObject g in list) {
+            if(g.GetComponent<PointSystem>().RealPoints == sm) {
+                list.Remove(g);
+                sm = 0;
+                break;
+            } 
+        }
+        foreach(GameObject g in list) {
+            if(g.GetComponent<PointSystem>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystem>().RealPoints;
+            } 
+        }
+        return sm;
+    }
+    private bool empate() {
+        int sm = 0;
+        List<GameObject> list = new List<GameObject>();
+        list.Add(Players.transform.GetChild(0).gameObject);
+        list.Add(Players.transform.GetChild(1).gameObject);
+        list.Add(Players.transform.GetChild(2).gameObject);
+        list.Add(Players.transform.GetChild(3).gameObject);
+        foreach(GameObject g in list) {
+            if(g.GetComponent<PointSystem>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystem>().RealPoints;
+            } 
+        }
+        if(sm == SegundoMelhor()) {
+            return true;
+        }
+        return false;
     }
 }

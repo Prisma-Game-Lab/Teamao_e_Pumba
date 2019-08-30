@@ -6,9 +6,6 @@ public class Movement : MonoBehaviour
 {
     public float movementSpeed;
 
-    public GameObject player;
-
-
 
     // Use this for initialization
     void Start()
@@ -19,15 +16,15 @@ public class Movement : MonoBehaviour
     //Update is called once per frame
     void FixedUpdate()
     {
-        Player01Movement("Player01");
-        Player02Movement("Player02");
+        Player01Movement("Player1");
+        Player02Movement("Player2");
 
 
     }
 
     void Player01Movement(string playerName)
     {
-        if (player.gameObject.name == playerName)
+        if (gameObject.name == playerName)
         {
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
             {
@@ -56,7 +53,7 @@ public class Movement : MonoBehaviour
 
     void Player02Movement(string playerName)
     {
-        if (player.gameObject.name == playerName)
+        if (gameObject.name == playerName)
         {
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.UpArrow))
             {

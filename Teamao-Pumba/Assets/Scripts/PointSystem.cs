@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Sistema de pontos no ponto de vista do player.
+ 
+Author: Vinny
+*/ 
+
 public class PointSystem : MonoBehaviour
 {
-    private int VirtualPoints;
-    private int RealPoints;
+    private int VirtualPoints; // Quantidade de itens sendo carregados
+    [HideInInspector]
+    public int RealPoints; // Os pontos do Player
 
     void Start()
     {
@@ -20,6 +26,7 @@ public class PointSystem : MonoBehaviour
     {
         if(other.gameObject.tag == "Item") {
             VirtualPoints++;
+            Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "Base") {
             RealPoints += VirtualPoints;
