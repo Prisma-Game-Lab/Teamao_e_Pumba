@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         if(PlayersSelected) {
             ErrorText.text = "";
         }
-        for(int i = 0;i < 4;i++) {
+        for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 VictoryCanvas.SetActive(true);
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints + "\n\n";
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private string MaiorValor() {
+    private string MaiorValor() { // Pega o Melhor jogador e devolve seu nome
         string nome = "";
         int maior = 0;
         if(Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints > maior) {
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         }
         return nome;
     }
-    private int SegundoMelhor() {
+    private int SegundoMelhor() { // Pega o Segundo melhor jogador
         int sm = 0;
         List<GameObject> list = new List<GameObject>();
         list.Add(Players.transform.GetChild(0).gameObject);
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         }
         return sm;
     }
-    private bool empate() {
+    private bool empate() { // Verifica se houve empate no final da partida
         int sm = 0;
         List<GameObject> list = new List<GameObject>();
         list.Add(Players.transform.GetChild(0).gameObject);
