@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
     public GameObject VictoryCanvas; // O canvas de fim de jogo
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
+    public Text CountdownTimer; // Countdown antes de comecar o jogo
     private bool PlayersSelected;
+    private bool CountdownAcabou;
     private int PontosdeVitoria;
     public int VictoryByPoint;
-    private float tempo = 5;
+    private float tempo = 15;
+    private float Countdown = 4;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -58,10 +61,12 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        CountdownAcabou = false;
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
+        CountdownTimer.gameObject.SetActive(false);
         Players.transform.GetChild(0).gameObject.SetActive(false);
         Players.transform.GetChild(1).gameObject.SetActive(false);
         Players.transform.GetChild(2).gameObject.SetActive(false);
@@ -69,9 +74,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(!CharacterSelect.transform.parent.gameObject.activeSelf) {
+        if(CountdownAcabou) {
             tempo -= Time.deltaTime;
-            Debug.Log(tempo);
         }
         if(PlayersSelected) {
             ErrorText.text = "";
@@ -96,6 +100,23 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+    void FixedUpdate()
+    {
+        if(!CharacterSelect.transform.parent.gameObject.activeSelf) {
+            CountdownTimer.gameObject.SetActive(true);
+            Debug.Log(Countdown);
+            Countdown -= Time.deltaTime;
+            CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
+            if(Countdown - 1 <= 1) {
+                CountdownTimer.text = "Start!";
+            }
+            if(Countdown - 1 <= 0) {
+                CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
+                CountdownAcabou = true;
+            }
+        }
+       
     }
 
     private string MaiorValor() { // Pega o Melhor jogador e devolve seu nome

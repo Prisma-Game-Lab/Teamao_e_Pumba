@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* Sistema de pontos no ponto de vista do player.
- 
+
 Author: Vinny
 */ 
 
@@ -25,8 +25,11 @@ public class PointSystem : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Item") {
-            VirtualPoints++;
-            Destroy(other.gameObject);
+            if(VirtualPoints < 3) {
+                VirtualPoints++;
+                Destroy(other.gameObject);
+            }
+            
         }
         if(other.gameObject.tag == "Base") {
             RealPoints += VirtualPoints;
