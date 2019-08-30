@@ -114,6 +114,9 @@ public class GameManager : MonoBehaviour
             if(Countdown - 1 <= 0) {
                 CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
                 CountdownAcabou = true;
+                if(tempo < 0) {
+                    CountdownTimer.text = "Finish!";
+                }
             }
         }
        
