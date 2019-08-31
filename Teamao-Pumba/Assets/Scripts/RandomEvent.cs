@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomEvent : MonoBehaviour
 {
+    public GameObject RandomEventCanvas;
     public float Probabilidade;
     public int CooldownDoEvento;
     public float MoveSpeedPlus;
@@ -46,15 +48,22 @@ public class RandomEvent : MonoBehaviour
     private void ChooseEvent() {
         Permition = false;
         int GetEventNumber = Random.Range(1,3);
-        Debug.Log(GetEventNumber);
+        RandomEventCanvas.SetActive(true);
         switch(GetEventNumber) {
             case 1:
                 EventChangeBase();
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: " + "Bases Trocadas";
                 break;
             case 2:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: " + "Velocidade Aumentada";
                 EventFastPlayer();
                 break;
         }
+        StartCoroutine(RemoveCanvas());
         StartCoroutine(CooldownEvent());
+    }
+    IEnumerator RemoveCanvas() {
+        yield return new WaitForSeconds(2);
+        RandomEventCanvas.SetActive(false);
     }
 }
