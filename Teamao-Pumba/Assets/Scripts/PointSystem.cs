@@ -9,9 +9,11 @@ Author: Vinny
 
 public class PointSystem : MonoBehaviour
 {
-    private int VirtualPoints; // Quantidade de itens sendo carregados
+    
     [HideInInspector]
     public int RealPoints; // Os pontos do Player
+    [HideInInspector]
+    public int VirtualPoints; // Quantidade de itens sendo carregados
     public GameObject MyBase;
 
     void Start()

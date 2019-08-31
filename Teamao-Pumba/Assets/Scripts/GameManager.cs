@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
     public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
     public GameObject VictoryCanvas; // O canvas de fim de jogo
+    public GameObject PointsCanvas; // O canvas de Pontos
+    public GameObject CarryCanvas; // O canvas dos itens sendo carregados
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
@@ -25,24 +27,18 @@ public class GameManager : MonoBehaviour
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
-        Bases.transform.GetChild(2).gameObject.SetActive(false);
-        Bases.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void ThreePlayer() { // função para três players
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(false);
-        Bases.transform.GetChild(2).gameObject.SetActive(true);
-        Bases.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void FourPlayer() { // função para quatro players
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(true);
-        Bases.transform.GetChild(2).gameObject.SetActive(true);
-        Bases.transform.GetChild(3).gameObject.SetActive(true);
         PlayersSelected = true;
         ErrorText.text = "";
     }
@@ -65,12 +61,19 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
     }
     public void PlayGame() { // Começa o jogo
-    if(tempo == 999) {
-         ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
-    }
-    else {
-        CharacterSelect.transform.parent.gameObject.SetActive(false);
-    }
+        if(tempo == 999) {
+            ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
+        }
+        else {
+            CharacterSelect.transform.parent.gameObject.SetActive(false);
+            for(int i=0;i<4;i++) {
+                if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                    PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    Bases.transform.GetChild(i).gameObject.SetActive(true);
+                    CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+        }
     }
     void Start()
     {
@@ -80,14 +83,15 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
-        Bases.transform.GetChild(0).gameObject.SetActive(true);
-        Bases.transform.GetChild(1).gameObject.SetActive(true);
-        Bases.transform.GetChild(2).gameObject.SetActive(false);
-        Bases.transform.GetChild(3).gameObject.SetActive(false);
+        for(int i=0;i<4;i++) {
+             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
+             Bases.transform.GetChild(i).gameObject.SetActive(false);
+             CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
+        }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(false);
-        Players.transform.GetChild(3).gameObject.SetActive(false); 
+        Players.transform.GetChild(3).gameObject.SetActive(false);  
     }
     void Update()
     {
@@ -113,13 +117,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
+        ShowPoints();
     }
     void FixedUpdate()
     {
         if(!CharacterSelect.transform.parent.gameObject.activeSelf) {
             CountdownTimer.gameObject.SetActive(true);
-            Debug.Log(Countdown);
             Countdown -= Time.deltaTime;
             CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
             if(Countdown - 1 <= 1) {
@@ -199,5 +202,11 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    private void ShowPoints() {
+        for(int i=0;i<4;i++) {
+            PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints.ToString();
+            CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints.ToString();
+        }
     }
 }
