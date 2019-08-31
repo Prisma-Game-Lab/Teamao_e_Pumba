@@ -159,6 +159,7 @@ MonoBehaviour:
   RealPoints: 0
   VirtualPoints: 0
   MyBase: {fileID: 49556097}
+  MaxItem: 3
 --- !u!54 &102694440
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2675,6 +2676,7 @@ MonoBehaviour:
   RealPoints: 0
   VirtualPoints: 0
   MyBase: {fileID: 1339927222}
+  MaxItem: 3
 --- !u!114 &1774853470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4838943974810656142, guid: 81a407128f7daa44bbc739e22d6c4d61,
@@ -2800,6 +2802,7 @@ MonoBehaviour:
   RealPoints: 0
   VirtualPoints: 0
   MyBase: {fileID: 659110298}
+  MaxItem: 3
 --- !u!54 &1806005425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2945,6 +2948,7 @@ MonoBehaviour:
   RealPoints: 0
   VirtualPoints: 0
   MyBase: {fileID: 329481901}
+  MaxItem: 3
 --- !u!1 &1925644816
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,6 +3573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4838943974139729795, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4838943974815005117, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3680,6 +3689,20 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1466982587}
+    - target: {fileID: 1981628538, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023299024688709526, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3532523656511853203, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 535
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
 --- !u!114 &4838943974419923153 stripped

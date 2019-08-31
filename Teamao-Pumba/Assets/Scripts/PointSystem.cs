@@ -15,6 +15,7 @@ public class PointSystem : MonoBehaviour
     [HideInInspector]
     public int VirtualPoints; // Quantidade de itens sendo carregados
     public GameObject MyBase;
+    public int MaxItem;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class PointSystem : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Item") {
-            if(VirtualPoints < 3) {
+            if(VirtualPoints < MaxItem) {
                 VirtualPoints++;
                 Destroy(other.gameObject);
             }

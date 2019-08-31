@@ -221,6 +221,12 @@ public class GameManager : MonoBehaviour
         for(int i=0;i<4;i++) {
             PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints.ToString();
             CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints.ToString();
+            if(Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystem>().MaxItem) {
+                CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
+            }
+            else {
+                CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(false);
+            }
         }
     }
 
