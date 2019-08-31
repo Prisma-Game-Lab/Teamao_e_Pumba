@@ -9,6 +9,7 @@ Author: Vinny
 public class GameManager : MonoBehaviour
 {
     public GameObject Players; // Os jogadores
+    public GameObject Bases; // As bases
     public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
     public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
     public GameObject VictoryCanvas; // O canvas de fim de jogo
@@ -22,26 +23,26 @@ public class GameManager : MonoBehaviour
     private float tempo = 999;
     private float Countdown = 4;
      public void TwoPlayer() { // função para dois players
-        Players.transform.GetChild(0).gameObject.SetActive(true);
-        Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+        Bases.transform.GetChild(2).gameObject.SetActive(false);
+        Bases.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void ThreePlayer() { // função para três players
-        Players.transform.GetChild(0).gameObject.SetActive(true);
-        Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+        Bases.transform.GetChild(2).gameObject.SetActive(true);
+        Bases.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void FourPlayer() { // função para quatro players
-        Players.transform.GetChild(0).gameObject.SetActive(true);
-        Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(true);
+        Bases.transform.GetChild(2).gameObject.SetActive(true);
+        Bases.transform.GetChild(3).gameObject.SetActive(true);
         PlayersSelected = true;
         ErrorText.text = "";
     }
@@ -79,8 +80,12 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
-        Players.transform.GetChild(0).gameObject.SetActive(false);
-        Players.transform.GetChild(1).gameObject.SetActive(false);
+        Bases.transform.GetChild(0).gameObject.SetActive(true);
+        Bases.transform.GetChild(1).gameObject.SetActive(true);
+        Bases.transform.GetChild(2).gameObject.SetActive(false);
+        Bases.transform.GetChild(3).gameObject.SetActive(false);
+        Players.transform.GetChild(0).gameObject.SetActive(true);
+        Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false); 
     }
