@@ -12,6 +12,7 @@ public class PointSystem : MonoBehaviour
     private int VirtualPoints; // Quantidade de itens sendo carregados
     [HideInInspector]
     public int RealPoints; // Os pontos do Player
+    public GameObject MyBase;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class PointSystem : MonoBehaviour
             }
             
         }
-        if(other.gameObject.tag == "Base") {
+        if(other.gameObject == MyBase) {
             RealPoints += VirtualPoints;
             VirtualPoints = 0;
         }

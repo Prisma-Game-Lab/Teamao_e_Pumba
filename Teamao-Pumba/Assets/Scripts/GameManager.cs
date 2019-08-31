@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private bool CountdownAcabou;
     private int PontosdeVitoria;
     public int VictoryByPoint;
-    private float tempo = 15;
+    private float tempo = 999;
     private float Countdown = 4;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(0).gameObject.SetActive(true);
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
+        ErrorText.text = "";
     }
      public void ThreePlayer() { // função para três players
         Players.transform.GetChild(0).gameObject.SetActive(true);
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
+        ErrorText.text = "";
     }
      public void FourPlayer() { // função para quatro players
         Players.transform.GetChild(0).gameObject.SetActive(true);
@@ -41,6 +43,11 @@ public class GameManager : MonoBehaviour
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(true);
         PlayersSelected = true;
+        ErrorText.text = "";
+    }
+    public void TempoDeJogo(int Segundos) {
+        tempo = Segundos;
+        ErrorText.text = "";
     }
     public void Next() { // Vai para a tela de seleção de personagem
         if(PlayersSelected) {
@@ -57,7 +64,12 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
     }
     public void PlayGame() { // Começa o jogo
+    if(tempo == 999) {
+         ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
+    }
+    else {
         CharacterSelect.transform.parent.gameObject.SetActive(false);
+    }
     }
     void Start()
     {
@@ -76,9 +88,6 @@ public class GameManager : MonoBehaviour
     {
         if(CountdownAcabou) {
             tempo -= Time.deltaTime;
-        }
-        if(PlayersSelected) {
-            ErrorText.text = "";
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
