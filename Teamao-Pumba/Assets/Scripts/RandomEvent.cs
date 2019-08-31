@@ -6,6 +6,7 @@ public class RandomEvent : MonoBehaviour
 {
     public float Probabilidade;
     public int CooldownDoEvento;
+    public float MoveSpeedPlus;
     private float NumeroGerado;
     private bool Permition = true;
     void Start()
@@ -17,8 +18,8 @@ public class RandomEvent : MonoBehaviour
     void Update()
     {
         if(gameObject.GetComponent<GameManager>().Countdown < 0) {
-            if(Probabilidade > NumeroGerado) {
-                EventChangeBase();
+            if(Probabilidade > NumeroGerado && Permition) {
+                ChooseEvent();
             }
         }
     }
@@ -26,20 +27,34 @@ public class RandomEvent : MonoBehaviour
         NumeroGerado = Random.Range(0,100.0f);
     }
     private void EventChangeBase() {
-        if(Permition) {
-             Vector3 aux = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position;
-            gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position =  gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position;
-            gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position = aux;
-            Vector3 aux2 = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position;
-            gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position;
-            gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position = aux2;
-            Permition = false;
-            StartCoroutine(CooldownEvent());
+        Vector3 aux = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position =  gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position = aux;
+        Vector3 aux2 = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position = aux2; 
+    }
+    private void EventFastPlayer() { 
+        for(int i=0;i<4;i++) {
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<Movement>().movementSpeed *= MoveSpeedPlus;
         }
-        
     }
     IEnumerator CooldownEvent() {
         yield return new WaitForSeconds(CooldownDoEvento);
         Permition = true;
+    }
+    private void ChooseEvent() {
+        Permition = false;
+        int GetEventNumber = Random.Range(1,3);
+        Debug.Log(GetEventNumber);
+        switch(GetEventNumber) {
+            case 1:
+                EventChangeBase();
+                break;
+            case 2:
+                EventFastPlayer();
+                break;
+        }
+        StartCoroutine(CooldownEvent());
     }
 }

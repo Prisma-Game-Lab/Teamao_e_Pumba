@@ -1260,6 +1260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Probabilidade: 50
   CooldownDoEvento: 5
+  MoveSpeedPlus: 1.5
 --- !u!114 &695164789
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float Countdown = 4;
     private  float movespeed;
+    private bool movizin = true;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
@@ -101,10 +102,14 @@ public class GameManager : MonoBehaviour
     {
         if(CountdownAcabou) {
             tempo -= Time.deltaTime;
-            Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed = movespeed;
-            Players.transform.GetChild(1).GetComponent<Movement>().movementSpeed = movespeed;
-            Players.transform.GetChild(2).GetComponent<Movement>().movementSpeed = movespeed;
-            Players.transform.GetChild(3).GetComponent<Movement>().movementSpeed = movespeed;
+            if(movizin) {
+                Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed = movespeed;
+                Players.transform.GetChild(1).GetComponent<Movement>().movementSpeed = movespeed;
+                Players.transform.GetChild(2).GetComponent<Movement>().movementSpeed = movespeed;
+                Players.transform.GetChild(3).GetComponent<Movement>().movementSpeed = movespeed;
+                movizin = false;
+            }
+            
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
