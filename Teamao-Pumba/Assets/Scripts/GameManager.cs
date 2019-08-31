@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int VictoryByPoint;
     private float tempo = 999;
     private float Countdown = 4;
+    private  float movespeed;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         ErrorText.text = "";
     }
     public void TempoDeJogo(int Segundos) {
-        tempo = Segundos;
+        tempo = Segundos + 1;
         ErrorText.text = "";
     }
     public void Next() { // Vai para a tela de seleção de personagem
@@ -83,10 +84,12 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
+        movespeed = Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed;
         for(int i=0;i<4;i++) {
              PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
              Bases.transform.GetChild(i).gameObject.SetActive(false);
              CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
+             Players.transform.GetChild(i).GetComponent<Movement>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -97,10 +100,18 @@ public class GameManager : MonoBehaviour
     {
         if(CountdownAcabou) {
             tempo -= Time.deltaTime;
+            Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed = movespeed;
+            Players.transform.GetChild(1).GetComponent<Movement>().movementSpeed = movespeed;
+            Players.transform.GetChild(2).GetComponent<Movement>().movementSpeed = movespeed;
+            Players.transform.GetChild(3).GetComponent<Movement>().movementSpeed = movespeed;
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
-                VictoryCanvas.SetActive(true);
+                StartCoroutine(ShowVictoryCanvas());
+                for(int j=0;j<4;j++) {
+                    Players.transform.GetChild(j).GetComponent<Movement>().movementSpeed = 0;
+                }
+                CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints + "\n\n";
                 ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints + "\n\n";
                 if(Players.transform.GetChild(2).gameObject.activeSelf) {
@@ -127,13 +138,10 @@ public class GameManager : MonoBehaviour
             CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
             if(Countdown - 1 <= 1) {
                 CountdownTimer.text = "Start!";
+                CountdownAcabou = true;
             }
             if(Countdown - 1 <= 0) {
                 CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
-                CountdownAcabou = true;
-                if(tempo < 0) {
-                    CountdownTimer.text = "Finish!";
-                }
             }
         }
        
@@ -208,5 +216,10 @@ public class GameManager : MonoBehaviour
             PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints.ToString();
             CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints.ToString();
         }
+    }
+
+    IEnumerator ShowVictoryCanvas() {
+        yield return new WaitForSeconds(1);
+         VictoryCanvas.SetActive(true);
     }
 }
