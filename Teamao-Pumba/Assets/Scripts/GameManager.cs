@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     private int PontosdeVitoria;
     public int VictoryByPoint;
     private float tempo = 999;
-    private float Countdown = 4;
+    [HideInInspector]
+    public float Countdown = 4;
     private  float movespeed;
      public void TwoPlayer() { // função para dois players
         Players.transform.GetChild(2).gameObject.SetActive(false);
