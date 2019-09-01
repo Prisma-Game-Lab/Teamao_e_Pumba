@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class RandomEvent : MonoBehaviour
 {
     public GameObject RandomEventCanvas;
+    public GameObject Arena;
     public float Probabilidade;
     public int CooldownDoEvento;
     public float MoveSpeedPlus;
+    public float RotateSpeed;
     private float NumeroGerado;
+    private bool RotatePermition = false;
     private bool Permition = true;
     public float TempoVar;
     void Start()
@@ -24,6 +27,9 @@ public class RandomEvent : MonoBehaviour
             if(Probabilidade > NumeroGerado && Permition) {
                 ChooseEvent();
             }
+        }
+        if(RotatePermition) {
+            Arena.transform.Rotate(Vector3.up, RotateSpeed * Time.deltaTime);
         }
     }
     private void GetRandomNumber() {
@@ -58,18 +64,22 @@ public class RandomEvent : MonoBehaviour
         }
         
     }
+    private void EventRotatingStage() {
+        RotatePermition = true;
+        RotateSpeed *= RotateSpeed;
+    }
     IEnumerator CooldownEvent() {
         yield return new WaitForSeconds(CooldownDoEvento);
         Permition = true;
     }
     private void ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,4);
+        int GetEventNumber = Random.Range(1,5);
         RandomEventCanvas.SetActive(true);
         switch(GetEventNumber) {
             case 1:
-                EventChangeBase();
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Bases Trocadas";
+                EventChangeBase();
                 break;
             case 2:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Velocidade Aumentada";
@@ -78,6 +88,15 @@ public class RandomEvent : MonoBehaviour
             case 3:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: ";
                 EventMoreLessTime();
+                break;
+            case 4:
+                if(!RotatePermition) {
+                    RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Rotação do Estágio Ativada";
+                }
+                else {
+                    RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Rotação do Estágio Aumentada";
+                }
+                EventRotatingStage();
                 break;
         }
         StartCoroutine(RemoveCanvas());
