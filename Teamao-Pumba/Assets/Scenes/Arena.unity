@@ -1187,11 +1187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RandomEventCanvas: {fileID: 67373320}
   Arena: {fileID: 271628767}
-  Probabilidade: 90
-  CooldownDoEvento: 2
+  Probabilidade: 5
+  CooldownDoEvento: 5
   MoveSpeedPlus: 1.5
   RotateSpeed: 2
-  TempoVar: 18
+  TempoVar: 10
 --- !u!114 &695164789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,6 +3502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4838943974393376563, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4838943974139729795, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_IsActive
@@ -3674,6 +3679,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838943974393376564, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838943975765887141, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}

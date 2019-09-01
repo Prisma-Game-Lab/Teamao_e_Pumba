@@ -234,5 +234,6 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowVictoryCanvas() {
         yield return new WaitForSeconds(1);
          VictoryCanvas.SetActive(true);
+         Time.timeScale = 0f;
     }
 }
