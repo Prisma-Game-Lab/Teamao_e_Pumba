@@ -18,7 +18,8 @@ public class Movement : MonoBehaviour
     {
         Player01Movement("Player1");
         Player02Movement("Player2");
-
+        Player03Movement("Player3");
+        Player04Movement("Player4");
     }
 
     void Player01Movement(string playerName)
@@ -82,31 +83,58 @@ public class Movement : MonoBehaviour
     {
         if (gameObject.name == playerName)
         {
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("t"))
             {
                 transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed * 2.5f;
             }
-            else if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.LeftShift))
+            else if (Input.GetKey("t") && !Input.GetKey(KeyCode.LeftShift))
             {
                 transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey("g"))
             {
                 transform.position -= transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey("f") && !Input.GetKey("h"))
             {
                 transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
             }
-            else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey("h") && !Input.GetKey("f"))
             {
                 transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
             }
         }
 
     }
+    void Player04Movement(string playerName)
+    {
+        if (gameObject.name == playerName)
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("i"))
+            {
+                transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed * 2.5f;
+            }
+            else if (Input.GetKey("i") && !Input.GetKey(KeyCode.LeftShift))
+            {
+                transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
+            }
+            else if (Input.GetKey("k"))
+            {
+                transform.position -= transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
+            }
 
+            if (Input.GetKey("j") && !Input.GetKey("l"))
+            {
+                transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
+            }
+            else if (Input.GetKey("l") && !Input.GetKey("j"))
+            {
+                transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
+            }
+        }
+
+    }
 
 
 }
