@@ -1266,9 +1266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomEventCanvas: {fileID: 67373320}
-  Probabilidade: 50
-  CooldownDoEvento: 5
+  Probabilidade: 90
+  CooldownDoEvento: 2
   MoveSpeedPlus: 1.5
+  TempoVar: 18
 --- !u!114 &695164789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3578,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1981628538, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4838943974815005117, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3707,10 +3712,6 @@ PrefabInstance:
     - target: {fileID: 1498138808, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981628538, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1981628542, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
       propertyPath: m_LocalPosition.z

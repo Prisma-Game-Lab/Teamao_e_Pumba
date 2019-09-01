@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     private bool CountdownAcabou;
     private int PontosdeVitoria;
     public int VictoryByPoint;
-    private float tempo = 999;
+    [HideInInspector]
+    public float tempo = 999;
     [HideInInspector]
     public float Countdown = 4;
     private  float movespeed;
