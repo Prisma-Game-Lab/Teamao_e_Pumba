@@ -11,8 +11,8 @@ public class MovimentAxis : MonoBehaviour
         float translationV = 0;
         float translationH = 0;
         if(gameObject.name == "Player1") {
-            translationV = Input.GetAxis("Vertical") * movementSpeed;
-            translationH = Input.GetAxis("Horizontal") * movementSpeed;
+            translationV = Input.GetAxis("Vertical1") * movementSpeed;
+            translationH = Input.GetAxis("Horizontal1") * movementSpeed;
         }
         if(gameObject.name == "Player2") {
             translationV = Input.GetAxis("Vertical2") * movementSpeed;
@@ -26,17 +26,9 @@ public class MovimentAxis : MonoBehaviour
             translationV = Input.GetAxis("Vertical4") * movementSpeed;
             translationH = Input.GetAxis("Horizontal4") * movementSpeed;
         }
-        Debug.Log(translationH);
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-        if(translationH == 1) {
-            //transform.Rotate(0,90,0);
-        }
         transform.position += transform.forward*translationV;
         transform.position += transform.right*translationH;
-        //transform.position += transform.forward*translationH;
-
-    
-        
     }
 }
