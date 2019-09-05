@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     public Text CountdownTimer; // Countdown antes de comecar o jogo
     private bool PlayersSelected;
     private bool CountdownAcabou;
-    private int PontosdeVitoria;
-    public int VictoryByPoint;
+    private int VictoryByPoint = 999;
     [HideInInspector]
     public float tempo = 999;
     [HideInInspector]
@@ -49,6 +48,10 @@ public class GameManager : MonoBehaviour
     }
     public void TempoDeJogo(int Segundos) {
         tempo = Segundos + 1;
+        ErrorText.text = "";
+    }
+    public void SetVictoryByPoint(int Pontos) {
+        VictoryByPoint = Pontos;
         ErrorText.text = "";
     }
     public void Next() { // Vai para a tela de seleção de personagem
@@ -87,12 +90,17 @@ public class GameManager : MonoBehaviour
                ErrorText.text = "Selecione a probabilidade de um evento ocorrer antes de começar a partida!";
             }
             else {
-                CharacterSelect.transform.parent.gameObject.SetActive(false);
-                for(int i=0;i<4;i++) {
-                    if(Players.transform.GetChild(i).gameObject.activeSelf) {
-                        PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                        Bases.transform.GetChild(i).gameObject.SetActive(true);
-                        CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                if(VictoryByPoint == 999) {
+                    ErrorText.text = "Selecione a pontuação para obter a vitória antes de começar a partida!";
+                }
+                else {
+                    CharacterSelect.transform.parent.gameObject.SetActive(false);
+                    for(int i=0;i<4;i++) {
+                        if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                            Bases.transform.GetChild(i).gameObject.SetActive(true);
+                            CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                        }
                     }
                 }
             }
