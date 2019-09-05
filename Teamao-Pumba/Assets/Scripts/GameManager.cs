@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject Bases; // As bases
     public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
     public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
+    public GameObject SettingsCanvas; // O canvas contendo as Settings do jogo
     public GameObject VictoryCanvas; // O canvas de fim de jogo
     public GameObject PointsCanvas; // O canvas de Pontos
     public GameObject CarryCanvas; // O canvas dos itens sendo carregados
@@ -59,22 +60,40 @@ public class GameManager : MonoBehaviour
             ErrorText.text = "Selecione o número de jogadores antes de começar a partida!";
         }
     }
+    public void Next2() { // Vai para a tela de Settings
+        CharacterSelect.SetActive(false);
+        SettingsCanvas.SetActive(true);
+    }
     public void Previous() { // Volta para a tela de numero de jogadores
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);
         CharacterSelect.SetActive(false);
+        ErrorText.text = "";
     }
+    public void Previous2() { // Volta para a tela de seleção de personagem
+        CharacterSelect.SetActive(true);
+        SettingsCanvas.SetActive(false);
+        tempo = 999;
+        gameObject.GetComponent<RandomEvent>().Probabilidade = 0;
+        ErrorText.text = "";
+    }
+
     public void PlayGame() { // Começa o jogo
         if(tempo == 999) {
             ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
         }
         else {
-            CharacterSelect.transform.parent.gameObject.SetActive(false);
-            for(int i=0;i<4;i++) {
-                if(Players.transform.GetChild(i).gameObject.activeSelf) {
-                    PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                    Bases.transform.GetChild(i).gameObject.SetActive(true);
-                    CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+            if(gameObject.GetComponent<RandomEvent>().Probabilidade == 0) {
+               ErrorText.text = "Selecione a probabilidade de um evento ocorrer antes de começar a partida!";
+            }
+            else {
+                CharacterSelect.transform.parent.gameObject.SetActive(false);
+                for(int i=0;i<4;i++) {
+                    if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                        PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                        Bases.transform.GetChild(i).gameObject.SetActive(true);
+                        CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    }
                 }
             }
         }

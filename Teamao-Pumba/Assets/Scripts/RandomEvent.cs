@@ -7,7 +7,8 @@ public class RandomEvent : MonoBehaviour
 {
     public GameObject RandomEventCanvas;
     public GameObject Arena;
-    public float Probabilidade;
+    [HideInInspector]
+    public float Probabilidade = 0;
     public int CooldownDoEvento;
     public float MoveSpeedPlus;
     public float RotateSpeed;
@@ -105,5 +106,9 @@ public class RandomEvent : MonoBehaviour
     IEnumerator RemoveCanvas() {
         yield return new WaitForSeconds(2);
         RandomEventCanvas.SetActive(false);
+    }
+    public void ChanceDeEvento(float chance) {
+        Probabilidade = chance;
+        gameObject.GetComponent<GameManager>().ErrorText.text = "";
     }
 }
