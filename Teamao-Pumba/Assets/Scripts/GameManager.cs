@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         SettingsCanvas.SetActive(false);
         tempo = 999;
         gameObject.GetComponent<RandomEvent>().Probabilidade = 0;
+        VictoryByPoint = 999;
         ErrorText.text = "";
     }
 
