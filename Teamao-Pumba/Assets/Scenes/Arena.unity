@@ -2774,7 +2774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb0aa191e45e754c88bf8bce5a05be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 309333430}
+  Item: {fileID: 6802746376239672555, guid: f527bccc594b1774595af2e01fd16db5, type: 3}
+  Item_parent: {fileID: 1085568915}
+  Item_qtd: 5
+  Cooldown: 5
 --- !u!1 &744533687
 GameObject:
   m_ObjectHideFlags: 0
