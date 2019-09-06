@@ -40,8 +40,8 @@ public class ItemSpawn : MonoBehaviour
                 float raio = Random.Range(0, 6.0f);                                                             //Escolhe distancia da origem do spawn
                 float angulo = Random.Range(0, 2 * Mathf.PI);                                                   //Escolhe direcao do spawn
                 Vector3 pos = new Vector3(Mathf.Sin(angulo) * raio, 0.45f, Mathf.Cos(angulo) * raio);
-                pos = pos + Item_parent.position;
-                Instantiate(Item, pos, Quaternion.identity);                                                      //Instancia copia de Item na posicao sorteada
+                GameObject I = Instantiate(Item, Item_parent);                                                  //Instancia copia de Item
+                I.transform.localPosition = pos;                                                                     //Move a instancia para a posicao sorteada
             }
         }
     }
