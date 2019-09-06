@@ -12,19 +12,24 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 3;
     [SerializeField] private float rotationSpeed = 10;
+    PlayerControls playerControls;
 
 
-    [SerializeField] private InputAction movement;
+    private InputAction movement;
 
 
     #endregion
 
     private void Awake()
     {
+        playerControls = new PlayerControls();
 
+        movement = playerControls.Gameplay.Movement;
 
         movement.performed += OnMovementPerfomed;
         movement.canceled += OnMovementPerfomed;
+
+
     }
 
     private void OnMovementPerfomed(InputAction.CallbackContext context)
@@ -52,6 +57,8 @@ public class PlayerController : MonoBehaviour
 
         transform.position += Direction * movementSpeed * Time.deltaTime;
         transform.rotation = Rotation;
+
+
     }
 
 
