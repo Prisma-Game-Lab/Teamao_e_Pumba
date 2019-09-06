@@ -46,7 +46,7 @@ public class RandomEvent : MonoBehaviour
     }
     private void EventFastPlayer() { 
         for(int i=0;i<4;i++) {
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<Movement>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
         }
     }
     private void EventMoreLessTime() {
