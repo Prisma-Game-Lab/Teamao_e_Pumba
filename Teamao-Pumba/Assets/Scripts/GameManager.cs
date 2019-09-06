@@ -191,15 +191,15 @@ public class GameManager : MonoBehaviour
             nome = "Player 1";
         }
         if(Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints;
             nome = "Player 2";
         }
         if(Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints;
             nome = "Player 3";
         }
         if(Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints;
             nome = "Player 4";
         }
         return nome;
