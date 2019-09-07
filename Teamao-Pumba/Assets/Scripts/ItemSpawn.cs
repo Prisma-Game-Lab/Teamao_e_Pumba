@@ -22,7 +22,7 @@ public class ItemSpawn : MonoBehaviour
     {
         if (!Game_started)
         {
-            if (gameObject.GetComponent<GameManager>().Countdown < 2)
+            if (gameObject.GetComponent<GameManager>().Countdown < 3)
             {
                 Game_started = true;
             }

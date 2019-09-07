@@ -179,9 +179,7 @@ public class GameManager : MonoBehaviour
             if(Countdown - 1 <= 0) {
                 CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
             }
-            
         }
-       
     }
 
     private string MaiorValor() { // Pega o Melhor jogador e devolve seu nome
