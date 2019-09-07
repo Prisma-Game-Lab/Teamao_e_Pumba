@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RandomEventCanvas: {fileID: 67373320}
   Arena: {fileID: 271628767}
+  Camera: {fileID: 1084233815}
   Probabilidade: 0
   CooldownDoEvento: 4
   MoveSpeedPlus: 1.5

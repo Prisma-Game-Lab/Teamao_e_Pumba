@@ -7,6 +7,7 @@ public class RandomEvent : MonoBehaviour
 {
     public GameObject RandomEventCanvas;
     public GameObject Arena;
+    public GameObject Camera;
     [HideInInspector]
     public float Probabilidade = 0;
     public int CooldownDoEvento;
@@ -63,11 +64,17 @@ public class RandomEvent : MonoBehaviour
             RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Tempo Aumentado Em " + TempoVar + " Segundos";
             gameObject.GetComponent<GameManager>().tempo += TempoVar;
         }
-        
     }
     private void EventRotatingStage() {
         RotatePermition = true;
         RotateSpeed *= RotateSpeed;
+    }
+    IEnumerator EventInvertCamera() {
+        int GetEventNumber = Random.Range(180,360);
+        Camera.transform.Rotate(0,0,GetEventNumber);
+        RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text += GetEventNumber + " Graus";
+        yield return new WaitForSeconds(CooldownDoEvento);
+        Camera.transform.Rotate(0,0,360-GetEventNumber);
     }
     IEnumerator CooldownEvent() {
         yield return new WaitForSeconds(CooldownDoEvento);
@@ -75,7 +82,7 @@ public class RandomEvent : MonoBehaviour
     }
     private void ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,5);
+        int GetEventNumber = Random.Range(1,6);
         RandomEventCanvas.SetActive(true);
         switch(GetEventNumber) {
             case 1:
@@ -98,6 +105,10 @@ public class RandomEvent : MonoBehaviour
                     RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Rotação do Estágio Aumentada";
                 }
                 EventRotatingStage();
+                break;
+            case 5:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Camera Girou ";
+                StartCoroutine(EventInvertCamera());
                 break;
         }
         StartCoroutine(RemoveCanvas());
