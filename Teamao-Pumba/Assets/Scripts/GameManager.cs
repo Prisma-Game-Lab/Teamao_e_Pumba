@@ -115,12 +115,13 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
-        movespeed = Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed;
+        SettingsCanvas.SetActive(false);
+        movespeed = Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for(int i=0;i<4;i++) {
              PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
              Bases.transform.GetChild(i).gameObject.SetActive(false);
              CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
-             Players.transform.GetChild(i).GetComponent<Movement>().movementSpeed = 0;
+             Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -132,10 +133,10 @@ public class GameManager : MonoBehaviour
         if(CountdownAcabou) {
             tempo -= Time.deltaTime;
             if(movizin) {
-                Players.transform.GetChild(0).GetComponent<Movement>().movementSpeed = movespeed;
-                Players.transform.GetChild(1).GetComponent<Movement>().movementSpeed = movespeed;
-                Players.transform.GetChild(2).GetComponent<Movement>().movementSpeed = movespeed;
-                Players.transform.GetChild(3).GetComponent<Movement>().movementSpeed = movespeed;
+                Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                 movizin = false;
             }
             
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
             if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 StartCoroutine(ShowVictoryCanvas());
                 for(int j=0;j<4;j++) {
-                    Players.transform.GetChild(j).GetComponent<Movement>().movementSpeed = 0;
+                    Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
                 }
                 CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints + "\n\n";
@@ -191,15 +192,15 @@ public class GameManager : MonoBehaviour
             nome = "Player 1";
         }
         if(Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints;
             nome = "Player 2";
         }
         if(Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints;
             nome = "Player 3";
         }
         if(Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+            maior = Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints;
             nome = "Player 4";
         }
         return nome;

@@ -1,0 +1,33 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "CubeTeste",
+            "id": "a2877058-de76-45df-8674-e80c262fa58f",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "35e0d0a9-1f44-4d4d-b29b-b6c823a4096a",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f97dcfbe-1219-45c2-87d2-299c2b3d6015",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

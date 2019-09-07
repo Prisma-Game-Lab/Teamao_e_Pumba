@@ -7,6 +7,7 @@ public class RandomEvent : MonoBehaviour
 {
     public GameObject RandomEventCanvas;
     public GameObject Arena;
+    public GameObject Camera;
     [HideInInspector]
     public float Probabilidade = 0;
     public int CooldownDoEvento;
@@ -46,7 +47,7 @@ public class RandomEvent : MonoBehaviour
     }
     private void EventFastPlayer() { 
         for(int i=0;i<4;i++) {
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<Movement>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
         }
     }
     private void EventMoreLessTime() {
@@ -63,11 +64,30 @@ public class RandomEvent : MonoBehaviour
             RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Tempo Aumentado Em " + TempoVar + " Segundos";
             gameObject.GetComponent<GameManager>().tempo += TempoVar;
         }
-        
     }
     private void EventRotatingStage() {
         RotatePermition = true;
         RotateSpeed *= RotateSpeed;
+    }
+    private void EventDoubleItemSpawn() => gameObject.GetComponent<ItemSpawn>().Item_qtd *= 2;
+    
+    IEnumerator EventInvertMovement() {
+        gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        yield return new WaitForSeconds(CooldownDoEvento);
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1;
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1;  
+    }
+    IEnumerator EventInvertCamera() {
+        int GetEventNumber = Random.Range(180,360);
+        Camera.transform.Rotate(0,0,GetEventNumber);
+        RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text += GetEventNumber + " Graus";
+        yield return new WaitForSeconds(CooldownDoEvento);
+        Camera.transform.Rotate(0,0,360-GetEventNumber);
     }
     IEnumerator CooldownEvent() {
         yield return new WaitForSeconds(CooldownDoEvento);
@@ -75,7 +95,7 @@ public class RandomEvent : MonoBehaviour
     }
     private void ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,5);
+        int GetEventNumber = Random.Range(1,8);
         RandomEventCanvas.SetActive(true);
         switch(GetEventNumber) {
             case 1:
@@ -99,13 +119,36 @@ public class RandomEvent : MonoBehaviour
                 }
                 EventRotatingStage();
                 break;
+            case 5:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Camera Girou ";
+                StartCoroutine(EventInvertCamera());
+                break;
+            case 6:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Movimentação Invertida";
+                StartCoroutine(EventInvertMovement());
+                break;
+            case 7:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Quantidade de Itens Dobrado";
+                EventDoubleItemSpawn();
+                break;
         }
+        StartCoroutine(BlinkEventText());
         StartCoroutine(RemoveCanvas());
         StartCoroutine(CooldownEvent());
     }
     IEnumerator RemoveCanvas() {
         yield return new WaitForSeconds(2);
         RandomEventCanvas.SetActive(false);
+    }
+    IEnumerator BlinkEventText() {
+        int i = 0;
+        while(i < 5) {
+            RandomEventCanvas.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            RandomEventCanvas.SetActive(false);
+            yield return new WaitForSeconds(0.2f);
+            i++;
+        }   
     }
     public void ChanceDeEvento(float chance) {
         Probabilidade = chance;
