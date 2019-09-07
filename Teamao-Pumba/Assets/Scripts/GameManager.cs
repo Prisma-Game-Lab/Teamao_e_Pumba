@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
+        SettingsCanvas.SetActive(false);
         movespeed = Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for(int i=0;i<4;i++) {
              PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);

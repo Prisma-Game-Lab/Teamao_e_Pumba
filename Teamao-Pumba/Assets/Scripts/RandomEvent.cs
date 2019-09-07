@@ -69,16 +69,18 @@ public class RandomEvent : MonoBehaviour
         RotatePermition = true;
         RotateSpeed *= RotateSpeed;
     }
+    private void EventDoubleItemSpawn() => gameObject.GetComponent<ItemSpawn>().Item_qtd *= 2;
+    
     IEnumerator EventInvertMovement() {
         gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1; 
         gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
         gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
         gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1; 
         yield return new WaitForSeconds(CooldownDoEvento);
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1;
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1;  
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1;
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        //gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1;  
     }
     IEnumerator EventInvertCamera() {
         int GetEventNumber = Random.Range(180,360);
@@ -93,7 +95,7 @@ public class RandomEvent : MonoBehaviour
     }
     private void ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,7);
+        int GetEventNumber = Random.Range(1,8);
         RandomEventCanvas.SetActive(true);
         switch(GetEventNumber) {
             case 1:
@@ -125,6 +127,10 @@ public class RandomEvent : MonoBehaviour
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Movimentação Invertida";
                 StartCoroutine(EventInvertMovement());
                 break;
+            case 7:
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Quantidade de Itens Dobrado";
+                EventDoubleItemSpawn();
+                break;
         }
         StartCoroutine(BlinkEventText());
         StartCoroutine(RemoveCanvas());
@@ -142,8 +148,7 @@ public class RandomEvent : MonoBehaviour
             RandomEventCanvas.SetActive(false);
             yield return new WaitForSeconds(0.2f);
             i++;
-        }
-        
+        }   
     }
     public void ChanceDeEvento(float chance) {
         Probabilidade = chance;
