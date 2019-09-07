@@ -14,82 +14,38 @@ public class PlayerControls : IInputActionCollection
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
-            ""id"": ""e99d0667-a2af-4580-8121-ad8361c5e00e"",
+            ""name"": ""CubeTeste"",
+            ""id"": ""a2877058-de76-45df-8674-e80c262fa58f"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""Button"",
-                    ""id"": ""13f0f511-5d06-4b54-8468-17d1491ee816"",
-                    ""expectedControlType"": """",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""35e0d0a9-1f44-4d4d-b29b-b6c823a4096a"",
+                    ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""b97af9f4-58ad-44a8-8945-36fa90d464f5"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""f97dcfbe-1219-45c2-87d2-299c2b3d6015"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""dc43b5d4-7935-43c8-91e1-ae2c815f5bcd"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""49eb699b-ec05-477d-b381-c0bfaa93a5a0"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""4c4c9f79-99fb-4186-9551-20f19bd25f97"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""ec5763d1-a804-476b-9b0e-098c5333c4f4"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.GetActionMap("Gameplay");
-        m_Gameplay_Movement = m_Gameplay.GetAction("Movement");
+        // CubeTeste
+        m_CubeTeste = asset.GetActionMap("CubeTeste");
+        m_CubeTeste_Move = m_CubeTeste.GetAction("Move");
     }
 
     ~PlayerControls()
@@ -136,40 +92,40 @@ public class PlayerControls : IInputActionCollection
         asset.Disable();
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Movement;
-    public struct GameplayActions
+    // CubeTeste
+    private readonly InputActionMap m_CubeTeste;
+    private ICubeTesteActions m_CubeTesteActionsCallbackInterface;
+    private readonly InputAction m_CubeTeste_Move;
+    public struct CubeTesteActions
     {
         private PlayerControls m_Wrapper;
-        public GameplayActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public CubeTesteActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_CubeTeste_Move;
+        public InputActionMap Get() { return m_Wrapper.m_CubeTeste; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(CubeTesteActions set) { return set.Get(); }
+        public void SetCallbacks(ICubeTesteActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_CubeTesteActionsCallbackInterface != null)
             {
-                Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                Move.started -= m_Wrapper.m_CubeTesteActionsCallbackInterface.OnMove;
+                Move.performed -= m_Wrapper.m_CubeTesteActionsCallbackInterface.OnMove;
+                Move.canceled -= m_Wrapper.m_CubeTesteActionsCallbackInterface.OnMove;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_CubeTesteActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Movement.started += instance.OnMovement;
-                Movement.performed += instance.OnMovement;
-                Movement.canceled += instance.OnMovement;
+                Move.started += instance.OnMove;
+                Move.performed += instance.OnMove;
+                Move.canceled += instance.OnMove;
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-    public interface IGameplayActions
+    public CubeTesteActions @CubeTeste => new CubeTesteActions(this);
+    public interface ICubeTesteActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }
