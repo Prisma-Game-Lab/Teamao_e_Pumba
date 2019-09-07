@@ -126,12 +126,24 @@ public class RandomEvent : MonoBehaviour
                 StartCoroutine(EventInvertMovement());
                 break;
         }
+        StartCoroutine(BlinkEventText());
         StartCoroutine(RemoveCanvas());
         StartCoroutine(CooldownEvent());
     }
     IEnumerator RemoveCanvas() {
         yield return new WaitForSeconds(2);
         RandomEventCanvas.SetActive(false);
+    }
+    IEnumerator BlinkEventText() {
+        int i = 0;
+        while(i < 5) {
+            RandomEventCanvas.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            RandomEventCanvas.SetActive(false);
+            yield return new WaitForSeconds(0.2f);
+            i++;
+        }
+        
     }
     public void ChanceDeEvento(float chance) {
         Probabilidade = chance;
