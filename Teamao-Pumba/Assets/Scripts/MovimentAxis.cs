@@ -10,21 +10,11 @@ public class MovimentAxis : MonoBehaviour
     {
         float translationV = 0;
         float translationH = 0;
-        if(gameObject.name == "Player1") {
-            translationV = Input.GetAxis("Vertical1") * movementSpeed;
-            translationH = Input.GetAxis("Horizontal1") * movementSpeed;
-        }
-        if(gameObject.name == "Player2") {
-            translationV = Input.GetAxis("Vertical2") * movementSpeed;
-            translationH = Input.GetAxis("Horizontal2") * movementSpeed;
-        }
-        if(gameObject.name == "Player3") {
-            translationV = Input.GetAxis("Vertical3") * movementSpeed;
-            translationH = Input.GetAxis("Horizontal3") * movementSpeed;
-        }
-        if(gameObject.name == "Player4") {
-            translationV = Input.GetAxis("Vertical4") * movementSpeed;
-            translationH = Input.GetAxis("Horizontal4") * movementSpeed;
+        for(int i=0;i<4;i++) {
+            if(gameObject.name == "Player" + (i+1).ToString()) {
+                translationV = Input.GetAxis("Vertical" + (i+1).ToString()) * movementSpeed;
+                translationH = Input.GetAxis("Horizontal" + (i+1).ToString()) * movementSpeed;
+            }
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
