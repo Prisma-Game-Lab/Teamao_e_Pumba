@@ -81,15 +81,6 @@ public class ButtonSelect : MonoBehaviour
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
             if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i]) {
-                if(Buttons[CoordenadaPlayers[i]].name == "2Player") {
-                    HowManyPlayers = 2;
-                }
-                if(Buttons[CoordenadaPlayers[i]].name == "3Player") {
-                    HowManyPlayers = 3;
-                }
-                if(Buttons[CoordenadaPlayers[i]].name == "4Player") {
-                    HowManyPlayers = 4;
-                }
                 if(Buttons[CoordenadaPlayers[i]].name == "SphereButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Sphere");
                    PlayersWithCharacter[i] = true;

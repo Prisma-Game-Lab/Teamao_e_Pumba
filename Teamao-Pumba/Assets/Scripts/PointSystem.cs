@@ -24,14 +24,15 @@ public class PointSystem : MonoBehaviour
     }
     void Update()
     {
+       
         if(VirtualPoints >= 1) {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);
         }
         if(VirtualPoints >= 2) {
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         if(VirtualPoints >= 3) {
-            gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(true);
         }
     }
     void OnCollisionEnter(Collision other)
@@ -46,9 +47,9 @@ public class PointSystem : MonoBehaviour
         if(other.gameObject == MyBase) {
             RealPoints += VirtualPoints;
             VirtualPoints = 0;
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            gameObject.transform.GetChild(2).gameObject.SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
         }
     }
 }

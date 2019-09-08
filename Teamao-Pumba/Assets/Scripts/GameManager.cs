@@ -29,18 +29,21 @@ public class GameManager : MonoBehaviour
     private  float movespeed;
     private bool movizin = true;
      public void TwoPlayer() { // função para dois players
+        gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 2;
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void ThreePlayer() { // função para três players
+     gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 3;
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
      public void FourPlayer() { // função para quatro players
+     gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 4;
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(true);
         PlayersSelected = true;
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
         if(Next2Helper()) {
             CharacterSelect.SetActive(false);
             SettingsCanvas.SetActive(true);
+            ErrorText.text = "";
         }
         else {
             ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
@@ -162,18 +166,18 @@ public class GameManager : MonoBehaviour
             
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
-            if(Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
+            if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 StartCoroutine(ShowVictoryCanvas());
                 for(int j=0;j<4;j++) {
                     Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
                 }
                 CountdownTimer.text = "Finish!";
-                ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints + "\n\n";
-                ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints + "\n\n";
+                ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
+                ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                 if(Players.transform.GetChild(2).gameObject.activeSelf) {
-                    ResultText.text += "Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints + "\n\n";
+                    ResultText.text += "Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                     if(Players.transform.GetChild(3).gameObject.activeSelf) {
-                        ResultText.text += "Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints;
+                        ResultText.text += "Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints;
                     }
                 }
                 if(!empate()) {
@@ -205,20 +209,20 @@ public class GameManager : MonoBehaviour
     private string MaiorValor() { // Pega o Melhor jogador e devolve seu nome
         string nome = "";
         int maior = 0;
-        if(Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(0).GetComponent<PointSystem>().RealPoints;
+        if(Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints > maior) {
+            maior = Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints;
             nome = "Player 1";
         }
-        if(Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(1).GetComponent<PointSystem>().RealPoints;
+        if(Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints > maior) {
+            maior = Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints;
             nome = "Player 2";
         }
-        if(Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(2).GetComponent<PointSystem>().RealPoints;
+        if(Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints > maior) {
+            maior = Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints;
             nome = "Player 3";
         }
-        if(Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints > maior) {
-            maior = Players.transform.GetChild(3).GetComponent<PointSystem>().RealPoints;
+        if(Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints > maior) {
+            maior = Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints;
             nome = "Player 4";
         }
         return nome;
@@ -231,20 +235,20 @@ public class GameManager : MonoBehaviour
         list.Add(Players.transform.GetChild(2).gameObject);
         list.Add(Players.transform.GetChild(3).gameObject);
         foreach(GameObject g in list) {
-            if(g.GetComponent<PointSystem>().RealPoints > sm) {
-                sm = g.GetComponent<PointSystem>().RealPoints;
+            if(g.GetComponent<PointSystemPai>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystemPai>().RealPoints;
             } 
         }
         foreach(GameObject g in list) {
-            if(g.GetComponent<PointSystem>().RealPoints == sm) {
+            if(g.GetComponent<PointSystemPai>().RealPoints == sm) {
                 list.Remove(g);
                 sm = 0;
                 break;
             } 
         }
         foreach(GameObject g in list) {
-            if(g.GetComponent<PointSystem>().RealPoints > sm) {
-                sm = g.GetComponent<PointSystem>().RealPoints;
+            if(g.GetComponent<PointSystemPai>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystemPai>().RealPoints;
             } 
         }
         return sm;
@@ -257,8 +261,8 @@ public class GameManager : MonoBehaviour
         list.Add(Players.transform.GetChild(2).gameObject);
         list.Add(Players.transform.GetChild(3).gameObject);
         foreach(GameObject g in list) {
-            if(g.GetComponent<PointSystem>().RealPoints > sm) {
-                sm = g.GetComponent<PointSystem>().RealPoints;
+            if(g.GetComponent<PointSystemPai>().RealPoints > sm) {
+                sm = g.GetComponent<PointSystemPai>().RealPoints;
             } 
         }
         if(sm == SegundoMelhor()) {
@@ -268,9 +272,9 @@ public class GameManager : MonoBehaviour
     }
     private void ShowPoints() {
         for(int i=0;i<4;i++) {
-            PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().RealPoints.ToString();
-            CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints.ToString();
-            if(Players.transform.GetChild(i).GetComponent<PointSystem>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystem>().MaxItem) {
+            PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
+            CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
+            if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem) {
                 CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
             }
             else {
