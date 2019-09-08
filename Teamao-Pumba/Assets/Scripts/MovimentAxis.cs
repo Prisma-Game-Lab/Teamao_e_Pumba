@@ -30,6 +30,5 @@ public class MovimentAxis : MonoBehaviour
         translationH *= Time.deltaTime;
         transform.position += transform.forward*translationV;
         transform.position += transform.right*translationH;
-
     }
 }
