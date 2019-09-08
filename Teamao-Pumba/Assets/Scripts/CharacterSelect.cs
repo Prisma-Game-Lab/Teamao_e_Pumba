@@ -16,7 +16,7 @@ public class CharacterSelect : MonoBehaviour
     }
 
     public void SetCharacter(string name) {
-        transform.Find("Sphere").gameObject.SetActive(false);
+        transform.Find("Tucano").gameObject.SetActive(false);
         transform.Find("Cylinder").gameObject.SetActive(false);
         transform.Find("Cube").gameObject.SetActive(false);
         transform.Find("Capsule").gameObject.SetActive(false);
