@@ -5,20 +5,27 @@ using UnityEngine.UI;
 
 public class ButtonSelect : MonoBehaviour
 {
+    public GameObject Players;
     public List<Image> SelectPlayers;
     public List<Button> HMPButtons;
     public List<Button> CSButtons;
     public List<Button> SettingsButtons;
     private List<int> CoordenadaPlayers = new List<int>();
     private List<bool> ControlAcess = new List<bool>();
+    [HideInInspector]
+    public int HowManyPlayers;
+    [HideInInspector]
+    public List<bool> PlayersWithCharacter = new List<bool>();
     
     void Start()
     {
         for(int i=0;i<4;i++) {
             CoordenadaPlayers.Add(0);
+            PlayersWithCharacter.Add(false);
             ControlAcess.Add(true);
         }
         SelectPlayers[0].gameObject.SetActive(true);
+        HowManyPlayers = 4;
     }
 
     void Update()
@@ -32,6 +39,9 @@ public class ButtonSelect : MonoBehaviour
         if (!HMPButtons[0].transform.parent.gameObject.activeSelf) {
             return;
         }
+        for(int i=1;i<HowManyPlayers;i++) {
+            SelectPlayers[i].gameObject.SetActive(false);
+        }
         MovePlayer(HMPButtons);
         CheckCoordinateValue(HMPButtons.Count);
         PressButton(HMPButtons);
@@ -40,7 +50,7 @@ public class ButtonSelect : MonoBehaviour
         if (!CSButtons[0].transform.parent.gameObject.activeSelf) {
             return;
         }
-        for(int i=1;i<SelectPlayers.Count;i++) {
+        for(int i=1;i<HowManyPlayers;i++) {
             SelectPlayers[i].gameObject.SetActive(true);
         }
         MovePlayer(CSButtons);
@@ -50,6 +60,9 @@ public class ButtonSelect : MonoBehaviour
     private void SettingsCanvas() {
         if(!SettingsButtons[0].transform.parent.gameObject.activeSelf) {
             return;
+        }
+        for(int i=1;i<HowManyPlayers;i++) {
+            SelectPlayers[i].gameObject.SetActive(false);
         }
         MovePlayer(SettingsButtons);
         CheckCoordinateValue(SettingsButtons.Count);
@@ -68,6 +81,31 @@ public class ButtonSelect : MonoBehaviour
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
             if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i]) {
+                if(Buttons[CoordenadaPlayers[i]].name == "2Player") {
+                    HowManyPlayers = 2;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "3Player") {
+                    HowManyPlayers = 3;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "4Player") {
+                    HowManyPlayers = 4;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "SphereButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Sphere");
+                   PlayersWithCharacter[i] = true;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "CylinderButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cylinder");
+                   PlayersWithCharacter[i] = true;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "CubeButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cube");
+                   PlayersWithCharacter[i] = true;
+                }
+                if(Buttons[CoordenadaPlayers[i]].name == "CapsuleButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capsule");
+                   PlayersWithCharacter[i] = true;
+                }
                 Buttons[CoordenadaPlayers[i]].onClick.Invoke();
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));

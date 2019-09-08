@@ -64,16 +64,36 @@ public class GameManager : MonoBehaviour
         }
     }
     public void Next2() { // Vai para a tela de Settings
-        CharacterSelect.SetActive(false);
-        SettingsCanvas.SetActive(true);
+        if(Next2Helper()) {
+            CharacterSelect.SetActive(false);
+            SettingsCanvas.SetActive(true);
+        }
+        else {
+            ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
+        }
+        
+    }
+    private bool Next2Helper() {
+        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
+            if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
+                return false;
+            }
+        }
+        return true;
     }
     public void Previous() { // Volta para a tela de numero de jogadores
+        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
+            transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
+        }
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);
         CharacterSelect.SetActive(false);
         ErrorText.text = "";
     }
     public void Previous2() { // Volta para a tela de seleção de personagem
+        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
+            transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
+        }
         CharacterSelect.SetActive(true);
         SettingsCanvas.SetActive(false);
         tempo = 999;
