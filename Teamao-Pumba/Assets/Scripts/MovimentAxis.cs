@@ -5,20 +5,52 @@ using UnityEngine;
 public class MovimentAxis : MonoBehaviour
 {
     public float movementSpeed = 10.0f;
+    public float rotationSpeed = 10.0f;
 
-    void Update()
+    void FixedUpdate()
     {
+        if (!IsMoving) return;
+
         float translationV = 0;
         float translationH = 0;
-        for(int i=0;i<4;i++) {
-            if(gameObject.name == "Player" + (i+1).ToString()) {
-                translationV = Input.GetAxis("Vertical" + (i+1).ToString()) * movementSpeed;
-                translationH = Input.GetAxis("Horizontal" + (i+1).ToString()) * movementSpeed;
+        for (int i = 0; i < 4; i++)
+        {
+            if (gameObject.name == "Player" + (i + 1).ToString())
+            {
+                translationV = Input.GetAxis("Vertical" + (i + 1).ToString()) * movementSpeed;
+                translationH = Input.GetAxis("Horizontal" + (i + 1).ToString()) * movementSpeed;
+
+
             }
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-        transform.position += transform.forward*translationV;
-        transform.position += transform.right*translationH;
+
+        transform.position += Direction() * Time.deltaTime;
+        transform.rotation = Rotation;
+
     }
+
+    private bool IsMoving => Direction() != Vector3.zero;
+    private Vector3 Direction()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (gameObject.name == "Player" + (i + 1).ToString())
+            {
+                float h = Input.GetAxis("Horizontal" + (i + 1).ToString()) * movementSpeed;
+
+                float v = Input.GetAxis("Vertical" + (i + 1).ToString()) * movementSpeed;
+                return new Vector3(h, 0, v);
+
+            }
+        }
+        return Vector3.zero;
+
+    }
+    private Quaternion Rotation => Quaternion.LookRotation(RotationDirection);
+
+    private Vector3 RotationDirection => Vector3.RotateTowards(transform.forward, Direction(), rotationSpeed * Time.deltaTime, 0);
+
+
 }
