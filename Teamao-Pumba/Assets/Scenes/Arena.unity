@@ -431,10 +431,11 @@ MonoBehaviour:
   Arena: {fileID: 271628767}
   Camera: {fileID: 1084233815}
   Probabilidade: 0
-  CooldownDoEvento: 4
-  MoveSpeedPlus: 1.5
+  DuracaoDoEvento: 4
+  CooldownDoEvento: 7
+  MoveSpeedPlus: 3
   RotateSpeed: 2
-  TempoVar: 10
+  TempoVar: 5
 --- !u!114 &695164789
 MonoBehaviour:
   m_ObjectHideFlags: 0
