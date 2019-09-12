@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MovimentAxis : MonoBehaviour
 {
+    private Animator anim;
     public float movementSpeed = 10.0f;
     public float rotationSpeed = 10.0f;
 
     void FixedUpdate()
     {
+        anim = this.GetComponent<Animator>();
         if (!IsMoving) return;
 
         float translationV = 0;
@@ -22,7 +24,16 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
+            if((translationV > 0.5 || translationV < -0.5) || (translationH > 0.5 || translationH < -0.5)) {
+                anim.SetBool("running", true);
+            }
+            else {
+                anim.SetBool("running", false);
+            }
+            Debug.Log("H "+translationH);
+            Debug.Log("V "+translationV);
         }
+        
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
 
