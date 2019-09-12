@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
     public Text Timer;
+    public Image TimerCircle;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float Countdown = 4;
     private  float movespeed;
+    private float MaxTimer = 999;
     private bool movizin = true;
      public void TwoPlayer() { // função para dois players
         gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 2;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     }
     public void TempoDeJogo(int Segundos) {
         tempo = Segundos;
+        MaxTimer = Segundos;
         ErrorText.text = "";
     }
     public void SetVictoryByPoint(int Pontos) {
@@ -155,8 +158,9 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(CountdownAcabou) {
+        if(CountdownAcabou && tempo > 0) {
             tempo -= Time.deltaTime;
+            TimerCircle.fillAmount = tempo/MaxTimer;
             if(movizin) {
                 Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                 Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed = movespeed;
@@ -164,7 +168,6 @@ public class GameManager : MonoBehaviour
                 Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                 movizin = false;
             }
-            
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
