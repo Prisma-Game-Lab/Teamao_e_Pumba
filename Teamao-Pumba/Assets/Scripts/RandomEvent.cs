@@ -9,7 +9,7 @@ public class RandomEvent : MonoBehaviour
     public GameObject Arena;
     public GameObject Camera;
     [HideInInspector]
-    public float Probabilidade = 0;
+    public float Probabilidade = 999999;
     public int DuracaoDoEvento;
     public int CooldownDoEvento;
     public float MoveSpeedPlus;

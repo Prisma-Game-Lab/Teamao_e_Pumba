@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
+    public Text Timer;
+    public Image TimerCircle;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float Countdown = 4;
     private  float movespeed;
+    private float MaxTimer = 999;
     private bool movizin = true;
      public void TwoPlayer() { // função para dois players
         gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 2;
@@ -50,7 +53,8 @@ public class GameManager : MonoBehaviour
         ErrorText.text = "";
     }
     public void TempoDeJogo(int Segundos) {
-        tempo = Segundos + 1;
+        tempo = Segundos;
+        MaxTimer = Segundos;
         ErrorText.text = "";
     }
     public void SetVictoryByPoint(int Pontos) {
@@ -111,7 +115,7 @@ public class GameManager : MonoBehaviour
             ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
         }
         else {
-            if(gameObject.GetComponent<RandomEvent>().Probabilidade == 0) {
+            if(gameObject.GetComponent<RandomEvent>().Probabilidade == 999999) {
                ErrorText.text = "Selecione a probabilidade de um evento ocorrer antes de começar a partida!";
             }
             else {
@@ -119,12 +123,17 @@ public class GameManager : MonoBehaviour
                     ErrorText.text = "Selecione a pontuação para obter a vitória antes de começar a partida!";
                 }
                 else {
-                    CharacterSelect.transform.parent.gameObject.SetActive(false);
-                    for(int i=0;i<4;i++) {
-                        if(Players.transform.GetChild(i).gameObject.activeSelf) {
-                            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                            Bases.transform.GetChild(i).gameObject.SetActive(true);
-                            CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    if(VictoryByPoint == 999999 && tempo == 999999) {
+                        ErrorText.text = "Vitoria por Ponto Desligado e Duração da Partida Infinita, O jogo não tem como acabar!";
+                    }
+                    else {
+                        CharacterSelect.transform.parent.gameObject.SetActive(false);
+                        for(int i=0;i<4;i++) {
+                            if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                                PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                                Bases.transform.GetChild(i).gameObject.SetActive(true);
+                                CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                            }
                         }
                     }
                 }
@@ -140,12 +149,15 @@ public class GameManager : MonoBehaviour
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
         SettingsCanvas.SetActive(false);
-        movespeed = Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
+        movespeed = Players.transform.GetChild(0).transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for(int i=0;i<4;i++) {
-             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
-             Bases.transform.GetChild(i).gameObject.SetActive(false);
-             CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
-             Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            Bases.transform.GetChild(i).gameObject.SetActive(false);
+            CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -154,23 +166,28 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(CountdownAcabou) {
-            tempo -= Time.deltaTime;
+        if(CountdownAcabou && tempo > 0) {
+            if(tempo != 999999) {
+                tempo -= Time.deltaTime;
+                TimerCircle.fillAmount = tempo/MaxTimer;
+            }
             if(movizin) {
-                Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                for(int i=0;i<4;i++) {
+                    Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                }
                 movizin = false;
             }
-            
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 StartCoroutine(ShowVictoryCanvas());
-                for(int j=0;j<4;j++) {
-                    Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
-                }
+                //for(int j=0;j<4;j++) {
+                    //Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //}
+                CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                 ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "\n\n";
@@ -196,12 +213,19 @@ public class GameManager : MonoBehaviour
             CountdownTimer.gameObject.SetActive(true);
             Countdown -= Time.deltaTime;
             CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
-            if(Countdown - 1 <= 1) {
+            if(Countdown - 1 <= 1 && tempo > 0) {
                 CountdownTimer.text = "Start!";
                 CountdownAcabou = true;
+                Timer.gameObject.SetActive(true);
+                if(tempo != 999999) {
+                    Timer.text = Mathf.RoundToInt(tempo).ToString();
+                }
+                else {
+                    Timer.text = "∞";
+                }
             }
-            if(Countdown - 1 <= 0) {
-                CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
+            if(Countdown - 1 <= 0 && tempo > 0) {
+                CountdownTimer.gameObject.SetActive(false);
             }
         }
     }
@@ -272,7 +296,7 @@ public class GameManager : MonoBehaviour
     }
     private void ShowPoints() {
         for(int i=0;i<4;i++) {
-            PointsCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
+            PointsCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
             CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem) {
                 CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);

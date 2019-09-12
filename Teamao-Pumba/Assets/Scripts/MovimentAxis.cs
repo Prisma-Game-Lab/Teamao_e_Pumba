@@ -15,7 +15,7 @@ public class MovimentAxis : MonoBehaviour
         float translationH = 0;
         for (int i = 0; i < 4; i++)
         {
-            if (gameObject.name == "Player" + (i + 1).ToString())
+            if (gameObject.tag == "Player" + (i + 1).ToString())
             {
                 translationV = Input.GetAxis("Vertical" + (i + 1).ToString()) * movementSpeed;
                 translationH = Input.GetAxis("Horizontal" + (i + 1).ToString()) * movementSpeed;
@@ -36,7 +36,7 @@ public class MovimentAxis : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (gameObject.name == "Player" + (i + 1).ToString())
+            if (gameObject.tag == "Player" + (i + 1).ToString())
             {
                 float h = Input.GetAxis("Horizontal" + (i + 1).ToString()) * movementSpeed;
 
