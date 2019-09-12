@@ -27,6 +27,9 @@ public class MenuSelect : MonoBehaviour
     }
 
     private void MenuCanvas() {
+        if(!SelectPlayers[0].transform.parent.gameObject.activeSelf) {
+            return;
+        }
         for(int i=1;i<4;i++) {
             SelectPlayers[i].gameObject.SetActive(false);
         }

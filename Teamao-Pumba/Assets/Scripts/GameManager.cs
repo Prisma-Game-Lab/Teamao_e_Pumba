@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
+    public Text Timer;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         ErrorText.text = "";
     }
     public void TempoDeJogo(int Segundos) {
-        tempo = Segundos + 1;
+        tempo = Segundos;
         ErrorText.text = "";
     }
     public void SetVictoryByPoint(int Pontos) {
@@ -171,6 +172,7 @@ public class GameManager : MonoBehaviour
                 for(int j=0;j<4;j++) {
                     Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
                 }
+                CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                 ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "\n\n";
@@ -196,12 +198,14 @@ public class GameManager : MonoBehaviour
             CountdownTimer.gameObject.SetActive(true);
             Countdown -= Time.deltaTime;
             CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
-            if(Countdown - 1 <= 1) {
+            if(Countdown - 1 <= 1 && tempo > 0) {
                 CountdownTimer.text = "Start!";
                 CountdownAcabou = true;
+                Timer.gameObject.SetActive(true);
+                Timer.text = Mathf.RoundToInt(tempo).ToString();
             }
-            if(Countdown - 1 <= 0) {
-                CountdownTimer.text = Mathf.RoundToInt(tempo).ToString();
+            if(Countdown - 1 <= 0 && tempo > 0) {
+                CountdownTimer.gameObject.SetActive(false);
             }
         }
     }
