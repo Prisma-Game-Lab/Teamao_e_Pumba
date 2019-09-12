@@ -33,6 +33,7 @@ public class ButtonSelect : MonoBehaviour
         HMPCanvas();
         CSCanvas();
         SettingsCanvas();
+        ChangeSize();
     }
 
     private void HMPCanvas() {
@@ -80,7 +81,7 @@ public class ButtonSelect : MonoBehaviour
     }
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
-            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf) {
+            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].gameObject.activeSelf) {
                 if(Buttons[CoordenadaPlayers[i]].name == "TucanoButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
                    PlayersWithCharacter[i] = true;
@@ -119,6 +120,39 @@ public class ButtonSelect : MonoBehaviour
                 StartCoroutine(GrantAcess(i));
             }
         }
+    }
+    private void ChangeSize() {
+        float largura1 = 340;
+        float altura1 = 80;
+        float largura2 = 340;
+        float altura2 = 80;
+        float largura3 = 340;
+        float altura3 = 80;
+        if(ComparaPos(SelectPlayers[2],SelectPlayers[3])) {
+                largura3 += 20;
+                altura3 += 20;
+        }
+         SelectPlayers[2].rectTransform.sizeDelta = new Vector2(largura3,altura3);
+        for(int i=2;i<4;i++) {
+            if(ComparaPos(SelectPlayers[1],SelectPlayers[i])) {
+                largura2 += 20;
+                altura2 += 20;
+            }
+        }
+        SelectPlayers[1].rectTransform.sizeDelta = new Vector2(largura2,altura2);
+        for(int i=1;i<4;i++) {
+            if(ComparaPos(SelectPlayers[0],SelectPlayers[i])) {
+                largura1 += 20;
+                altura1 += 20;
+            }
+        }
+        SelectPlayers[0].rectTransform.sizeDelta = new Vector2(largura1,altura1);
+    }
+    private bool ComparaPos(Image One, Image Two) {
+        if(One.transform.position == Two.transform.position && One.gameObject.activeSelf && Two.gameObject.activeSelf) {
+            return true;
+        }
+        return false;
     }
     IEnumerator GrantAcess(int Player) {
         yield return new WaitForSeconds(0.3f);
