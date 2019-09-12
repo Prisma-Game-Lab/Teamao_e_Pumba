@@ -2808,12 +2808,18 @@ PrefabInstance:
       propertyPath: MyBase
       value: 
       objectReference: {fileID: 1339927222}
+    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: MyBase
+      value: 
+      objectReference: {fileID: 1339927222}
     m_RemovedComponents:
     - {fileID: 2904752200546534438, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
     - {fileID: 1877035407, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
     - {fileID: 102694438, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
     - {fileID: 1806005423, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
     - {fileID: 1768251512, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
+    - {fileID: 1632884389593820223, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
 --- !u!1 &2904752200546534436 stripped
 GameObject:
