@@ -149,12 +149,15 @@ public class GameManager : MonoBehaviour
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.SetActive(false);
         SettingsCanvas.SetActive(false);
-        movespeed = Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
+        movespeed = Players.transform.GetChild(0).transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for(int i=0;i<4;i++) {
-             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
-             Bases.transform.GetChild(i).gameObject.SetActive(false);
-             CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
-             Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            Bases.transform.GetChild(i).gameObject.SetActive(false);
+            CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -169,19 +172,21 @@ public class GameManager : MonoBehaviour
                 TimerCircle.fillAmount = tempo/MaxTimer;
             }
             if(movizin) {
-                Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                for(int i=0;i<4;i++) {
+                    Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                }
                 movizin = false;
             }
         }
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 StartCoroutine(ShowVictoryCanvas());
-                for(int j=0;j<4;j++) {
-                    Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
-                }
+                //for(int j=0;j<4;j++) {
+                    //Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //}
                 CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
