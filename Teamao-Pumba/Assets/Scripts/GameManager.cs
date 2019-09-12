@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
         }
         else {
-            if(gameObject.GetComponent<RandomEvent>().Probabilidade == 0) {
+            if(gameObject.GetComponent<RandomEvent>().Probabilidade == 999999) {
                ErrorText.text = "Selecione a probabilidade de um evento ocorrer antes de começar a partida!";
             }
             else {
@@ -123,12 +123,17 @@ public class GameManager : MonoBehaviour
                     ErrorText.text = "Selecione a pontuação para obter a vitória antes de começar a partida!";
                 }
                 else {
-                    CharacterSelect.transform.parent.gameObject.SetActive(false);
-                    for(int i=0;i<4;i++) {
-                        if(Players.transform.GetChild(i).gameObject.activeSelf) {
-                            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                            Bases.transform.GetChild(i).gameObject.SetActive(true);
-                            CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    if(VictoryByPoint == 999999 && tempo == 999999) {
+                        ErrorText.text = "Vitoria por Ponto Desligado e Duração da Partida Infinita, O jogo não tem como acabar!";
+                    }
+                    else {
+                        CharacterSelect.transform.parent.gameObject.SetActive(false);
+                        for(int i=0;i<4;i++) {
+                            if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                                PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                                Bases.transform.GetChild(i).gameObject.SetActive(true);
+                                CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                            }
                         }
                     }
                 }
@@ -159,8 +164,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(CountdownAcabou && tempo > 0) {
-            tempo -= Time.deltaTime;
-            TimerCircle.fillAmount = tempo/MaxTimer;
+            if(tempo != 999999) {
+                tempo -= Time.deltaTime;
+                TimerCircle.fillAmount = tempo/MaxTimer;
+            }
             if(movizin) {
                 Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                 Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed = movespeed;
@@ -205,7 +212,12 @@ public class GameManager : MonoBehaviour
                 CountdownTimer.text = "Start!";
                 CountdownAcabou = true;
                 Timer.gameObject.SetActive(true);
-                Timer.text = Mathf.RoundToInt(tempo).ToString();
+                if(tempo != 999999) {
+                    Timer.text = Mathf.RoundToInt(tempo).ToString();
+                }
+                else {
+                    Timer.text = "∞";
+                }
             }
             if(Countdown - 1 <= 0 && tempo > 0) {
                 CountdownTimer.gameObject.SetActive(false);
