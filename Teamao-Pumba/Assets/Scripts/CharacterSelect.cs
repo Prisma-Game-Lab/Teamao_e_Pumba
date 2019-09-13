@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-
+    [HideInInspector]
     public Transform personagem;
 
     void Start()

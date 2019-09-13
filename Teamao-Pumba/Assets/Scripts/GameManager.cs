@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
                                 PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
                                 Bases.transform.GetChild(i).gameObject.SetActive(true);
                                 CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                                SetCharacterImage();
                             }
                         }
                     }
@@ -184,9 +185,6 @@ public class GameManager : MonoBehaviour
         for(int i = 0;i < 4;i++) { // Verifica o fim do jogo
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints >= VictoryByPoint + SegundoMelhor() || tempo < 0) {
                 StartCoroutine(ShowVictoryCanvas());
-                //for(int j=0;j<4;j++) {
-                    //Players.transform.GetChild(j).GetComponent<MovimentAxis>().movementSpeed = 0;
-                //}
                 CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
@@ -311,5 +309,38 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
          VictoryCanvas.SetActive(true);
          Time.timeScale = 0f;
+    }
+
+    private void SetCharacterImage() {
+        int indice1 = 0;
+        int indice2 = 0;
+        int indice3 = 0;
+        int indice4 = 0;
+        int i;
+        for(i=0;i < 4; i++) {
+            if(Players.transform.GetChild(0).transform.GetChild(i).gameObject.activeSelf) {
+                indice1 = i;
+            }
+        }
+        for(i=0;i < 4; i++) {
+            if(Players.transform.GetChild(1).transform.GetChild(i).gameObject.activeSelf) {
+                indice2 = i;
+            }
+        }
+        for(i=0;i < 4; i++) {
+            if(Players.transform.GetChild(2).transform.GetChild(i).gameObject.activeSelf) {
+                indice3 = i;
+            }
+        }
+        for(i=0;i < 4; i++) {
+            if(Players.transform.GetChild(3).transform.GetChild(i).gameObject.activeSelf) {
+                indice4 = i;
+            }
+        }
+        PointsCanvas.transform.GetChild(0).transform.GetChild(indice1+1).gameObject.SetActive(true);
+        PointsCanvas.transform.GetChild(1).transform.GetChild(indice2+1).gameObject.SetActive(true);
+        PointsCanvas.transform.GetChild(2).transform.GetChild(indice3+1).gameObject.SetActive(true);
+        PointsCanvas.transform.GetChild(3).transform.GetChild(indice4+1).gameObject.SetActive(true);
+        
     }
 }
