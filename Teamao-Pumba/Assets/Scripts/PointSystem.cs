@@ -24,7 +24,6 @@ public class PointSystem : MonoBehaviour
     }
     void Update()
     {
-       
         if(VirtualPoints >= 1) {
             transform.GetChild(0).gameObject.SetActive(true);
         }

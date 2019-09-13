@@ -105,6 +105,11 @@ public class RandomEvent : MonoBehaviour
         Permition = false;
         int GetEventNumber = Random.Range(1,8);
         RandomEventCanvas.SetActive(true);
+        if(gameObject.GetComponent<GameManager>().tempo == 999999) {
+            while(GetEventNumber == 3) {
+                GetEventNumber = Random.Range(1,8);
+            }
+        }
         switch(GetEventNumber) {
             case 1:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Bases Trocadas";
