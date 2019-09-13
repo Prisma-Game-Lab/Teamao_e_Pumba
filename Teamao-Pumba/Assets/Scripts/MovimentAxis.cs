@@ -24,11 +24,14 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if((translationV > 0.5 || translationV < -0.5) || (translationH > 0.5 || translationH < -0.5)) {
+            if(((translationV > 0.5 || translationV < -0.5) || (translationH > 0.5 || translationH < -0.5)) && gameObject.name == "Tucano") {
                 anim.SetBool("running", true);
             }
             else {
-                anim.SetBool("running", false);
+                if(gameObject.name == "Tucano") {
+                    anim.SetBool("running", false);
+                }
+                
             }
             Debug.Log("H "+translationH);
             Debug.Log("V "+translationV);
