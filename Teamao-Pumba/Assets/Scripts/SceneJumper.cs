@@ -10,7 +10,6 @@ public class SceneJumper : MonoBehaviour
 {
     public void GoArena() {
         SceneManager.LoadScene("Arena",LoadSceneMode.Single);
-        Debug.Log("ehehehehehe");
         Time.timeScale = 1f;
     }
     public void GoCredits() {
@@ -18,7 +17,6 @@ public class SceneJumper : MonoBehaviour
     }
     public void GoMenu() {
         SceneManager.LoadScene("Menu",LoadSceneMode.Single);
-        Debug.Log("Lmao");
         Time.timeScale = 1f;
     }
     public void QuitGame() {

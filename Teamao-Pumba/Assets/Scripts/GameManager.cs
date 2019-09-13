@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         if(PlayersSelected) {
             HowManyPlayers.SetActive(false);
             CharacterSelect.SetActive(true);
+            ResetaCoordenada();
         }
         else {
             ErrorText.text = "Selecione o número de jogadores antes de começar a partida!";
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
             CharacterSelect.SetActive(false);
             SettingsCanvas.SetActive(true);
             ErrorText.text = "";
+            ResetaCoordenada();
         }
         else {
             ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
         return true;
     }
     public void Previous() { // Volta para a tela de numero de jogadores
+        ResetaCoordenada();
         for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
             transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
         }
@@ -99,6 +102,7 @@ public class GameManager : MonoBehaviour
         ErrorText.text = "";
     }
     public void Previous2() { // Volta para a tela de seleção de personagem
+        ResetaCoordenada();
         for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
             transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
         }
@@ -134,6 +138,7 @@ public class GameManager : MonoBehaviour
                                 Bases.transform.GetChild(i).gameObject.SetActive(true);
                                 CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
                                 SetCharacterImage();
+                                ResetaCoordenada();
                             }
                         }
                     }
@@ -148,7 +153,7 @@ public class GameManager : MonoBehaviour
         HowManyPlayers.SetActive(true);
         CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
-        CountdownTimer.gameObject.SetActive(false);
+        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(false);
         SettingsCanvas.SetActive(false);
         movespeed = Players.transform.GetChild(0).transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for(int i=0;i<4;i++) {
@@ -342,5 +347,10 @@ public class GameManager : MonoBehaviour
         PointsCanvas.transform.GetChild(2).transform.GetChild(indice3+1).gameObject.SetActive(true);
         PointsCanvas.transform.GetChild(3).transform.GetChild(indice4+1).gameObject.SetActive(true);
         
+    }
+    private void ResetaCoordenada() {
+        for(int i=0;i<transform.GetComponent<ButtonSelect>().CoordenadaPlayers.Count;i++) {
+            transform.GetComponent<ButtonSelect>().CoordenadaPlayers[i] = 0;
+        }
     }
 }

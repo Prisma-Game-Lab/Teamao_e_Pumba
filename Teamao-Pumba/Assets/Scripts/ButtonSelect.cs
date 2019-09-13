@@ -10,7 +10,8 @@ public class ButtonSelect : MonoBehaviour
     public List<Button> HMPButtons;
     public List<Button> CSButtons;
     public List<Button> SettingsButtons;
-    private List<int> CoordenadaPlayers = new List<int>();
+    [HideInInspector]
+    public List<int> CoordenadaPlayers = new List<int>();
     private List<bool> ControlAcess = new List<bool>();
     [HideInInspector]
     public int HowManyPlayers;
