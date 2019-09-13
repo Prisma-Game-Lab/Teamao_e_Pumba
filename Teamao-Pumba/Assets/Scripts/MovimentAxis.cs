@@ -33,9 +33,6 @@ public class MovimentAxis : MonoBehaviour
                 }
             }
         }
-        
-        Debug.Log("V" +translationV);
-        Debug.Log("H" +translationH);
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
 

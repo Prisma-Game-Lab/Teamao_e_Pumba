@@ -516,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item: {fileID: 6802746376239672555, guid: f527bccc594b1774595af2e01fd16db5, type: 3}
   Item_parent: {fileID: 1085568915}
-  Item_qtd: 7
+  Item_qtd: 6
   Cooldown: 3
 --- !u!114 &695164791
 MonoBehaviour:
