@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
                         ErrorText.text = "Vitoria por Ponto Desligado e Duração da Partida Infinita, O jogo não tem como acabar!";
                     }
                     else {
+                        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
                         CharacterSelect.transform.parent.gameObject.SetActive(false);
                         for(int i=0;i<4;i++) {
                             if(Players.transform.GetChild(i).gameObject.activeSelf) {
@@ -172,8 +173,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(CountdownAcabou && tempo > 0) { 
-            CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
+        if(CountdownAcabou && tempo > 0) {
             if(tempo != 999999) {
                 tempo -= Time.deltaTime;
                 TimerCircle.fillAmount = tempo/MaxTimer;
