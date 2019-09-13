@@ -48,7 +48,10 @@ public class RandomEvent : MonoBehaviour
     }
     private void EventFastPlayer() { 
         for(int i=0;i<4;i++) {
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
         }
     }
     private void EventMoreLessTime() {
@@ -73,15 +76,19 @@ public class RandomEvent : MonoBehaviour
     private void EventDoubleItemSpawn() => gameObject.GetComponent<ItemSpawn>().Item_qtd *= 2;
     
     IEnumerator EventInvertMovement() {
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1; 
+        for(int i=0;i<4;i++) {
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+        }
         yield return new WaitForSeconds(DuracaoDoEvento);
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed *= -1;
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).GetComponent<MovimentAxis>().movementSpeed *= -1; 
-        gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).GetComponent<MovimentAxis>().movementSpeed *= -1;  
+        for(int i=0;i<4;i++) {
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
+        }
     }
     IEnumerator EventInvertCamera() {
         int GetEventNumber = Random.Range(180,360);
@@ -98,6 +105,11 @@ public class RandomEvent : MonoBehaviour
         Permition = false;
         int GetEventNumber = Random.Range(1,8);
         RandomEventCanvas.SetActive(true);
+        if(gameObject.GetComponent<GameManager>().tempo == 999999) {
+            while(GetEventNumber == 3) {
+                GetEventNumber = Random.Range(1,8);
+            }
+        }
         switch(GetEventNumber) {
             case 1:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Bases Trocadas";
