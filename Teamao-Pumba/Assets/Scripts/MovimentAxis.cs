@@ -24,20 +24,14 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            //if(((translationV > 0.5 || translationV < -0.5) || (translationH > 0.5 || translationH < -0.5)) && gameObject.name == "Tucano") {
-                //anim.SetBool("running", true);
-            //}
-            //else {
-                //if(gameObject.name == "Tucano") {
-                    //anim.SetBool("running", false);
-                //}
-            //}
-        }
-        if(IsMoving && gameObject.name == "Tucano") {
-            anim.SetBool("running", true);
-        }
-        if(!IsMoving && gameObject.name == "Tucano") {
-            anim.SetBool("running", false);
+            if(((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && gameObject.name == "Tucano") {
+                anim.SetBool("running", true);
+            }
+            else {
+                if(gameObject.name == "Tucano") {
+                    anim.SetBool("running", false);
+                }
+            }
         }
         
         Debug.Log("V" +translationV);

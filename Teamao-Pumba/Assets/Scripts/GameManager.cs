@@ -172,7 +172,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(CountdownAcabou && tempo > 0) {
+        if(CountdownAcabou && tempo > 0) { 
+            CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
             if(tempo != 999999) {
                 tempo -= Time.deltaTime;
                 TimerCircle.fillAmount = tempo/MaxTimer;
