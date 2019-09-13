@@ -12,7 +12,7 @@ public class ProjectileBehavior : MonoBehaviour
 {
 
     public GameObject dono;
-    public float projectiloeSpeed;
+    public float projectileSpeed;
     void Start()
     {
         
@@ -21,6 +21,16 @@ public class ProjectileBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.transform.position += projectileSpeed * this.transform.forward;
+
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject != dono)
+        {
+            Destroy(this);
+        }
+    }
+
 }

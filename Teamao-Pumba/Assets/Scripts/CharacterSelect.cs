@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-    
+
+    public Transform personagem;
+
     void Start()
     {
         
@@ -16,10 +18,14 @@ public class CharacterSelect : MonoBehaviour
     }
 
     public void SetCharacter(string name) {
+
+        personagem = transform.Find(name);
+
         transform.Find("Tucano").gameObject.SetActive(false);
         transform.Find("Cylinder").gameObject.SetActive(false);
         transform.Find("Cube").gameObject.SetActive(false);
         transform.Find("Capsule").gameObject.SetActive(false);
-        transform.Find(name).gameObject.SetActive(true);
+        personagem.gameObject.SetActive(true);
+        
     }
 }

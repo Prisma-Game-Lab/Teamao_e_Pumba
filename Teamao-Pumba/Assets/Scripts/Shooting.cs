@@ -46,7 +46,8 @@ public class Shooting : MonoBehaviour
 
     private void Atira()
     {
-        GameObject p = Instantiate(projectile, this.transform.position, this.transform.rotation);
+        Transform t = this.GetComponent<CharacterSelect>().personagem;
+        GameObject p = Instantiate(projectile, t.position + (Vector3.up)*0.5f, t.rotation);
         p.SetActive(true);
         p.GetComponent<ProjectileBehavior>().dono = this.GetComponent<GameObject>();
         pontos.VirtualPoints -= 1;
