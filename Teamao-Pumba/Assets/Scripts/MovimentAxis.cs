@@ -31,10 +31,7 @@ public class MovimentAxis : MonoBehaviour
                 if(gameObject.name == "Tucano") {
                     anim.SetBool("running", false);
                 }
-                
             }
-            Debug.Log("H "+translationH);
-            Debug.Log("V "+translationV);
         }
         
         translationV *= Time.deltaTime;
