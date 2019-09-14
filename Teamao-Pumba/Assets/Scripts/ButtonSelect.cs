@@ -144,18 +144,59 @@ public class ButtonSelect : MonoBehaviour
         }
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
             if(Input.GetAxis("Vertical" + (i+1).ToString()) > 0 && ControlAcess[i]) {
-
-                CoordenadaPlayers[i]--;
+                CoordenadaPlayers[i] = MovePlayerBetterGetCloser(Buttons,'V',1,i);
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));
             }
             if(Input.GetAxis("Vertical" + (i+1).ToString()) < 0 && ControlAcess[i]) {
-
-                CoordenadaPlayers[i]++;
+                CoordenadaPlayers[i] = MovePlayerBetterGetCloser(Buttons,'V',-1,i);
+                ControlAcess[i] = false;
+                StartCoroutine(GrantAcess(i));
+            }
+            if(Input.GetAxis("Horizontal" + (i+1).ToString()) > 0 && ControlAcess[i]) {
+                CoordenadaPlayers[i] = MovePlayerBetterGetCloser(Buttons,'H',1,i);
+                ControlAcess[i] = false;
+                StartCoroutine(GrantAcess(i));
+            }
+            if(Input.GetAxis("Horizontal" + (i+1).ToString()) < 0 && ControlAcess[i]) {
+                CoordenadaPlayers[i] = MovePlayerBetterGetCloser(Buttons,'H',-1,i);
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));
             }
         }
+    }
+    private int MovePlayerBetterGetCloser(List<Button> Buttons, char d, int sinal, int Coord) {
+        float Closer = 999999;
+        int indice = 999;
+        int i = 0;
+        foreach(Button b in Buttons) {
+            if(d == 'V') {
+                if(sinal == 1) {
+                    if(b.gameObject.transform.position.y > SelectPlayers[Coord].gameObject.transform.position.y) {
+                        if(SelectPlayers[Coord].gameObject.transform.position.y -  b.gameObject.transform.position.y < Closer) {
+                            Closer = b.gameObject.transform.position.y;
+                            indice = i;
+                        }
+                    } 
+                }
+                else {
+                    if(b.gameObject.transform.position.y < Closer) {
+                        Closer = b.gameObject.transform.position.y;
+                        indice = i;
+                    }
+                }
+            }
+            else {
+                if(sinal == 1) {
+
+                }
+                else {
+
+                }
+            }
+            i++;
+        }
+        return indice;
     }
     private void ChangeSize() {
         float largura1 = 340;
