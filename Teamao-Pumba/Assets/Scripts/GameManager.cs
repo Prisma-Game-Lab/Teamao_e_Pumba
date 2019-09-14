@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Text CountdownTimer; // Countdown antes de comecar o jogo
     public Text Timer;
     public Image TimerCircle;
+    public List<Image> UIPlayers;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
         gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 2;
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+        UIPlayers[0].gameObject.SetActive(true);
+        UIPlayers[1].gameObject.SetActive(true);
+        UIPlayers[2].gameObject.SetActive(false);
+        UIPlayers[3].gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
@@ -43,6 +48,10 @@ public class GameManager : MonoBehaviour
      gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 3;
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+        UIPlayers[0].gameObject.SetActive(true);
+        UIPlayers[1].gameObject.SetActive(true);
+        UIPlayers[2].gameObject.SetActive(true);
+        UIPlayers[3].gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
     }
@@ -50,6 +59,10 @@ public class GameManager : MonoBehaviour
      gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 4;
         Players.transform.GetChild(2).gameObject.SetActive(true);
         Players.transform.GetChild(3).gameObject.SetActive(true);
+        UIPlayers[0].gameObject.SetActive(true);
+        UIPlayers[1].gameObject.SetActive(true);
+        UIPlayers[2].gameObject.SetActive(true);
+        UIPlayers[3].gameObject.SetActive(true);
         PlayersSelected = true;
         ErrorText.text = "";
     }
@@ -96,6 +109,10 @@ public class GameManager : MonoBehaviour
         ResetaCoordenada();
         for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
             transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
+            UIPlayers[i].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            UIPlayers[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            UIPlayers[i].gameObject.transform.GetChild(2).gameObject.SetActive(false);
+            UIPlayers[i].gameObject.transform.GetChild(3).gameObject.SetActive(false);
         }
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);
@@ -104,9 +121,6 @@ public class GameManager : MonoBehaviour
     }
     public void Previous2() { // Volta para a tela de seleção de personagem
         ResetaCoordenada();
-        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
-            transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
-        }
         CharacterSelect.SetActive(true);
         SettingsCanvas.SetActive(false);
         tempo = 999;
@@ -135,6 +149,7 @@ public class GameManager : MonoBehaviour
                         CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
                         CharacterSelect.transform.parent.gameObject.SetActive(false);
                         SettingsCanvas.SetActive(false);
+                        PointsCanvas.SetActive(true);
                         for(int i=0;i<4;i++) {
                             if(Players.transform.GetChild(i).gameObject.activeSelf) {
                                 PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
@@ -151,6 +166,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        PointsCanvas.SetActive(false);
         CountdownAcabou = false;
         PlayersSelected = false;
         HowManyPlayers.SetActive(true);

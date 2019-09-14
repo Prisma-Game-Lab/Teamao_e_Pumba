@@ -85,18 +85,34 @@ public class ButtonSelect : MonoBehaviour
             if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].transform.parent.gameObject.activeSelf) {
                 if(Buttons[CoordenadaPlayers[i]].name == "TucanoButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
                    PlayersWithCharacter[i] = true;
                 }
                 if(Buttons[CoordenadaPlayers[i]].name == "CylinderButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cylinder");
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(true);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
                    PlayersWithCharacter[i] = true;
                 }
                 if(Buttons[CoordenadaPlayers[i]].name == "CubeButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cube");
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(true);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
                    PlayersWithCharacter[i] = true;
                 }
                 if(Buttons[CoordenadaPlayers[i]].name == "CapsuleButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capsule");
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
+                   gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(true);
                    PlayersWithCharacter[i] = true;
                 }
                 Buttons[CoordenadaPlayers[i]].onClick.Invoke();

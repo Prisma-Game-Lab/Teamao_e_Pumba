@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RandomEvent : MonoBehaviour
 {
+    public GameObject Players;
     public GameObject RandomEventCanvas;
     public GameObject Arena;
     public GameObject Camera;
@@ -39,12 +40,24 @@ public class RandomEvent : MonoBehaviour
         NumeroGerado = Random.Range(0,100.0f);
     }
     private void EventChangeBase() {
-        Vector3 aux = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position;
-        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).transform.position =  gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position;
-        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(2).transform.position = aux;
-        Vector3 aux2 = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position;
-        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(1).transform.position = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position;
-        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(3).transform.position = aux2; 
+        int GetRandomNumber = Random.Range(1,4);
+        Vector3 aux = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).gameObject.transform.position;
+        Vector3 aux2 = aux;
+        int i;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(0).gameObject.transform.position = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(GetRandomNumber).gameObject.transform.position;
+        gameObject.GetComponent<GameManager>().Bases.transform.GetChild(GetRandomNumber).gameObject.transform.position = aux;
+        for(i=1;i<4;i++) {
+            if(i != GetRandomNumber) {
+                aux2 = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(i).gameObject.transform.position;
+                break;
+            }
+        }
+        for(int j=1;j<4;j++) {
+                if(j != i && j != GetRandomNumber) {
+                    gameObject.GetComponent<GameManager>().Bases.transform.GetChild(i).gameObject.transform.position = gameObject.GetComponent<GameManager>().Bases.transform.GetChild(j).gameObject.transform.position;
+                    gameObject.GetComponent<GameManager>().Bases.transform.GetChild(j).gameObject.transform.position = aux2;
+                }
+            } 
     }
     private void EventFastPlayer() { 
         for(int i=0;i<4;i++) {
@@ -158,8 +171,9 @@ public class RandomEvent : MonoBehaviour
             case 7:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Quantidade de Itens Dobrado";
                 yield return new WaitForSeconds(1);
-                EventDoubleItemSpawn();
+                EventDoubleItemSpawn();;
                 break;
+
         }
         StartCoroutine(RemoveCanvas());
         StartCoroutine(CooldownEvent());
