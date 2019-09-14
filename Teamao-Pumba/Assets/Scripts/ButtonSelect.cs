@@ -82,7 +82,7 @@ public class ButtonSelect : MonoBehaviour
     }
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
-            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].gameObject.activeSelf) {
+            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].transform.parent.gameObject.activeSelf) {
                 if(Buttons[CoordenadaPlayers[i]].name == "TucanoButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
                    PlayersWithCharacter[i] = true;
@@ -116,6 +116,25 @@ public class ButtonSelect : MonoBehaviour
                 StartCoroutine(GrantAcess(i));
             }
             if(Input.GetAxis("Vertical" + (i+1).ToString()) < 0 && ControlAcess[i]) {
+                CoordenadaPlayers[i]++;
+                ControlAcess[i] = false;
+                StartCoroutine(GrantAcess(i));
+            }
+        }
+    }
+    private void MovePlayerBetter(List<Button> Buttons) {
+        for(int i = 0; i < CoordenadaPlayers.Count; i++) {
+            SelectPlayers[i].transform.position = Buttons[CoordenadaPlayers[i]].transform.position;
+        }
+        for(int i=0; i < CoordenadaPlayers.Count; i++) {
+            if(Input.GetAxis("Vertical" + (i+1).ToString()) > 0 && ControlAcess[i]) {
+
+                CoordenadaPlayers[i]--;
+                ControlAcess[i] = false;
+                StartCoroutine(GrantAcess(i));
+            }
+            if(Input.GetAxis("Vertical" + (i+1).ToString()) < 0 && ControlAcess[i]) {
+
                 CoordenadaPlayers[i]++;
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));

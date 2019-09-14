@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Players; // Os jogadores
     public GameObject Bases; // As bases
+    public GameObject Espinhos; // Espinhos na Arena
     public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
     public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
     public GameObject SettingsCanvas; // O canvas contendo as Settings do jogo
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour
                     else {
                         CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
                         CharacterSelect.transform.parent.gameObject.SetActive(false);
+                        SettingsCanvas.SetActive(false);
                         for(int i=0;i<4;i++) {
                             if(Players.transform.GetChild(i).gameObject.activeSelf) {
                                 PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
@@ -177,6 +179,9 @@ public class GameManager : MonoBehaviour
             if(tempo != 999999) {
                 tempo -= Time.deltaTime;
                 TimerCircle.fillAmount = tempo/MaxTimer;
+                if(MaxTimer/tempo >= 3) {
+                    SetEspinhos();
+                }
             }
             if(movizin) {
                 for(int i=0;i<4;i++) {
@@ -353,5 +358,11 @@ public class GameManager : MonoBehaviour
         for(int i=0;i<transform.GetComponent<ButtonSelect>().CoordenadaPlayers.Count;i++) {
             transform.GetComponent<ButtonSelect>().CoordenadaPlayers[i] = 0;
         }
+    }
+    private void SetEspinhos() {
+        Espinhos.transform.GetChild(0).gameObject.SetActive(true);
+        Espinhos.transform.GetChild(1).gameObject.SetActive(true);
+        Espinhos.transform.GetChild(2).gameObject.SetActive(true);
+        Espinhos.transform.GetChild(3).gameObject.SetActive(true);
     }
 }

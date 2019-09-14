@@ -28,7 +28,7 @@ public class RandomEvent : MonoBehaviour
     {
         if(gameObject.GetComponent<GameManager>().Countdown < 0) {
             if(Probabilidade > NumeroGerado && Permition) {
-                ChooseEvent();
+                StartCoroutine(ChooseEvent());
             }
         }
         if(RotatePermition) {
@@ -90,38 +90,50 @@ public class RandomEvent : MonoBehaviour
             gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= -1;
         }
     }
-    IEnumerator EventInvertCamera() {
-        int GetEventNumber = Random.Range(180,360);
-        Camera.transform.Rotate(0,0,GetEventNumber);
-        RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text += GetEventNumber + " Graus";
-        yield return new WaitForSeconds(DuracaoDoEvento);
-        Camera.transform.Rotate(0,0,360-GetEventNumber);
+    IEnumerator EventInvertCamera() { 
+        int GetEventNumber = Random.Range(1,4);
+        switch(GetEventNumber) {
+            case 1:
+                Camera.transform.Rotate(0,0,90);
+                yield return new WaitForSeconds(DuracaoDoEvento);
+                Camera.transform.Rotate(0,0,360-90);
+                break;
+            case 2:
+                Camera.transform.Rotate(0,0,180);
+                yield return new WaitForSeconds(DuracaoDoEvento);
+                Camera.transform.Rotate(0,0,360-180);
+                break;
+            case 3:
+                Camera.transform.Rotate(0,0,270);
+                yield return new WaitForSeconds(DuracaoDoEvento);
+                Camera.transform.Rotate(0,0,360-270);
+                break;     
+        }
     }
     IEnumerator CooldownEvent() {
         yield return new WaitForSeconds(CooldownDoEvento);
         Permition = true;
     }
-    private void ChooseEvent() {
+    IEnumerator ChooseEvent() {
         Permition = false;
         int GetEventNumber = Random.Range(1,8);
         RandomEventCanvas.SetActive(true);
-        if(gameObject.GetComponent<GameManager>().tempo == 999999) {
-            while(GetEventNumber == 3) {
-                GetEventNumber = Random.Range(1,8);
-            }
-        }
+        StartCoroutine(BlinkEventText());
         switch(GetEventNumber) {
             case 1:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Bases Trocadas";
+                yield return new WaitForSeconds(1);
                 EventChangeBase();
                 break;
             case 2:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Velocidade Aumentada";
+                yield return new WaitForSeconds(1);
                 EventFastPlayer();
                 break;
             case 3:
-                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: ";
-                EventMoreLessTime();
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Bases Trocadas";
+                yield return new WaitForSeconds(1);
+                EventChangeBase();
                 break;
             case 4:
                 if(!RotatePermition) {
@@ -130,22 +142,25 @@ public class RandomEvent : MonoBehaviour
                 else {
                     RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Rotação do Estágio Aumentada";
                 }
+                yield return new WaitForSeconds(1);
                 EventRotatingStage();
                 break;
             case 5:
-                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Camera Girou ";
+                RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Camera Girou";
+                yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertCamera());
                 break;
             case 6:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Movimentação Invertida";
+                yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertMovement());
                 break;
             case 7:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Quantidade de Itens Dobrado";
+                yield return new WaitForSeconds(1);
                 EventDoubleItemSpawn();
                 break;
         }
-        StartCoroutine(BlinkEventText());
         StartCoroutine(RemoveCanvas());
         StartCoroutine(CooldownEvent());
     }

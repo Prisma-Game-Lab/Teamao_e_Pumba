@@ -50,5 +50,11 @@ public class PointSystem : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(false);
             transform.GetChild(2).gameObject.SetActive(false);
         }
+        if(other.gameObject.tag == "Espinho") {
+            VirtualPoints = 0;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
+        }
     }
 }
