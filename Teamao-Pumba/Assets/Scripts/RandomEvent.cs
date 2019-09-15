@@ -194,6 +194,7 @@ public class RandomEvent : MonoBehaviour
     }
     public void ChanceDeEvento(float chance) {
         Probabilidade = chance;
+        GameManager.DefaultProbabilidade = chance;
         gameObject.GetComponent<GameManager>().ErrorText.text = "";
     }
 }

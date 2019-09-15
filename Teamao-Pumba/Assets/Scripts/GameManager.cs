@@ -23,9 +23,10 @@ public class GameManager : MonoBehaviour
     public Text Timer;
     public Image TimerCircle;
     public List<Image> UIPlayers;
-    public int DefaultTempo;
-    public int DefaultProbabilidade;
-    public int DefaultPontodeVitoria;
+    public List<Text> ValueText;
+    static public int DefaultTempo;
+    static public float DefaultProbabilidade;
+    static public int DefaultPontodeVitoria;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -72,10 +73,12 @@ public class GameManager : MonoBehaviour
     public void TempoDeJogo(int Segundos) {
         tempo = Segundos;
         MaxTimer = Segundos;
+        DefaultTempo = Segundos;
         ErrorText.text = "";
     }
     public void SetVictoryByPoint(int Pontos) {
         VictoryByPoint = Pontos;
+        DefaultPontodeVitoria = Pontos;
         ErrorText.text = "";
     }
     public void Next() { // Vai para a tela de seleção de personagem
@@ -217,6 +220,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        CheckCurrentValues();
         if(CountdownAcabou && tempo > 0) {
             if(tempo != 999999) {
                 tempo -= Time.deltaTime;
@@ -406,5 +410,19 @@ public class GameManager : MonoBehaviour
         Espinhos.transform.GetChild(1).gameObject.SetActive(true);
         Espinhos.transform.GetChild(2).gameObject.SetActive(true);
         Espinhos.transform.GetChild(3).gameObject.SetActive(true);
+    }
+    private void CheckCurrentValues() {
+        ValueText[0].text = DefaultTempo.ToString();
+        ValueText[1].text = DefaultProbabilidade.ToString();
+        ValueText[2].text = DefaultPontodeVitoria.ToString() + " Pontos";
+        if(tempo == 999999) {
+            ValueText[0].text = "∞";
+        }
+        if(gameObject.GetComponent<RandomEvent>().Probabilidade == 0) {
+            ValueText[1].text = "Nenhuma";
+        }
+        if(VictoryByPoint == 999999) {
+            ValueText[2].text = "Desligado";
+        }
     }
 }
