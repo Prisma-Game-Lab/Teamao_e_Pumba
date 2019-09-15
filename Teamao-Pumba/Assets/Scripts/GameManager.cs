@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         UIPlayers[3].gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
+        Next();
     }
      public void ThreePlayer() { // função para três players
      gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 3;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         UIPlayers[3].gameObject.SetActive(false);
         PlayersSelected = true;
         ErrorText.text = "";
+        Next();
     }
      public void FourPlayer() { // função para quatro players
      gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 4;
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
         UIPlayers[3].gameObject.SetActive(true);
         PlayersSelected = true;
         ErrorText.text = "";
+        Next();
     }
     public void TempoDeJogo(int Segundos) {
         tempo = Segundos;

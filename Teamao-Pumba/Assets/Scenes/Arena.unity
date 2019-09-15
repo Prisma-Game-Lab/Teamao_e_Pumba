@@ -378,18 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &463517765 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4838943973843829779, guid: 81a407128f7daa44bbc739e22d6c4d61,
-    type: 3}
-  m_PrefabInstance: {fileID: 4838943974419923152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &606187148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4838943975122830848, guid: 81a407128f7daa44bbc739e22d6c4d61,
@@ -2016,6 +2004,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1085568915}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: HMPButtons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Players
       value: 
       objectReference: {fileID: 679818834}
@@ -2050,7 +2042,7 @@ PrefabInstance:
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: HMPButtons.Array.data[3]
       value: 
-      objectReference: {fileID: 463517765}
+      objectReference: {fileID: 38927776}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: HMPButtons.Array.data[4]
       value: 
@@ -2255,6 +2247,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164788}
+    - target: {fileID: 4838943975321359686, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6463685650350324826, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2268,6 +2265,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164788}
+    - target: {fileID: 2888663220066809205, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 333523074, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
