@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public Text Timer;
     public Image TimerCircle;
     public List<Image> UIPlayers;
+    public int DefaultTempo;
+    public int DefaultProbabilidade;
+    public int DefaultPontodeVitoria;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -162,6 +165,29 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    public void PlayGameDirect() {
+        if(Next2Helper()) {
+            TempoDeJogo(DefaultTempo);
+            SetVictoryByPoint(DefaultPontodeVitoria);
+            gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
+            CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
+            CharacterSelect.transform.parent.gameObject.SetActive(false);
+            SettingsCanvas.SetActive(false);
+            PointsCanvas.SetActive(true);
+            for(int i=0;i<4;i++) {
+                if(Players.transform.GetChild(i).gameObject.activeSelf) {
+                    PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    Bases.transform.GetChild(i).gameObject.SetActive(true);
+                    CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    SetCharacterImage();
+                    ResetaCoordenada();
+                }
+            }
+        }
+        else {
+            ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
         }
     }
     void Start()
