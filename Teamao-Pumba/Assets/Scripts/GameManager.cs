@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     public Image TimerCircle;
     public List<Image> UIPlayers;
     public List<Text> ValueText;
-    static public int DefaultTempo;
-    static public float DefaultProbabilidade;
-    static public int DefaultPontodeVitoria;
+    static public int DefaultTempo = 60;
+    static public float DefaultProbabilidade = 30;
+    static public int DefaultPontodeVitoria = 999999;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -418,13 +418,13 @@ public class GameManager : MonoBehaviour
         ValueText[0].text = DefaultTempo.ToString();
         ValueText[1].text = DefaultProbabilidade.ToString();
         ValueText[2].text = DefaultPontodeVitoria.ToString() + " Pontos";
-        if(tempo == 999999) {
+        if(DefaultTempo == 999999) {
             ValueText[0].text = "∞";
         }
-        if(gameObject.GetComponent<RandomEvent>().Probabilidade == 0) {
+        if(DefaultProbabilidade == 0) {
             ValueText[1].text = "Nenhuma";
         }
-        if(VictoryByPoint == 999999) {
+        if(DefaultPontodeVitoria == 999999) {
             ValueText[2].text = "Desligado";
         }
     }

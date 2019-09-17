@@ -66,7 +66,7 @@ public class ButtonSelect : MonoBehaviour
         for(int i=1;i<HowManyPlayers;i++) {
             SelectPlayers[i].gameObject.SetActive(false);
         }
-        MovePlayer(SettingsButtons);
+        MovePlayerBetter(SettingsButtons);
         CheckCoordinateValue(SettingsButtons.Count);
         PressButton(SettingsButtons);
     }
@@ -169,33 +169,114 @@ public class ButtonSelect : MonoBehaviour
         float Closer = 999999;
         int indice = 999;
         int i = 0;
-        foreach(Button b in Buttons) {
+        float by;
+        float bx;
+        float sx;
+        float sy;
+        for(i=0;i<Buttons.Count;i++) {
+            by = Buttons[i].gameObject.transform.position.y;
+            bx = Buttons[i].gameObject.transform.position.x;
+            sy = SelectPlayers[Coord].gameObject.transform.position.y;
+            sx = SelectPlayers[Coord].gameObject.transform.position.x;
             if(d == 'V') {
                 if(sinal == 1) {
-                    if(b.gameObject.transform.position.y > SelectPlayers[Coord].gameObject.transform.position.y) {
-                        if(SelectPlayers[Coord].gameObject.transform.position.y -  b.gameObject.transform.position.y < Closer) {
-                            Closer = b.gameObject.transform.position.y;
+                    if(by > sy && bx == sx) {
+                        if(Mathf.Abs(sy - by) < Closer) {
+                            Closer = Mathf.Abs(sy - by);
+                            Debug.Log("Closer V+ " + Closer);
                             indice = i;
                         }
-                    } 
+                    }
                 }
                 else {
-                    if(b.gameObject.transform.position.y < Closer) {
-                        Closer = b.gameObject.transform.position.y;
-                        indice = i;
-                    }
+                    if(by < sy && bx == sx) {
+                        if(Mathf.Abs(sy - by) < Closer) {
+                            Closer = Mathf.Abs(sy - by);
+                            Debug.Log("Closer V- " + Closer);
+                            indice = i;
+                        }
+                    }  
                 }
             }
             else {
                 if(sinal == 1) {
-
+                    if(bx > sx && by == sy) {
+                        if(Mathf.Abs(sx - bx) < Closer) {
+                            Debug.Log("sx: " + sx);
+                            Debug.Log("bx: " + bx);
+                            Closer = Mathf.Abs(sx - bx);
+                            Debug.Log("Closer H+ " + Closer);
+                            indice = i;
+                        }
+                    }
                 }
                 else {
-
+                    if(bx < sx && by == sy) {
+                        if(Mathf.Abs(sx - bx) < Closer) {
+                            Debug.Log("sx: " + sx);
+                            Debug.Log("bx: " + bx);
+                            Closer = Mathf.Abs(sx - bx);
+                            Debug.Log("Closer H- " + Closer);
+                            indice = i;
+                        }
+                    }
                 }
             }
-            i++;
         }
+        if(indice == 999) {
+            Closer = 0;
+            for(i=0;i<Buttons.Count;i++) {
+                by = Buttons[i].gameObject.transform.position.y;
+                bx = Buttons[i].gameObject.transform.position.x;
+                sy = SelectPlayers[Coord].gameObject.transform.position.y;
+                sx = SelectPlayers[Coord].gameObject.transform.position.x;
+                if(d == 'V') {
+                    if(sinal == 1) {
+                        if(by < sy && bx == sx) {
+                            if(Mathf.Abs(sy - by) > Closer) {
+                                Closer = Mathf.Abs(sy - by);
+                                Debug.Log("Closer V+ " + Closer);
+                                indice = i;
+                            }
+                        }
+                    }
+                    else {
+                        if(by > sy && bx == sx) {
+                            if(Mathf.Abs(sy - by) > Closer) {
+                                Closer = Mathf.Abs(sy - by);
+                                Debug.Log("Closer V- " + Closer);
+                                indice = i;
+                            }
+                        }  
+                    }
+                }
+                else {
+                    if(sinal == 1) {
+                        if(bx < sx && by == sy) {
+                            if(Mathf.Abs(sx - bx) > Closer) {
+                                Debug.Log("sx: " + sx);
+                                Debug.Log("bx: " + bx);
+                                Closer = Mathf.Abs(sx - bx);
+                                Debug.Log("Closer H+ " + Closer);
+                                indice = i;
+                            }
+                        }
+                    }
+                    else {
+                        if(bx > sx && by == sy) {
+                            if(Mathf.Abs(sx - bx) > Closer) {
+                                Debug.Log("sx: " + sx);
+                                Debug.Log("bx: " + bx);
+                                Closer = Mathf.Abs(sx - bx);
+                                Debug.Log("Closer H- " + Closer);
+                                indice = i;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        Debug.Log("return "+ indice);
         return indice;
     }
     private void ChangeSize() {
