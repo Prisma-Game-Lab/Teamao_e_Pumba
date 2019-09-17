@@ -183,7 +183,6 @@ public class ButtonSelect : MonoBehaviour
                     if(by > sy && bx == sx) {
                         if(Mathf.Abs(sy - by) < Closer) {
                             Closer = Mathf.Abs(sy - by);
-                            Debug.Log("Closer V+ " + Closer);
                             indice = i;
                         }
                     }
@@ -192,7 +191,6 @@ public class ButtonSelect : MonoBehaviour
                     if(by < sy && bx == sx) {
                         if(Mathf.Abs(sy - by) < Closer) {
                             Closer = Mathf.Abs(sy - by);
-                            Debug.Log("Closer V- " + Closer);
                             indice = i;
                         }
                     }  
@@ -202,10 +200,7 @@ public class ButtonSelect : MonoBehaviour
                 if(sinal == 1) {
                     if(bx > sx && by == sy) {
                         if(Mathf.Abs(sx - bx) < Closer) {
-                            Debug.Log("sx: " + sx);
-                            Debug.Log("bx: " + bx);
                             Closer = Mathf.Abs(sx - bx);
-                            Debug.Log("Closer H+ " + Closer);
                             indice = i;
                         }
                     }
@@ -213,10 +208,7 @@ public class ButtonSelect : MonoBehaviour
                 else {
                     if(bx < sx && by == sy) {
                         if(Mathf.Abs(sx - bx) < Closer) {
-                            Debug.Log("sx: " + sx);
-                            Debug.Log("bx: " + bx);
                             Closer = Mathf.Abs(sx - bx);
-                            Debug.Log("Closer H- " + Closer);
                             indice = i;
                         }
                     }
@@ -235,7 +227,6 @@ public class ButtonSelect : MonoBehaviour
                         if(by < sy && bx == sx) {
                             if(Mathf.Abs(sy - by) > Closer) {
                                 Closer = Mathf.Abs(sy - by);
-                                Debug.Log("Closer V+ " + Closer);
                                 indice = i;
                             }
                         }
@@ -244,7 +235,6 @@ public class ButtonSelect : MonoBehaviour
                         if(by > sy && bx == sx) {
                             if(Mathf.Abs(sy - by) > Closer) {
                                 Closer = Mathf.Abs(sy - by);
-                                Debug.Log("Closer V- " + Closer);
                                 indice = i;
                             }
                         }  
@@ -254,10 +244,7 @@ public class ButtonSelect : MonoBehaviour
                     if(sinal == 1) {
                         if(bx < sx && by == sy) {
                             if(Mathf.Abs(sx - bx) > Closer) {
-                                Debug.Log("sx: " + sx);
-                                Debug.Log("bx: " + bx);
                                 Closer = Mathf.Abs(sx - bx);
-                                Debug.Log("Closer H+ " + Closer);
                                 indice = i;
                             }
                         }
@@ -265,10 +252,7 @@ public class ButtonSelect : MonoBehaviour
                     else {
                         if(bx > sx && by == sy) {
                             if(Mathf.Abs(sx - bx) > Closer) {
-                                Debug.Log("sx: " + sx);
-                                Debug.Log("bx: " + bx);
                                 Closer = Mathf.Abs(sx - bx);
-                                Debug.Log("Closer H- " + Closer);
                                 indice = i;
                             }
                         }
@@ -276,7 +260,6 @@ public class ButtonSelect : MonoBehaviour
                 }
             }
         }
-        Debug.Log("return "+ indice);
         return indice;
     }
     private void ChangeSize() {
