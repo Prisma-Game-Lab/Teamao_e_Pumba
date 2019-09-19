@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public Image TimerCircle;
     public List<Image> UIPlayers;
     public List<Text> ValueText;
-    static public int DefaultTempo = 60;
+    static public int DefaultTempo = 5;
     static public float DefaultProbabilidade = 30;
     static public int DefaultPontodeVitoria = 999999;
     private bool PlayersSelected;
@@ -247,6 +247,10 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ShowVictoryCanvas());
                 CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
+                Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                 ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "\n\n";
                 if(Players.transform.GetChild(2).gameObject.activeSelf) {
@@ -367,8 +371,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowVictoryCanvas() {
         yield return new WaitForSeconds(1);
-         VictoryCanvas.SetActive(true);
-         Time.timeScale = 0f;
+        VictoryCanvas.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void SetCharacterImage() {
