@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
+    public GameObject BFSCanvas;
 
     public GameObject pauseMenuUI;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !BFSCanvas.gameObject.activeSelf)
         {
             if (gameIsPaused)
             {
