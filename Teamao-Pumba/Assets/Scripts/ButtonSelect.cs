@@ -296,7 +296,7 @@ public class ButtonSelect : MonoBehaviour
         return false;
     }
     IEnumerator GrantAcess(int Player) {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         ControlAcess[Player] = true;
     }
 }

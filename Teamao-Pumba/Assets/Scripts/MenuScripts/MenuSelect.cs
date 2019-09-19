@@ -51,7 +51,7 @@ public class MenuSelect : MonoBehaviour
 
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
-            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].gameObject.activeSelf) {
+            if(Input.GetAxisRaw("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].gameObject.activeSelf) {
                 Buttons[CoordenadaPlayers[i]].onClick.Invoke();
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));
@@ -63,12 +63,12 @@ public class MenuSelect : MonoBehaviour
             SelectPlayers[i].transform.position = Buttons[CoordenadaPlayers[i]].transform.position;
         }
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
-            if(Input.GetAxis("Vertical" + (i+1).ToString()) > 0 && ControlAcess[i]) {
+            if(Input.GetAxisRaw("Vertical" + (i+1).ToString()) > 0 && ControlAcess[i]) {
                 CoordenadaPlayers[i]--;
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));
             }
-            if(Input.GetAxis("Vertical" + (i+1).ToString()) < 0 && ControlAcess[i]) {
+            if(Input.GetAxisRaw("Vertical" + (i+1).ToString()) < 0 && ControlAcess[i]) {
                 CoordenadaPlayers[i]++;
                 ControlAcess[i] = false;
                 StartCoroutine(GrantAcess(i));
@@ -110,7 +110,7 @@ public class MenuSelect : MonoBehaviour
         return false;
     }
     IEnumerator GrantAcess(int Player) {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSecondsRealtime(0.4f);
         ControlAcess[Player] = true;
     }
 }

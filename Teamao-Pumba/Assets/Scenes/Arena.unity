@@ -2155,6 +2155,10 @@ PrefabInstance:
       propertyPath: MenuButtons.Array.data[1]
       value: 
       objectReference: {fileID: 4838943974419923159}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
 --- !u!1001 &4838943974419923152
@@ -2242,11 +2246,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164788}
-    - target: {fileID: 4838943975321359686, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6463685650350324826, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2260,11 +2259,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164788}
-    - target: {fileID: 2888663220066809205, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 333523074, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2279,11 +2273,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164789}
-    - target: {fileID: 4838943973843829779, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1466982587}
     - target: {fileID: 4838943974815005117, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2344,76 +2333,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 695164789}
-    - target: {fileID: 8586036245724521420, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838943975637895249, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838943974139729799, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 404363424, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_Text
-      value: 30%
-      objectReference: {fileID: 0}
-    - target: {fileID: 1195756804, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_Text
-      value: 10%
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988165793, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_Text
-      value: 20%
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221462820282012882, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_Text
-      value: 80%
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923568876958842340, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u221E"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923568876958842340, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923568876958842340, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923568876958842340, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 4316831480085299546, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1466982587}
-    - target: {fileID: 8371334599520547339, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -175
-      objectReference: {fileID: 0}
-    - target: {fileID: 431600869, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 661
-      objectReference: {fileID: 0}
-    - target: {fileID: 1758814710, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 661
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
 --- !u!114 &4838943974419923153 stripped
