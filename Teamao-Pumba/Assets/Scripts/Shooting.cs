@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
     private PointSystemPai pontos;
 
     public float shotCooldown;
-    public GameObject projectile;
+    public Component projectile;
 
     private void Start()
     {
@@ -46,11 +46,14 @@ public class Shooting : MonoBehaviour
 
     private void Atira()
     {
-        Transform t = this.GetComponent<CharacterSelect>().personagem;
-        GameObject p = Instantiate(projectile, t.position + (Vector3.up)*0.5f, t.rotation);
-        p.SetActive(true);
+        Transform personagem = this.gameObject.GetComponent<CharacterSelect>().personagem.GetComponent<Transform>();
+
+        Component p = Instantiate(projectile, personagem.position + Vector3.up * 0.3f, personagem.rotation);
+        p.gameObject.SetActive(true);
         p.GetComponent<ProjectileBehavior>().dono = this.GetComponent<GameObject>();
-        pontos.VirtualPoints -= 1;
+        pontos.VirtualPoints = pontos.VirtualPoints - 1;
+
+        p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
     }
 }
 
