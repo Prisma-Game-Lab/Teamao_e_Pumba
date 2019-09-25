@@ -12,14 +12,17 @@ public class Shooting : MonoBehaviour
 {
 
     private float timeSinceLastShot;
-    private PointSystemPai pontos;
+    private PointSystem pontos;
+    private GameManager gm;
 
     public float shotCooldown;
     public Component projectile;
+  
+
 
     private void Start()
     {
-        pontos = this.GetComponent<PointSystemPai>();
+        gm = FindObjectOfType<GameManager>();
     }
     void Update()
     {
@@ -36,10 +39,13 @@ public class Shooting : MonoBehaviour
             timeSinceLastShot += Time.deltaTime;
         }
     }
-    public bool PodeAtirar() { 
-    
-        if(pontos.VirtualPoints > 0){
-            return (timeSinceLastShot >= shotCooldown);
+    public bool PodeAtirar() {
+
+        if (gm.Countdown < 0) {
+            pontos = this.GetComponentInChildren<PointSystem>();
+            if (pontos.VirtualPoints > 0) {
+                return (timeSinceLastShot >= shotCooldown);
+            }
         }
         return false;
     }
@@ -51,7 +57,8 @@ public class Shooting : MonoBehaviour
         Component p = Instantiate(projectile, personagem.position + Vector3.up * 0.3f, personagem.rotation);
         p.gameObject.SetActive(true);
         p.GetComponent<ProjectileBehavior>().dono = this.GetComponent<GameObject>();
-        pontos.VirtualPoints = pontos.VirtualPoints - 1;
+
+        personagem.GetComponent<PointSystem>().VirtualPoints -= 1;
 
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
     }
