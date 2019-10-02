@@ -54,9 +54,8 @@ public class Shooting : MonoBehaviour
     {
         Transform personagem = this.gameObject.GetComponent<CharacterSelect>().personagem.GetComponent<Transform>();
 
-        Component p = Instantiate(projectile, personagem.position + Vector3.up * 0.3f, personagem.rotation);
+        Component p = Instantiate(projectile, personagem.position + personagem.forward * 0.1f + Vector3.up * 0.3f, personagem.rotation);
         p.gameObject.SetActive(true);
-        p.GetComponent<ProjectileBehavior>().dono = this.GetComponent<GameObject>();
 
         personagem.GetComponent<PointSystem>().VirtualPoints -= 1;
 

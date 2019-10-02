@@ -62,5 +62,18 @@ public class MovimentAxis : MonoBehaviour
 
     private Vector3 RotationDirection => Vector3.RotateTowards(transform.forward, Direction(), rotationSpeed * Time.deltaTime, 0);
 
+    public void stunSelf(float stunDuration)
+    {
+        StartCoroutine(stunRoutine(stunDuration));
+    }
+    IEnumerator stunRoutine(float stunDuration)
+    {
+        float oldSpeed = this.movementSpeed;
+        this.movementSpeed = 0.0f;
+        yield return new WaitForSeconds(stunDuration);
+        Debug.Log("stunDuration over");
+        this.movementSpeed = oldSpeed;
+    }
+
 
 }

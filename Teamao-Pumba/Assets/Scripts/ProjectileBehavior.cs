@@ -10,10 +10,10 @@ Author: Nagib
 ***/
 public class ProjectileBehavior : MonoBehaviour
 {
-    [HideInInspector]
-    public GameObject dono;
 
     public float projectileSpeed;
+    public float stunDuration;
+
     void Start()
     {
         
@@ -25,12 +25,21 @@ public class ProjectileBehavior : MonoBehaviour
         this.transform.position += this.transform.forward * Time.deltaTime * projectileSpeed;
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject != dono)
+
+        print("Trigger!\n");
+        Destroy(this.gameObject);
+
+        print(other.gameObject.tag.Substring(0, 6));
+
+        if (other.gameObject.tag.Substring(0, 6) == "Player")
         {
-            Destroy(this);
+            other.GetComponent<MovimentAxis>().stunSelf(stunDuration);
         }
     }
+
+
+
 
 }
