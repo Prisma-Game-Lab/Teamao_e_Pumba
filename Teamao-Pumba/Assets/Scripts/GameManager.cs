@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
-    public Text Timer;
-    public Image TimerCircle;
+    public Text Timer; // Timer do Jogo
+    public Image TimerCircle; // Imagem do circulo
     public List<Image> UIPlayers;
     public List<Text> ValueText;
     static public int DefaultTempo = 5;
@@ -316,10 +316,9 @@ public class GameManager : MonoBehaviour
     private int SegundoMelhor() { // Pega o Segundo melhor jogador
         int sm = 0;
         List<GameObject> list = new List<GameObject>();
-        list.Add(Players.transform.GetChild(0).gameObject);
-        list.Add(Players.transform.GetChild(1).gameObject);
-        list.Add(Players.transform.GetChild(2).gameObject);
-        list.Add(Players.transform.GetChild(3).gameObject);
+        for(int i=0;i<4;i++) {
+             list.Add(Players.transform.GetChild(i).gameObject);
+        }
         foreach(GameObject g in list) {
             if(g.GetComponent<PointSystemPai>().RealPoints > sm) {
                 sm = g.GetComponent<PointSystemPai>().RealPoints;
@@ -413,10 +412,9 @@ public class GameManager : MonoBehaviour
         }
     }
     private void SetEspinhos() {
-        Espinhos.transform.GetChild(0).gameObject.SetActive(true);
-        Espinhos.transform.GetChild(1).gameObject.SetActive(true);
-        Espinhos.transform.GetChild(2).gameObject.SetActive(true);
-        Espinhos.transform.GetChild(3).gameObject.SetActive(true);
+        for(int i=0;i<4;i++) {
+            Espinhos.transform.GetChild(i).gameObject.SetActive(true);
+        }
     }
     private void CheckCurrentValues() {
         ValueText[0].text = DefaultTempo.ToString();
