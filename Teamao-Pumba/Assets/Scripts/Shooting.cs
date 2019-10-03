@@ -59,6 +59,7 @@ public class Shooting : MonoBehaviour
 
         personagem.GetComponent<PointSystem>().VirtualPoints -= 1;
 
+        p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
     }
 }

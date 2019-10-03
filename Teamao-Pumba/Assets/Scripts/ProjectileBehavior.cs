@@ -13,6 +13,8 @@ public class ProjectileBehavior : MonoBehaviour
 
     public float projectileSpeed;
     public float stunDuration;
+    [HideInInspector]
+    public GameObject dono;
 
     void Start()
     {
@@ -27,15 +29,17 @@ public class ProjectileBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        print("Trigger!\n");
-        Destroy(this.gameObject);
-
-        print(other.gameObject.tag.Substring(0, 6));
-
-        if (other.gameObject.tag.Substring(0, 6) == "Player")
+        if (other.gameObject != dono)
         {
-            other.GetComponent<MovimentAxis>().stunSelf(stunDuration);
+            print("Trigger!\n");
+            Destroy(this.gameObject);
+
+            print(other.gameObject.tag.Substring(0, 6));
+
+            if (other.gameObject.tag.Substring(0, 6) == "Player")
+            {
+                other.GetComponent<MovimentAxis>().stunSelf(stunDuration);
+            }
         }
     }
 

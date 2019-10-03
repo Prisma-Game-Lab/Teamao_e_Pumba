@@ -8,6 +8,8 @@ public class MovimentAxis : MonoBehaviour
     public float movementSpeed = 10.0f;
     public float rotationSpeed = 10.0f;
 
+    private bool stunned = false;
+
     void FixedUpdate()
     {
         anim = this.GetComponent<Animator>();
@@ -36,7 +38,8 @@ public class MovimentAxis : MonoBehaviour
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
 
-        transform.position += Direction() * Time.deltaTime;
+        if(!stunned)
+            transform.position += Direction() * Time.deltaTime;
         transform.rotation = Rotation;
 
     }
@@ -69,10 +72,10 @@ public class MovimentAxis : MonoBehaviour
     IEnumerator stunRoutine(float stunDuration)
     {
         float oldSpeed = this.movementSpeed;
-        this.movementSpeed = 0.0f;
+        this.stunned = true;
         yield return new WaitForSeconds(stunDuration);
         Debug.Log("stunDuration over");
-        this.movementSpeed = oldSpeed;
+        this.stunned = false;
     }
 
 
