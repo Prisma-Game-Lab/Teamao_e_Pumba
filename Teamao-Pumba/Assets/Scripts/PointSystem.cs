@@ -57,4 +57,14 @@ public class PointSystem : MonoBehaviour
             transform.GetChild(2).gameObject.SetActive(false);
         }
     }
+
+
+    public void loosePoints(int i)
+    {
+        for (; i > 0; i--)
+        {
+            transform.GetChild(VirtualPoints - 1).gameObject.SetActive(false);
+            VirtualPoints -= 1;
+        }
+    }
 }
