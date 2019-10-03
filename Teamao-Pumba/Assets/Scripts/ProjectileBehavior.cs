@@ -31,10 +31,7 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (other.gameObject != dono)
         {
-            print("Trigger!\n");
             Destroy(this.gameObject);
-
-            print(other.gameObject.tag.Substring(0, 6));
 
             if (other.gameObject.tag.Substring(0, 6) == "Player")
             {

@@ -67,15 +67,19 @@ public class MovimentAxis : MonoBehaviour
 
     public void stunSelf(float stunDuration)
     {
-        StartCoroutine(stunRoutine(stunDuration));
+        if (!stunned)
+        {
+            StartCoroutine(stunRoutine(stunDuration));
+        }
+
     }
     IEnumerator stunRoutine(float stunDuration)
     {
-        float oldSpeed = this.movementSpeed;
-        this.stunned = true;
-        yield return new WaitForSeconds(stunDuration);
-        Debug.Log("stunDuration over");
-        this.stunned = false;
+            this.stunned = true;
+
+            yield return new WaitForSeconds(stunDuration);
+
+            this.stunned = false;
     }
 
 
