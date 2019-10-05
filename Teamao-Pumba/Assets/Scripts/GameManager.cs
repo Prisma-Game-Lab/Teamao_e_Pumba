@@ -180,6 +180,7 @@ public class GameManager : MonoBehaviour
             gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
             CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
             CharacterSelect.transform.parent.gameObject.SetActive(false);
+            CharacterSelect.gameObject.SetActive(false);
             SettingsCanvas.SetActive(false);
             PointsCanvas.SetActive(true);
             for(int i=0;i<4;i++) {
