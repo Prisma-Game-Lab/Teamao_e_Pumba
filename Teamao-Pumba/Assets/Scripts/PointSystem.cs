@@ -16,6 +16,7 @@ public class PointSystem : MonoBehaviour
     public int VirtualPoints; // Quantidade de itens sendo carregados
     public GameObject MyBase;
     public int MaxItem;
+    [HideInInspector]
     public int PlayerPoints; // Pontuação que o player vale
     public int Ammo; // Quantidade de itens por cartuchos
     public int ItemPerSecond; // Items entregues a base por segundo
@@ -30,14 +31,13 @@ public class PointSystem : MonoBehaviour
     }
     void Update()
     {
-        
+        PlayerPoints = VirtualPoints/2 + 15;
     }
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Item") {
             if(VirtualPoints < MaxItem) {
                 VirtualPoints += Ammo;
-                PlayerPoints += VirtualPoints/2;
                 Destroy(other.gameObject);
             }
             
@@ -45,11 +45,14 @@ public class PointSystem : MonoBehaviour
         if(other.gameObject == MyBase) {
             TouchingBase = true;
         }
-        else {
-            TouchingBase = false;
-        }
         if(other.gameObject.tag == "Espinho") {
             
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if(other.gameObject == MyBase) {
+            TouchingBase = false;
         }
     }
     public void loosePoints()
