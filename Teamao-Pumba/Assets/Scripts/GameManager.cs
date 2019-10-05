@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject SettingsCanvas; // O canvas contendo as Settings do jogo
     public GameObject VictoryCanvas; // O canvas de fim de jogo
     public GameObject PointsCanvas; // O canvas de Pontos
-    public GameObject CarryCanvas; // O canvas dos itens sendo carregados
+    public GameObject AboveHeadCanvas; // O canvas em cima do Player
     public Text ResultText; // Texto do resultado da partida
     public Text ErrorText; // Um texto de erro caso o jogo comece sem escolher a quantidade de jogadores
     public Text CountdownTimer; // Countdown antes de comecar o jogo
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     public Image TimerCircle; // Imagem do circulo
     public List<Image> UIPlayers;
     public List<Text> ValueText;
-    static public int DefaultTempo = 5;
-    static public float DefaultProbabilidade = 30;
-    static public int DefaultPontodeVitoria = 999999;
+    static public int DefaultTempo = 999999;
+    static public float DefaultProbabilidade = 0;
+    static public int DefaultPontodeVitoria = 500;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
                             if(Players.transform.GetChild(i).gameObject.activeSelf) {
                                 PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
                                 Bases.transform.GetChild(i).gameObject.SetActive(true);
-                                CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                                AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
                                 SetCharacterImage();
                                 ResetaCoordenada();
                             }
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
                 if(Players.transform.GetChild(i).gameObject.activeSelf) {
                     PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
                     Bases.transform.GetChild(i).gameObject.SetActive(true);
-                    CarryCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                    AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
                     SetCharacterImage();
                     ResetaCoordenada();
                 }
@@ -211,7 +211,7 @@ public class GameManager : MonoBehaviour
         for(int i=0;i<4;i++) {
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
             Bases.transform.GetChild(i).gameObject.SetActive(false);
-            CarryCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(false);
             Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
             Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
             Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
@@ -359,12 +359,13 @@ public class GameManager : MonoBehaviour
     private void ShowPoints() {
         for(int i=0;i<4;i++) {
             PointsCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
-            CarryCanvas.transform.GetChild(i).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
+            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().PlayerPoints.ToString();
+            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem) {
-                CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
+                //CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
             }
             else {
-                CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(false);
+                //CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(false);
             }
         }
     }

@@ -25,6 +25,7 @@ public class ProjectileBehavior : MonoBehaviour
     void Update()
     {
         this.transform.position += this.transform.forward * Time.deltaTime * projectileSpeed;
+        StartCoroutine(DestroyThis());
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,10 +37,17 @@ public class ProjectileBehavior : MonoBehaviour
             if (other.gameObject.tag.Substring(0, 6) == "Player")
             {
                 other.GetComponent<MovimentAxis>().stunSelf(stunDuration);
+               if(!other.GetComponent<PointSystem>().IsInvuneravel()) {
+                   dono.GetComponent<PointSystem>().GivePoints(other.GetComponent<PointSystem>().PlayerPoints);
+                   other.GetComponent<PointSystem>().GetShot();
+               }
             }
         }
     }
-
+    IEnumerator DestroyThis() {
+        yield return new WaitForSeconds(6);
+        Destroy(this.gameObject);
+    }
 
 
 

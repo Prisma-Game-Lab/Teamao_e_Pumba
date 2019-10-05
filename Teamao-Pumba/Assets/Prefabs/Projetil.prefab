@@ -106,4 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 5
-  stunDuration: 5
+  stunDuration: 1.5
+  dono: {fileID: 0}

@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour
         Component p = Instantiate(projectile, personagem.position + personagem.forward * 0.1f + Vector3.up * 0.3f, personagem.rotation);
         p.gameObject.SetActive(true);
 
-        personagem.GetComponent<PointSystem>().loosePoints(1);
+        personagem.GetComponent<PointSystem>().loosePoints();
 
         p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
