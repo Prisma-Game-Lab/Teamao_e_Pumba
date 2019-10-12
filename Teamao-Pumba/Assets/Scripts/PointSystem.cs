@@ -19,19 +19,22 @@ public class PointSystem : MonoBehaviour
     [HideInInspector]
     public int PlayerPoints; // Pontuação que o player vale
     public int Ammo; // Quantidade de itens por cartuchos
-    public int ItemPerSecond; // Items entregues a base por segundo
+    public int ItemDelivered; // Items entregues a base
+    public int TimeToDeliver; // Tempo para entregar os itens
+    public int PointsPerShoot; // Pontos ganhos ao acertar alguem
     private bool TouchingBase = false;
     private bool invuneravel = false;
+    private float TimeDeliver = 0; // Contador de tempo na base
 
     void Start()
     {
         VirtualPoints = 0;
         RealPoints = 0;
-        InvokeRepeating("GiveBase",3,1);
     }
     void Update()
     {
-        PlayerPoints = VirtualPoints/2 + 15;
+        PlayerPoints = VirtualPoints/2 + PointsPerShoot;
+        GiveBase();
     }
     void OnCollisionEnter(Collision other)
     {
@@ -61,14 +64,21 @@ public class PointSystem : MonoBehaviour
     }
     private void GiveBase() {
         if(TouchingBase && VirtualPoints != 0) {
-            RealPoints += ItemPerSecond;
-            VirtualPoints -= ItemPerSecond;
+            TimeDeliver += Time.deltaTime;
+            if(TimeDeliver >= TimeToDeliver) {
+                RealPoints += ItemDelivered;
+                VirtualPoints -= ItemDelivered;
+                TimeDeliver = 0;
+            }
+        }
+        else {
+            TimeDeliver = 0;
         }
     }
 
     public void GetShot() {
         VirtualPoints = (VirtualPoints*2)/3;
-        PlayerPoints = 15;
+        PlayerPoints = PointsPerShoot;
         StartCoroutine(invunerabilidade());
     }
 
