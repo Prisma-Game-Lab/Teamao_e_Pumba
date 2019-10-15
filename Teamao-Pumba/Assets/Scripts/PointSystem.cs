@@ -16,6 +16,15 @@ public class PointSystem : MonoBehaviour
     public int VirtualPoints; // Quantidade de itens sendo carregados
     public GameObject MyBase;
     public int MaxItem;
+    [HideInInspector]
+    public int PlayerPoints; // Pontuação que o player vale
+    public int Ammo; // Quantidade de itens por cartuchos
+    public int ItemDelivered; // Items entregues a base
+    public int TimeToDeliver; // Tempo para entregar os itens
+    public int PointsPerShoot; // Pontos ganhos ao acertar alguem
+    private bool TouchingBase = false;
+    private bool invuneravel = false;
+    private float TimeDeliver = 0; // Contador de tempo na base
 
     void Start()
     {
@@ -24,47 +33,69 @@ public class PointSystem : MonoBehaviour
     }
     void Update()
     {
-        if(VirtualPoints >= 1) {
-            transform.GetChild(0).gameObject.SetActive(true);
-        }
-        if(VirtualPoints >= 2) {
-            transform.GetChild(1).gameObject.SetActive(true);
-        }
-        if(VirtualPoints >= 3) {
-            transform.GetChild(2).gameObject.SetActive(true);
-        }
+        PlayerPoints = VirtualPoints/2 + PointsPerShoot;
+        GiveBase();
     }
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Item") {
             if(VirtualPoints < MaxItem) {
-                VirtualPoints++;
+                VirtualPoints += Ammo;
                 Destroy(other.gameObject);
             }
             
         }
         if(other.gameObject == MyBase) {
-            RealPoints += VirtualPoints;
-            VirtualPoints = 0;
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(false);
+            TouchingBase = true;
         }
         if(other.gameObject.tag == "Espinho") {
-            VirtualPoints = 0;
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(false);
+            
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if(other.gameObject == MyBase) {
+            TouchingBase = false;
+        }
+    }
+    public void loosePoints()
+    {
+        VirtualPoints--;
+    }
+    private void GiveBase() {
+        if(TouchingBase && VirtualPoints != 0) {
+            TimeDeliver += Time.deltaTime;
+            if(TimeDeliver >= TimeToDeliver) {
+                RealPoints += ItemDelivered;
+                VirtualPoints -= ItemDelivered;
+                TimeDeliver = 0;
+            }
+        }
+        else {
+            TimeDeliver = 0;
         }
     }
 
+    public void GetShot() {
+        VirtualPoints = (VirtualPoints*2)/3;
+        PlayerPoints = PointsPerShoot;
+        StartCoroutine(invunerabilidade());
+    }
 
-    public void loosePoints(int i)
-    {
-        for (; i > 0; i--)
-        {
-            transform.GetChild(VirtualPoints - 1).gameObject.SetActive(false);
-            VirtualPoints -= 1;
+    public void GivePoints(int Ponto) {
+        RealPoints += Ponto;
+    }
+
+    IEnumerator invunerabilidade() {
+        invuneravel = true;
+        yield return new WaitForSeconds(3);
+        invuneravel = false;
+    }
+
+    public bool IsInvuneravel() {
+        if(invuneravel) {
+            return true;
         }
+        return false;
     }
 }

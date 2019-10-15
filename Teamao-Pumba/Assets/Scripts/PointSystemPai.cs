@@ -11,12 +11,12 @@ public class PointSystemPai : MonoBehaviour
     private GameObject Personagem;
     [HideInInspector]
     public int MaxItem;
+    [HideInInspector]
+    public int PlayerPoints;
 
     void Start()
     {
         Personagem = gameObject.transform.GetChild(0).gameObject;
-        VirtualPoints = 0;
-        RealPoints = 0;
     }
 
     
@@ -27,6 +27,7 @@ public class PointSystemPai : MonoBehaviour
                 Personagem = gameObject.transform.GetChild(i).gameObject;
             }
         }
+        PlayerPoints = Personagem.GetComponent<PointSystem>().PlayerPoints;
         VirtualPoints = Personagem.GetComponent<PointSystem>().VirtualPoints;
         RealPoints = Personagem.GetComponent<PointSystem>().RealPoints;
         MaxItem = Personagem.GetComponent<PointSystem>().MaxItem;
