@@ -26,11 +26,11 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if(((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && gameObject.name == "Tucano") {
+            if(((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara")) {
                 anim.SetBool("running", true);
             }
             else {
-                if(gameObject.name == "Tucano") {
+                if(gameObject.name == "Tucano" || gameObject.name == "Capivara") {
                     anim.SetBool("running", false);
                 }
             }

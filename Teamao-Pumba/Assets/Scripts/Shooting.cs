@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     public float shotCooldown;
     public Component projectile;
   
+    Animator anim;
 
 
     private void Start()
@@ -61,6 +62,9 @@ public class Shooting : MonoBehaviour
 
         p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
+
+        anim = this.GetComponentInChildren<Animator>();
+        anim.SetTrigger("throw");
     }
 }
 

@@ -91,8 +91,8 @@ public class ButtonSelect : MonoBehaviour
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
                    PlayersWithCharacter[i] = true;
                 }
-                if(Buttons[CoordenadaPlayers[i]].name == "CylinderButton") {
-                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cylinder");
+                if(Buttons[CoordenadaPlayers[i]].name == "CapivaraButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capivara");
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(true);
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
