@@ -17,8 +17,9 @@ public class Shooting : MonoBehaviour
 
     public float shotCooldown;
     public Component projectile;
-  
-    Animator anim;
+    public float projectileSpeedBase;
+    public float projectileSpeedMultiplier;
+
 
 
     private void Start()
@@ -40,11 +41,14 @@ public class Shooting : MonoBehaviour
             timeSinceLastShot += Time.deltaTime;
         }
     }
-    public bool PodeAtirar() {
+    public bool PodeAtirar()
+    {
 
-        if (gm.Countdown < 0) {
+        if (gm.Countdown < 0)
+        {
             pontos = this.GetComponentInChildren<PointSystem>();
-            if (pontos.VirtualPoints > 0) {
+            if (pontos.VirtualPoints > 0)
+            {
                 return (timeSinceLastShot >= shotCooldown);
             }
         }
@@ -55,16 +59,16 @@ public class Shooting : MonoBehaviour
     {
         Transform personagem = this.gameObject.GetComponent<CharacterSelect>().personagem.GetComponent<Transform>();
 
+        float ms = personagem.GetComponent<MovimentAxis>().movementSpeed;
+
         Component p = Instantiate(projectile, personagem.position + personagem.forward * 0.1f + Vector3.up * 0.3f, personagem.rotation);
         p.gameObject.SetActive(true);
 
         personagem.GetComponent<PointSystem>().loosePoints();
 
         p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
+        p.GetComponent<ProjectileBehavior>().projectileSpeed = (ms * projectileSpeedMultiplier) + projectileSpeedBase;
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
-
-        anim = this.GetComponentInChildren<Animator>();
-        anim.SetTrigger("throw");
     }
 }
 
