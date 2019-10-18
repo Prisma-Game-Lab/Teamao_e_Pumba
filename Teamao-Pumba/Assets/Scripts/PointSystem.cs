@@ -33,7 +33,7 @@ public class PointSystem : MonoBehaviour
     }
     void Update()
     {
-        PlayerPoints = VirtualPoints/2 + PointsPerShoot;
+        PlayerPoints = VirtualPoints;
         GiveBase();
     }
     void OnCollisionEnter(Collision other)
