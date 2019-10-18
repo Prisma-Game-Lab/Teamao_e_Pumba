@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     public float projectileSpeedBase;
     public float projectileSpeedMultiplier;
 
-
+    Animator anim;
 
     private void Start()
     {
@@ -69,6 +69,9 @@ public class Shooting : MonoBehaviour
         p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
         p.GetComponent<ProjectileBehavior>().projectileSpeed = (ms * projectileSpeedMultiplier) + projectileSpeedBase;
         p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
+
+        anim = this.GetComponentInChildren<Animator>();
+        anim.SetTrigger("throw");
     }
 }
 
