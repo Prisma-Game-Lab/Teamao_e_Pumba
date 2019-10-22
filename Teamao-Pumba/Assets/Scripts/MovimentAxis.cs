@@ -45,6 +45,15 @@ public class MovimentAxis : MonoBehaviour
             transform.position += Direction() * Time.deltaTime;
         transform.rotation = Rotation;
 
+
+    }
+    private void Update()
+    {
+        if (IsMoving == false)
+        {
+            Debug.Log("PARADO!!");
+            anim.SetBool("running", false);
+        }
     }
 
     private bool IsMoving => Direction() != Vector3.zero;
