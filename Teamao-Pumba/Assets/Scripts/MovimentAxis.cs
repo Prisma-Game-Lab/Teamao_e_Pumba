@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovimentAxis : MonoBehaviour
 {
     private Animator anim;
-    public float movementSpeed = 10.0f;
-    public float rotationSpeed = 10.0f;
+    public float movementSpeed;
+    public float rotationSpeed;
 
     private bool stunned = false;
 
@@ -26,11 +26,14 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if(((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara")) {
+            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara"))
+            {
                 anim.SetBool("running", true);
             }
-            else {
-                if(gameObject.name == "Tucano" || gameObject.name == "Capivara") {
+            else
+            {
+                if (gameObject.name == "Tucano" || gameObject.name == "Capivara")
+                {
                     anim.SetBool("running", false);
                 }
             }
@@ -38,7 +41,7 @@ public class MovimentAxis : MonoBehaviour
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
 
-        if(!stunned)
+        if (!stunned)
             transform.position += Direction() * Time.deltaTime;
         transform.rotation = Rotation;
 
@@ -75,11 +78,11 @@ public class MovimentAxis : MonoBehaviour
     }
     IEnumerator stunRoutine(float stunDuration)
     {
-            this.stunned = true;
+        this.stunned = true;
 
-            yield return new WaitForSeconds(stunDuration);
+        yield return new WaitForSeconds(stunDuration);
 
-            this.stunned = false;
+        this.stunned = false;
     }
 
 
