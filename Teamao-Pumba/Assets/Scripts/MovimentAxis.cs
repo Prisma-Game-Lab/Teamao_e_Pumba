@@ -51,7 +51,6 @@ public class MovimentAxis : MonoBehaviour
     {
         if (IsMoving == false)
         {
-            Debug.Log("PARADO!!");
             anim.SetBool("running", false);
         }
     }
