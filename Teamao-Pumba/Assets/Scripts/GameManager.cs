@@ -107,11 +107,11 @@ public class GameManager : MonoBehaviour
         
     }
     private bool Next2Helper() {
-        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
-            if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
-                return false;
-            }
-        }
+        // for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
+        //     if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
+        //         return false;
+        //     }
+        // }
         return true;
     }
     public void Previous() { // Volta para a tela de numero de jogadores
