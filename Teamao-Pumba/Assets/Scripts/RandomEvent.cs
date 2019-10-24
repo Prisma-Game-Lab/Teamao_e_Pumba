@@ -61,10 +61,10 @@ public class RandomEvent : MonoBehaviour
     }
     private void EventFastPlayer() { 
         for(int i=0;i<4;i++) {
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
-            gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed *= MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed += MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed += MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed += MoveSpeedPlus;
+            gameObject.GetComponent<GameManager>().Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed += MoveSpeedPlus;
         }
     }
     private void EventMoreLessTime() {

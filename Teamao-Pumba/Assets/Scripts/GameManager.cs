@@ -107,11 +107,11 @@ public class GameManager : MonoBehaviour
         
     }
     private bool Next2Helper() {
-        for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
-            if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
-                return false;
-            }
-        }
+        // for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
+        //     if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
+        //         return false;
+        //     }
+        // }
         return true;
     }
     public void Previous() { // Volta para a tela de numero de jogadores
@@ -359,8 +359,7 @@ public class GameManager : MonoBehaviour
     private void ShowPoints() {
         for(int i=0;i<4;i++) {
             PointsCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
-            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().PlayerPoints.ToString();
-            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
+            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString();
             if(Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem) {
                 //CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
             }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ClampName : MonoBehaviour
 {
-    public Text nameLabel;
+    public Image nameLabel;
 
     void Update()
     {

@@ -14,7 +14,7 @@ ModelImporter:
     second: Capivara_Throw
   - first:
       74: 4594303134292970328
-    second: Armature|ArmatureAction
+    second: Capivara Stunned
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -131,18 +131,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction
+      name: Capivara Stunned
       takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 0
-      lastFrame: 138
+      firstFrame: 160
+      lastFrame: 168
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

@@ -5,10 +5,20 @@ using UnityEngine;
 public class MovimentAxis : MonoBehaviour
 {
     private Animator anim;
+    public GameObject StunUI;
     public float movementSpeed;
     public float rotationSpeed;
 
     private bool stunned = false;
+
+    //Troca de textura pro stun
+    public Texture MainTexture, StunTexture;
+    public GameObject corpo; 
+    Renderer renderer;
+
+    void Start(){
+        renderer = corpo.GetComponent<Renderer> ();
+    }
 
     void FixedUpdate()
     {
@@ -26,13 +36,13 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara"))
+            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
             {
                 anim.SetBool("running", true);
             }
             else
             {
-                if (gameObject.name == "Tucano" || gameObject.name == "Capivara")
+                if (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico")
                 {
                     anim.SetBool("running", false);
                 }
@@ -40,18 +50,27 @@ public class MovimentAxis : MonoBehaviour
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-
-        if (!stunned)
-            transform.position += Direction() * Time.deltaTime;
+        
         transform.rotation = Rotation;
 
 
     }
-    private void Update()
+    void Update()
     {
-        if (IsMoving == false)
+        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
         {
             anim.SetBool("running", false);
+        }
+        if(stunned) {
+            StunUI.SetActive(true);
+            anim.SetBool("stunned", true);
+            renderer.material.SetTexture("_MainTex", StunTexture);
+        }
+        if (!stunned) {
+            StunUI.SetActive(false);
+            transform.position += Direction() * Time.deltaTime;
+            anim.SetBool("stunned", false);
+            renderer.material.SetTexture("_MainTex", MainTexture);
         }
     }
 
