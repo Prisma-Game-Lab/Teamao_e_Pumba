@@ -57,10 +57,10 @@ public class MovimentAxis : MonoBehaviour
     }
     void Update()
     {
-        // if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
-        // {
-        //     anim.SetBool("running", false);
-        // }
+        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
+        {
+            anim.SetBool("running", false);
+        }
         if(stunned) {
             StunUI.SetActive(true);
             anim.SetBool("stunned", true);
