@@ -1931,6 +1931,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 697505715, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 697505717, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
       propertyPath: nameLabel
       value: 
@@ -1969,6 +1973,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 7264462888691484642, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6845459457440252926, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1999,6 +2008,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 3644482649802520438, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3877692712493881787, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2029,7 +2043,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.13
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2025002786595180343, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4906572920551748021, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
+    - {fileID: 7331068862198795056, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
+    - {fileID: 8767822283423039843, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
+    - {fileID: 697505714, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
 --- !u!1 &1730184258665028077 stripped
 GameObject:
@@ -2751,6 +2774,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5454113755528608751, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseTimer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344590275926173069, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseTimer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6985869695608618225, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseTimer3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865432598211671646, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseTimer4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
 --- !u!114 &4838943974419923153 stripped
@@ -3124,6 +3167,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 899335908}
+    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3134,6 +3182,16 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923169}
+    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: TimeToDeliver
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3144,6 +3202,16 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
+    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: TimeToDeliver
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3154,6 +3222,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923170}
+    - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1309835953348021058, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -3184,6 +3257,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 899335908}
+    - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3194,6 +3272,16 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923169}
+    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: TimeToDeliver
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3204,6 +3292,16 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
+    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: TimeToDeliver
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -3214,6 +3312,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923170}
+    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: ItemDelivered
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3117973427331188053, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel

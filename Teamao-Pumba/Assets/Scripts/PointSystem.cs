@@ -42,7 +42,12 @@ public class PointSystem : MonoBehaviour
     {
         if(other.gameObject.tag == "Item") {
             if(VirtualPoints < MaxItem) {
-                VirtualPoints += Ammo;
+                if(VirtualPoints + Ammo > MaxItem) {
+                    VirtualPoints = MaxItem;
+                }
+                else {
+                    VirtualPoints += Ammo;
+                }
                 Destroy(other.gameObject);
             }
             
