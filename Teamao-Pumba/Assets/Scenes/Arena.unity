@@ -2619,18 +2619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2055715096 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4838943974115529266, guid: 81a407128f7daa44bbc739e22d6c4d61,
-    type: 3}
-  m_PrefabInstance: {fileID: 4838943974419923152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2078543755 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4838943975747191710, guid: 81a407128f7daa44bbc739e22d6c4d61,
@@ -3025,7 +3013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: CSButtons.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Players
@@ -3082,15 +3070,15 @@ PrefabInstance:
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: CSButtons.Array.data[3]
       value: 
-      objectReference: {fileID: 2055715096}
+      objectReference: {fileID: 264103848}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: CSButtons.Array.data[4]
       value: 
-      objectReference: {fileID: 982120812}
+      objectReference: {fileID: 4838943974419923167}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: CSButtons.Array.data[5]
       value: 
-      objectReference: {fileID: 264103848}
+      objectReference: {fileID: 982120812}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: SettingsButtons.Array.data[0]
       value: 
@@ -3379,6 +3367,11 @@ PrefabInstance:
       objectReference: {fileID: 1466982587}
     - target: {fileID: 7706175, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838943974115529264, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5543596949999233099, guid: 81a407128f7daa44bbc739e22d6c4d61,
