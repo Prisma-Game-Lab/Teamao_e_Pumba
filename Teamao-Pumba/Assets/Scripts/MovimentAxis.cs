@@ -49,7 +49,7 @@ public class MovimentAxis : MonoBehaviour
     }
     private void Update()
     {
-        if (IsMoving == false)
+        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara"))
         {
             anim.SetBool("running", false);
         }
