@@ -66,8 +66,14 @@ public class PointSystem : MonoBehaviour
         if(TouchingBase && VirtualPoints != 0) {
             TimeDeliver += Time.deltaTime;
             if(TimeDeliver >= TimeToDeliver) {
-                RealPoints += ItemDelivered;
-                VirtualPoints -= ItemDelivered;
+                if(ItemDelivered > VirtualPoints) {
+                    RealPoints += VirtualPoints;
+                    VirtualPoints = 0;
+                }
+                else {
+                    RealPoints += ItemDelivered;
+                    VirtualPoints -= ItemDelivered;
+                }
                 TimeDeliver = 0;
             }
         }
