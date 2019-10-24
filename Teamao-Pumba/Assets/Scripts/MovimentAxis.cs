@@ -22,7 +22,6 @@ public class MovimentAxis : MonoBehaviour
 
     void FixedUpdate()
     {
-        anim = this.GetComponent<Animator>();
         if (!IsMoving) return;
 
         float translationV = 0;
@@ -57,6 +56,7 @@ public class MovimentAxis : MonoBehaviour
     }
     void Update()
     {
+        anim = this.GetComponent<Animator>();
         if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
         {
             anim.SetBool("running", false);
