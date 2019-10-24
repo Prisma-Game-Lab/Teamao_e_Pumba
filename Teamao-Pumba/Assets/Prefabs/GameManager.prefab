@@ -56,7 +56,7 @@ MonoBehaviour:
   SettingsCanvas: {fileID: 0}
   VictoryCanvas: {fileID: 0}
   PointsCanvas: {fileID: 0}
-  CarryCanvas: {fileID: 0}
+  AboveHeadCanvas: {fileID: 0}
   ResultText: {fileID: 0}
   ErrorText: {fileID: 0}
   CountdownTimer: {fileID: 0}
@@ -64,6 +64,10 @@ MonoBehaviour:
   TimerCircle: {fileID: 0}
   UIPlayers:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ValueText:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -86,9 +90,9 @@ MonoBehaviour:
   Arena: {fileID: 0}
   Camera: {fileID: 0}
   Probabilidade: 0
-  DuracaoDoEvento: 1
-  CooldownDoEvento: 2
-  MoveSpeedPlus: 1.5
+  DuracaoDoEvento: 3
+  CooldownDoEvento: 6
+  MoveSpeedPlus: 0.5
   RotateSpeed: 1.5
   TempoVar: 5
 --- !u!114 &695164789
@@ -117,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item: {fileID: 6802746376239672555, guid: f527bccc594b1774595af2e01fd16db5, type: 3}
   Item_parent: {fileID: 0}
-  Item_qtd: 6
-  Cooldown: 3
+  Item_qtd: 5
+  Cooldown: 6
 --- !u!114 &695164791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +142,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   HMPButtons:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -165,7 +168,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   CoordenadaPlayers: 
   HowManyPlayers: 0
   PlayersWithCharacter: 
@@ -176,7 +178,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2386142500795320218}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a6e04a2bef6ad94a8d751db41b284b8, type: 3}
   m_Name: 
