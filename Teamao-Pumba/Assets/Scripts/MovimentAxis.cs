@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovimentAxis : MonoBehaviour
 {
     private Animator anim;
+    public GameObject StunUI;
     public float movementSpeed;
     public float rotationSpeed;
 
@@ -49,26 +50,27 @@ public class MovimentAxis : MonoBehaviour
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-        if(stunned) {
-            // Ta stunnado aqui
-            anim.SetBool("stunned", true);
-            renderer.material.SetTexture("_MainTex", StunTexture);
-        }
-        if (!stunned) {
-            transform.position += Direction() * Time.deltaTime;
-            // Nao ta stunado aqui
-            anim.SetBool("stunned", false);
-            renderer.material.SetTexture("_MainTex", MainTexture);
-        }
+        
         transform.rotation = Rotation;
 
 
     }
-    private void Update()
+    void Update()
     {
-        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
-        {
-            anim.SetBool("running", false);
+        // if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
+        // {
+        //     anim.SetBool("running", false);
+        // }
+        if(stunned) {
+            StunUI.SetActive(true);
+            anim.SetBool("stunned", true);
+            renderer.material.SetTexture("_MainTex", StunTexture);
+        }
+        if (!stunned) {
+            StunUI.SetActive(false);
+            transform.position += Direction() * Time.deltaTime;
+            anim.SetBool("stunned", false);
+            renderer.material.SetTexture("_MainTex", MainTexture);
         }
     }
 
