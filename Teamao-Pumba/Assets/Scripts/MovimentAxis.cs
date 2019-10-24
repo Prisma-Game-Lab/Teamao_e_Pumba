@@ -40,9 +40,13 @@ public class MovimentAxis : MonoBehaviour
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-
-        if (!stunned)
+        if(stunned) {
+            // Ta stunnado aqui
+        }
+        if (!stunned) {
             transform.position += Direction() * Time.deltaTime;
+            // Nao ta stunado aqui
+        }
         transform.rotation = Rotation;
 
 
