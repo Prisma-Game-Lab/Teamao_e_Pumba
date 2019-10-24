@@ -23,7 +23,7 @@ public class CharacterSelect : MonoBehaviour
 
         transform.Find("Tucano").gameObject.SetActive(false);
         transform.Find("Capivara").gameObject.SetActive(false);
-        transform.Find("Cube").gameObject.SetActive(false);
+        transform.Find("Lico").gameObject.SetActive(false);
         transform.Find("Capsule").gameObject.SetActive(false);
         personagem.SetActive(true);
         

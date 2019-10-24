@@ -99,8 +99,8 @@ public class ButtonSelect : MonoBehaviour
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
                    PlayersWithCharacter[i] = true;
                 }
-                if(Buttons[CoordenadaPlayers[i]].name == "CubeButton") {
-                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Cube");
+                if(Buttons[CoordenadaPlayers[i]].name == "LicoButton") {
+                   Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Lico");
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(true);
