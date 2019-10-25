@@ -962,12 +962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &490484446 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3340070666269192161, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7315081945119249244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &571658064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,6 +1551,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &966169805 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5728739030669427561, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7315081945119249244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &969335171 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 969335171, guid: 81a407128f7daa44bbc739e22d6c4d61,
@@ -4906,11 +4906,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
-    - target: {fileID: 3945177512769151337, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2904752202153849231, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4970,50 +4965,14 @@ PrefabInstance:
       propertyPath: MyBase
       value: 
       objectReference: {fileID: 1339927222}
-    - target: {fileID: 895285059, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 895285059, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 895285059, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1810218761, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
       propertyPath: MyBase
       value: 
       objectReference: {fileID: 329481901}
-    - target: {fileID: 1810218761, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810218761, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810218761, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 67387837, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
       propertyPath: MyBase
       value: 
       objectReference: {fileID: 49556097}
-    - target: {fileID: 67387837, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 67387837, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 67387837, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1234726454, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
       propertyPath: MyBase
       value: 
@@ -5022,14 +4981,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
-    - target: {fileID: 1234726454, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234726454, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5042,34 +4993,9 @@ PrefabInstance:
       objectReference: {fileID: 247623840}
     - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Collect
+      propertyPath: GetShotSound
       value: 
-      objectReference: {fileID: 1102547229}
-    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: BaseSound
-      value: 
-      objectReference: {fileID: 1109617717}
+      objectReference: {fileID: 966169805}
     - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5080,26 +5006,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 1585473879}
-    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5110,26 +5016,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
-    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5142,24 +5028,9 @@ PrefabInstance:
       objectReference: {fileID: 322452924}
     - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: GetShotSound
+      value: 
+      objectReference: {fileID: 966169805}
     - target: {fileID: 1309835953348021058, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -5180,11 +5051,6 @@ PrefabInstance:
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 1172659918}
-    - target: {fileID: 1345289883835681629, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5197,24 +5063,19 @@ PrefabInstance:
       objectReference: {fileID: 247623840}
     - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: Collect
+      value: 
+      objectReference: {fileID: 1102547229}
     - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: BaseSound
+      value: 
+      objectReference: {fileID: 1109617717}
     - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: GetShotSound
+      value: 
+      objectReference: {fileID: 966169805}
     - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5225,26 +5086,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 1585473879}
-    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5255,26 +5096,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
-    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5285,26 +5106,6 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 322452924}
-    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3117973427331188053, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -5325,176 +5126,51 @@ PrefabInstance:
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 1172659918}
-    - target: {fileID: 1456168544153643623, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1456168544153643623, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917460213722546348, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917460213722546348, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2328797317797504257, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2328797317797504257, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171498038417176097, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171498038417176097, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2223223293917178834, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 730736002}
     - target: {fileID: 2223223293917178834, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223223293917178834, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 730736002}
-    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: Steps
       value: 
       objectReference: {fileID: 782406814}
+    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 730736002}
     - target: {fileID: 6485820549127517451, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
-    - target: {fileID: 6485820549127517451, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6485820549127517451, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8019331249504904814, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
-    - target: {fileID: 8019331249504904814, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8019331249504904814, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5290230653190356617, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
-    - target: {fileID: 5290230653190356617, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290230653190356617, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1187573855639760104, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
-    - target: {fileID: 1187573855639760104, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187573855639760104, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 9030731137833257684, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 165226472}
-    - target: {fileID: 9030731137833257684, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9030731137833257684, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6400020654410955342, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 165226472}
     - target: {fileID: 6400020654410955342, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6400020654410955342, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090379915207180779, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 165226472}
     - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5505,41 +5181,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 4838943974419923168}
-    - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2526901473936324196, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
-    - target: {fileID: 2526901473936324196, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526901473936324196, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5552,24 +5198,19 @@ PrefabInstance:
       objectReference: {fileID: 247623840}
     - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: Collect
+      value: 
+      objectReference: {fileID: 1102547229}
     - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: BaseSound
+      value: 
+      objectReference: {fileID: 1109617717}
     - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: GetShotSound
+      value: 
+      objectReference: {fileID: 966169805}
     - target: {fileID: 6194382970593010913, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
@@ -5577,14 +5218,9 @@ PrefabInstance:
       objectReference: {fileID: 730736002}
     - target: {fileID: 6194382970593010913, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194382970593010913, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
+      propertyPath: Steps
+      value: 
+      objectReference: {fileID: 782406814}
     - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5595,41 +5231,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 1585473879}
-    - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4604189335769525702, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
-    - target: {fileID: 4604189335769525702, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4604189335769525702, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5640,41 +5246,11 @@ PrefabInstance:
       propertyPath: BaseTimers
       value: 
       objectReference: {fileID: 322452924}
-    - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Ammo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MaxItem
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: ItemDelivered
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: PointsPerShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7751945879608794656, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 165226472}
-    - target: {fileID: 7751945879608794656, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7751945879608794656, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4727399487488919521, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -5695,75 +5271,15 @@ PrefabInstance:
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 22644688}
-    - target: {fileID: 3878137021811275035, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+    - target: {fileID: 5728739030669427561, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4253865616316746002, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624402941080049689, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.3399997
-      objectReference: {fileID: 0}
-    - target: {fileID: 971500239908360315, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530103792417292939, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 819311586637011800, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 8977582972454337677, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981572246901133390, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.3399997
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997636469076189754, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.3399997
-      objectReference: {fileID: 0}
-    - target: {fileID: 5058333785237969555, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 1418800726534125127, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006156980507890683, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.3399997
-      objectReference: {fileID: 0}
-    - target: {fileID: 7315081945119249252, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: Tiro
+      propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 490484446}
-    - target: {fileID: 5019337701825942873, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+      objectReference: {fileID: 8300000, guid: 4695807320f1b45fb9a95729bc592cc6, type: 3}
+    - target: {fileID: 5728739030669427561, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}

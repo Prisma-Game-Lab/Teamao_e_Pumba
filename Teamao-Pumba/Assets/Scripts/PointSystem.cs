@@ -30,6 +30,8 @@ public class PointSystem : MonoBehaviour
 
     public AudioSource Collect;
     public AudioSource BaseSound;
+    public AudioSource GetShotSound;
+
 
 
     void Start()
@@ -100,6 +102,7 @@ public class PointSystem : MonoBehaviour
     }
 
     public void GetShot() {
+        GetShotSound.Play();
         VirtualPoints = (VirtualPoints)/3;
         PlayerPoints = PointsPerShoot;
         StartCoroutine(invunerabilidade());
