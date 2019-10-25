@@ -100,7 +100,8 @@ public class PointSystem : MonoBehaviour
     }
 
     public void GivePoints(int Ponto) {
-        RealPoints += Ponto;
+        //RealPoints += Ponto;
+        RealPoints += PointsPerShoot;
     }
 
     IEnumerator invunerabilidade() {
