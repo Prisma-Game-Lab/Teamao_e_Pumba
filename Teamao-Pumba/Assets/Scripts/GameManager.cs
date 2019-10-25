@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public List<Text> ValueText;
     static public int DefaultTempo = 90;
     static public float DefaultProbabilidade = 30;
-    static public int DefaultPontodeVitoria = 15;
+    static public int DefaultPontodeVitoria = 30;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
