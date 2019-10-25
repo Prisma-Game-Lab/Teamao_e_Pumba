@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     public Image TimerCircle; // Imagem do circulo
     public List<Image> UIPlayers;
     public List<Text> ValueText;
-    static public int DefaultTempo = 999999;
-    static public float DefaultProbabilidade = 0;
-    static public int DefaultPontodeVitoria = 500;
+    static public int DefaultTempo = 90;
+    static public float DefaultProbabilidade = 30;
+    static public int DefaultPontodeVitoria = 15;
     private bool PlayersSelected;
     private bool CountdownAcabou;
     private int VictoryByPoint = 999;
