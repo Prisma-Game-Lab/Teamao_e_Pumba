@@ -16,6 +16,8 @@ public class MovimentAxis : MonoBehaviour
     public GameObject corpo; 
     Renderer renderer;
 
+    public GameObject Steps;
+
     void Start(){
         renderer = corpo.GetComponent<Renderer> ();
     }
@@ -72,6 +74,10 @@ public class MovimentAxis : MonoBehaviour
             anim.SetBool("stunned", false);
             renderer.material.SetTexture("_MainTex", MainTexture);
         }
+        if(IsMoving)
+        {
+            Steps.SetActive(true);
+        } else Steps.SetActive(false);
     }
 
     private bool IsMoving => Direction() != Vector3.zero;

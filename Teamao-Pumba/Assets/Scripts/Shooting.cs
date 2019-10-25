@@ -20,6 +20,8 @@ public class Shooting : MonoBehaviour
     public float projectileSpeedBase;
     public float projectileSpeedMultiplier;
 
+    public AudioSource Tiro;
+
     Animator anim;
 
     private void Start()
@@ -57,6 +59,7 @@ public class Shooting : MonoBehaviour
 
     private void Atira()
     {
+        Tiro.Play();
         Transform personagem = this.gameObject.GetComponent<CharacterSelect>().personagem.GetComponent<Transform>();
 
         float ms = personagem.GetComponent<MovimentAxis>().movementSpeed;

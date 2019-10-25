@@ -28,6 +28,10 @@ public class PointSystem : MonoBehaviour
     private bool invuneravel = false;
     private float TimeDeliver = 0; // Contador de tempo na base
 
+    public AudioSource Collect;
+    public AudioSource BaseSound;
+
+
     void Start()
     {
         VirtualPoints = 0;
@@ -48,6 +52,7 @@ public class PointSystem : MonoBehaviour
                     VirtualPoints += Ammo;
                 }
                 Destroy(other.gameObject);
+                Collect.Play();
             }
             
         }
@@ -70,6 +75,7 @@ public class PointSystem : MonoBehaviour
     }
     private void GiveBase() {
         if(TouchingBase && VirtualPoints != 0) {
+            BaseSound.Play();
             BaseTimers.transform.GetChild(0).gameObject.SetActive(true);
             BaseTimers.transform.GetChild(1).gameObject.SetActive(true);
             BaseTimers.transform.GetChild(1).GetComponent<Image>().fillAmount = TimeDeliver/TimeToDeliver;
