@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
                 tempo -= Time.deltaTime;
                 TimerCircle.fillAmount = tempo/MaxTimer;
                 if(MaxTimer/tempo >= 3) {
-                    SetEspinhos();
+                    //SetEspinhos();
                 }
             }
             if(movizin) {
