@@ -6,7 +6,6 @@ using UnityEngine;
 public class ItemSpawn : MonoBehaviour
 {
     public GameObject Item;
-    public Transform Item_parent;
     public int Item_qtd;
     public float Cooldown;
     private bool Game_started;
@@ -14,7 +13,7 @@ public class ItemSpawn : MonoBehaviour
     void Start()
     {
         Game_started = false;
-        InvokeRepeating("SpawnItems",3, Cooldown); /*Invoca o comando SpawnItems a cada Cooldown segundos*/
+        InvokeRepeating("SpawnItems",1, Cooldown); /*Invoca o comando SpawnItems a cada Cooldown segundos*/
     }
 
     
@@ -40,7 +39,7 @@ public class ItemSpawn : MonoBehaviour
                 float raio = Random.Range(0, 6.0f);                                                             //Escolhe distancia da origem do spawn
                 float angulo = Random.Range(0, 2 * Mathf.PI);                                                   //Escolhe direcao do spawn
                 Vector3 pos = new Vector3(Mathf.Sin(angulo) * raio, 0.45f, Mathf.Cos(angulo) * raio);
-                GameObject I = Instantiate(Item, Item_parent);                                                  //Instancia copia de Item
+                GameObject I = Instantiate(Item, this.transform);                                                  //Instancia copia de Item
                 I.transform.localPosition = pos;                                                                //Move a instancia para a posicao sorteada
             }
         }
