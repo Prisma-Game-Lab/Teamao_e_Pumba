@@ -252,12 +252,12 @@ public class GameManager : MonoBehaviour
                 Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                ResultText.text = "Resultado\n\nPlayer 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "\n\n";
-                ResultText.text += "Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "\n\n";
+                ResultText.text = "Resultado\n\n<color=red>Player 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
+                ResultText.text += "<color=blue>Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
                 if(Players.transform.GetChild(2).gameObject.activeSelf) {
-                    ResultText.text += "Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints + "\n\n";
+                    ResultText.text += "<color=yellow>Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
                     if(Players.transform.GetChild(3).gameObject.activeSelf) {
-                        ResultText.text += "Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints;
+                        ResultText.text += "<color=pink>Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints + "</color>";
                     }
                 }
                 if(!empate()) {
@@ -298,19 +298,19 @@ public class GameManager : MonoBehaviour
         int maior = 0;
         if(Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints > maior) {
             maior = Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints;
-            nome = "Player 1";
+            nome = "<color=red>Player 1</color>";
         }
         if(Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints > maior) {
             maior = Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints;
-            nome = "Player 2";
+            nome = "<color=blue>Player 2</color>";
         }
         if(Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints > maior) {
             maior = Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints;
-            nome = "Player 3";
+            nome = "<color=yellow>Player 3</color>";
         }
         if(Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints > maior) {
             maior = Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints;
-            nome = "Player 4";
+            nome = "<color=pink>Player 4</color>";
         }
         return nome;
     }
