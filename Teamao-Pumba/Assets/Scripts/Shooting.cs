@@ -32,8 +32,10 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetButton("PressButton" + this.name[(this.name).Length - 1]))
         {
+            Debug.Log("Aloha2");
             if (PodeAtirar())
             {
+                Debug.Log("Aloha1");
                 Atira();
                 timeSinceLastShot = 0.0F;
             }
