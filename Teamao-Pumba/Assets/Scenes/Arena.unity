@@ -3798,6 +3798,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.046
       objectReference: {fileID: 0}
+    - target: {fileID: 1730184258402707267, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730184258691511151, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730184259156222064, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730184259818107732, guid: 126751a229be69640b9eb37e0bb6e7dd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126751a229be69640b9eb37e0bb6e7dd, type: 3}
 --- !u!1001 &2386142499869452067
@@ -4006,7 +4026,7 @@ PrefabInstance:
       objectReference: {fileID: 1085568915}
     - target: {fileID: 695164790, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Item_qtd
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Players
@@ -5468,41 +5488,81 @@ PrefabInstance:
       propertyPath: Steps
       value: 
       objectReference: {fileID: 782406814}
+    - target: {fileID: 2223223293917178834, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 730736002}
+    - target: {fileID: 8603568229783819927, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6485820549127517451, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
+    - target: {fileID: 6485820549127517451, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8019331249504904814, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
+    - target: {fileID: 8019331249504904814, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5290230653190356617, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
+    - target: {fileID: 5290230653190356617, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1187573855639760104, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
+    - target: {fileID: 1187573855639760104, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9030731137833257684, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 165226472}
+    - target: {fileID: 9030731137833257684, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400020654410955342, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 165226472}
     - target: {fileID: 6400020654410955342, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 165226472}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3817189976937764369, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5518,6 +5578,11 @@ PrefabInstance:
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
+    - target: {fileID: 2526901473936324196, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5553,6 +5618,11 @@ PrefabInstance:
       propertyPath: Steps
       value: 
       objectReference: {fileID: 782406814}
+    - target: {fileID: 6194382970593010913, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5568,6 +5638,11 @@ PrefabInstance:
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 925529977}
+    - target: {fileID: 4604189335769525702, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5583,6 +5658,11 @@ PrefabInstance:
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 165226472}
+    - target: {fileID: 7751945879608794656, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4727399487488919521, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel

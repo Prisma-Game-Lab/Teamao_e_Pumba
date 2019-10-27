@@ -129,7 +129,7 @@ public class RandomEvent : MonoBehaviour
     }
     IEnumerator ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,8);
+        int GetEventNumber = Random.Range(1,7);
         RandomEventCanvas.SetActive(true);
         StartCoroutine(BlinkEventText());
         switch(GetEventNumber) {
@@ -163,12 +163,12 @@ public class RandomEvent : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertCamera());
                 break;
-            case 6:
+            /*case 6:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Movimentação Invertida";
                 yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertMovement());
-                break;
-            case 7:
+                break;*/
+            case 6:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Quantidade de Itens Dobrado";
                 yield return new WaitForSeconds(1);
                 EventDoubleItemSpawn();;
