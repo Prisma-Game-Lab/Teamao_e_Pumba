@@ -15,6 +15,8 @@ public class PointSystem : MonoBehaviour
     public int RealPoints; // Os pontos do Player
     [HideInInspector]
     public int VirtualPoints; // Quantidade de itens sendo carregados
+    public int Multiplier; // Multiplicativo dos pontos da base
+    public float invunerabilidadeTimer; // Tempo de invunerabilidade
     public GameObject MyBase;
     public int MaxItem;
     [HideInInspector]
@@ -84,11 +86,11 @@ public class PointSystem : MonoBehaviour
             TimeDeliver += Time.deltaTime;
             if(TimeDeliver >= TimeToDeliver) {
                 if(ItemDelivered > VirtualPoints) {
-                    RealPoints += VirtualPoints;
+                    RealPoints += VirtualPoints*Multiplier;
                     VirtualPoints = 0;
                 }
                 else {
-                    RealPoints += ItemDelivered;
+                    RealPoints += ItemDelivered*Multiplier;
                     VirtualPoints -= ItemDelivered;
                 }
                 TimeDeliver = 0;
@@ -115,7 +117,7 @@ public class PointSystem : MonoBehaviour
 
     IEnumerator invunerabilidade() {
         invuneravel = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(invunerabilidadeTimer);
         invuneravel = false;
     }
 
