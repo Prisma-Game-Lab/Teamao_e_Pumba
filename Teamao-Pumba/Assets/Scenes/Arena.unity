@@ -4014,7 +4014,7 @@ PrefabInstance:
       objectReference: {fileID: 1085568915}
     - target: {fileID: 695164790, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Item_qtd
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Players
@@ -5326,6 +5326,21 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 2067693689}
+    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: invunerabilidadeTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848997594398288538, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: PointsPerShoot
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5341,6 +5356,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 823707888}
+    - target: {fileID: 8210504615829144167, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4907411563988615416, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5376,6 +5396,11 @@ PrefabInstance:
       propertyPath: GetShotSound
       value: 
       objectReference: {fileID: 778384091}
+    - target: {fileID: 3281438133662673233, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1309835953348021058, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -5411,6 +5436,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 2067693689}
+    - target: {fileID: 6063255097454771613, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5426,6 +5456,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 823707888}
+    - target: {fileID: 1443136359618804269, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 885360098737681423, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -5456,6 +5491,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 472600659}
+    - target: {fileID: 6397833067041057120, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3117973427331188053, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
@@ -5551,6 +5591,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 2067693689}
+    - target: {fileID: 1570817963792817433, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6194382970593010913, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
@@ -5571,6 +5616,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 823707888}
+    - target: {fileID: 971969623687184448, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4604189335769525702, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
@@ -5591,6 +5641,11 @@ PrefabInstance:
       propertyPath: Berro
       value: 
       objectReference: {fileID: 472600659}
+    - target: {fileID: 140284597724042358, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: Multiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7751945879608794656, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: StunUI
