@@ -17,4 +17,14 @@ public class GameSettings : ScriptableObject
     {
         return personagens[jogador];
     }
+
+    public bool allPlayersReady()
+    {
+        for(int i = 0; i < playerNumbers; i++)
+        {
+            if (personagens[i] == -1)
+                return false;
+        }
+        return true;
+    }
 }
