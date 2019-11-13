@@ -6,4 +6,15 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public int playerNumbers;
+    private int[] personagens = { -1, -1, -1, -1 };
+
+    public void setPlayerChoice(int jogador, int personagem)
+    {
+        personagens[jogador] = personagem;
+    }
+
+    public int getPlayerChoise(int jogador)
+    {
+        return personagens[jogador];
+    }
 }
