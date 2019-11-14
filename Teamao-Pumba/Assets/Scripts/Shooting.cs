@@ -30,7 +30,7 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("PressButton" + this.name[(this.name).Length - 1]))
+        if (Input.GetButton("ShootPlayer" + this.name[(this.name).Length - 1]))
         {
             Debug.Log("Aloha2");
             if (PodeAtirar())

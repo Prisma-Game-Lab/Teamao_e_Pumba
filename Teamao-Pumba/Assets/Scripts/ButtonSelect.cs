@@ -82,7 +82,7 @@ public class ButtonSelect : MonoBehaviour
     }
     private void PressButton(List<Button> Buttons) {
         for(int i=0; i < CoordenadaPlayers.Count; i++) {
-            if(Input.GetAxis("PressButton" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].transform.parent.gameObject.activeSelf) {
+            if(Input.GetAxis("ShootPlayer" + (i+1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].transform.parent.gameObject.activeSelf) {
                 if(Buttons[CoordenadaPlayers[i]].name == "TucanoButton") {
                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
                    gameObject.GetComponent<GameManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
