@@ -38,197 +38,40 @@ public class GameManager : MonoBehaviour
     private float MaxTimer = 999;
     private bool movizin = true;
     private GameSettings gameSettings;
-    public void TwoPlayer()
-    { // função para dois players
-        gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 2;
-        Players.transform.GetChild(2).gameObject.SetActive(false);
-        Players.transform.GetChild(3).gameObject.SetActive(false);
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(false);
-        UIPlayers[3].gameObject.SetActive(false);
-        PlayersSelected = true;
-        ErrorText.text = "";
-        Next();
-    }
-    public void ThreePlayer()
-    { // função para três players
-        gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 3;
-        Players.transform.GetChild(2).gameObject.SetActive(true);
-        Players.transform.GetChild(3).gameObject.SetActive(false);
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(true);
-        UIPlayers[3].gameObject.SetActive(false);
-        PlayersSelected = true;
-        ErrorText.text = "";
-        Next();
-    }
-    public void FourPlayer()
-    { // função para quatro players
-        gameObject.transform.GetComponent<ButtonSelect>().HowManyPlayers = 4;
-        Players.transform.GetChild(2).gameObject.SetActive(true);
-        Players.transform.GetChild(3).gameObject.SetActive(true);
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(true);
-        UIPlayers[3].gameObject.SetActive(true);
-        PlayersSelected = true;
-        ErrorText.text = "";
-        Next();
-    }
-    public void TempoDeJogo(int Segundos)
-    {
-        tempo = Segundos;
-        MaxTimer = Segundos;
-        DefaultTempo = Segundos;
-        ErrorText.text = "";
-    }
-    public void SetVictoryByPoint(int Pontos)
-    {
-        VictoryByPoint = Pontos;
-        DefaultPontodeVitoria = Pontos;
-        ErrorText.text = "";
-    }
-    public void Next()
-    { // Vai para a tela de seleção de personagem
-        if (PlayersSelected)
-        {
-            HowManyPlayers.SetActive(false);
-            CharacterSelect.SetActive(true);
-            ResetaCoordenada();
-        }
-        else
-        {
-            ErrorText.text = "Selecione o número de jogadores antes de começar a partida!";
-        }
-    }
-    public void Next2()
-    { // Vai para a tela de Settings
-        if (Next2Helper())
-        {
-            CharacterSelect.SetActive(false);
-            SettingsCanvas.SetActive(true);
-            ErrorText.text = "";
-            ResetaCoordenada();
-        }
-        else
-        {
-            ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
-        }
+  
+    public scriptableObject SO;
 
-    }
-    private bool Next2Helper()
-    {
-        // for(int i =0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++) {
-        //     if(!transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i]) {
-        //         return false;
-        //     }
-        // }
-        return true;
-    }
-    public void Previous()
-    { // Volta para a tela de numero de jogadores
-        ResetaCoordenada();
-        for (int i = 0; i < transform.GetComponent<ButtonSelect>().HowManyPlayers; i++)
-        {
-            transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
-            UIPlayers[i].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.transform.GetChild(2).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.transform.GetChild(3).gameObject.SetActive(false);
-        }
-        PlayersSelected = false;
-        HowManyPlayers.SetActive(true);
-        CharacterSelect.SetActive(false);
-        ErrorText.text = "";
-    }
-    public void Previous2()
-    { // Volta para a tela de seleção de personagem
-        ResetaCoordenada();
-        CharacterSelect.SetActive(true);
-        SettingsCanvas.SetActive(false);
-        tempo = 999;
-        gameObject.GetComponent<RandomEvent>().Probabilidade = 0;
-        VictoryByPoint = 999;
-        ErrorText.text = "";
-    }
 
     public void PlayGame()
     { // Começa o jogo
-        if (tempo == 999)
-        {
-            ErrorText.text = "Selecione quanto tempo de jogo antes de começar a partida!";
+
+        TempoDeJogo(DefaultTempo);
+        SetVictoryByPoint(DefaultPontodeVitoria);
+        gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
+        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
+        CharacterSelect.transform.parent.gameObject.SetActive(false);
+        PointsCanvas.SetActive(true);
+
+        for(int i=0;i<4;i++) 
+        { //Desliga componentes de todos os jogadores
+
+
+            Players.transform.GetChild(i).gameObject.SetActive(false);
+            UIPlayers[i].gameObject.SetActive(false);
         }
-        else
-        {
-            if (gameObject.GetComponent<RandomEvent>().Probabilidade == 999999)
-            {
-                ErrorText.text = "Selecione a probabilidade de um evento ocorrer antes de começar a partida!";
-            }
-            else
-            {
-                if (VictoryByPoint == 999)
-                {
-                    ErrorText.text = "Selecione a pontuação para obter a vitória antes de começar a partida!";
-                }
-                else
-                {
-                    if (VictoryByPoint == 999999 && tempo == 999999)
-                    {
-                        ErrorText.text = "Vitoria por Ponto Desligado e Duração da Partida Infinita, O jogo não tem como acabar!";
-                    }
-                    else
-                    {
-                        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
-                        CharacterSelect.transform.parent.gameObject.SetActive(false);
-                        SettingsCanvas.SetActive(false);
-                        PointsCanvas.SetActive(true);
-                        for (int i = 0; i < 4; i++)
-                        {
-                            if (Players.transform.GetChild(i).gameObject.activeSelf)
-                            {
-                                PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                                Bases.transform.GetChild(i).gameObject.SetActive(true);
-                                AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                                SetCharacterImage();
-                                ResetaCoordenada();
-                            }
-                        }
-                    }
-                }
-            }
+
+        for (int i = 0; i < SO.playerNumbers; i++)
+        { //ativa componentes dos jogadores existentes
+            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+            Bases.transform.GetChild(i).gameObject.SetActive(true);
+            AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
+            Players.transform.GetChild(i).SetCharacter(SO.getPlayerChoice(i));
+            SetCharacterImage();
+            ResetaCoordenada();
         }
+
     }
-    public void PlayGameDirect()
-    {
-        if (Next2Helper())
-        {
-            TempoDeJogo(DefaultTempo);
-            SetVictoryByPoint(DefaultPontodeVitoria);
-            gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
-            CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
-            CharacterSelect.transform.parent.gameObject.SetActive(false);
-            CharacterSelect.gameObject.SetActive(false);
-            SettingsCanvas.SetActive(false);
-            PointsCanvas.SetActive(true);
-            for (int i = 0; i < 4; i++)
-            {
-                if (Players.transform.GetChild(i).gameObject.activeSelf)
-                {
-                    PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                    Bases.transform.GetChild(i).gameObject.SetActive(true);
-                    AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-                    SetCharacterImage();
-                    ResetaCoordenada();
-                }
-            }
-        }
-        else
-        {
-            ErrorText.text = "Espere até todos os players terem escolhido seu personagem!";
-        }
-    }
+
     void Start()
     {
         PointsCanvas.SetActive(false);
