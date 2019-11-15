@@ -1202,7 +1202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -697, y: -349}
+  m_AnchoredPosition: {x: -623, y: -356}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213411992
@@ -1248,8 +1248,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Previous
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: GoBackToHowManyPlayers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2044,8 +2044,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: FourPlayer
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: FourPlayers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4261,7 +4261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &801218822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4824,8 +4824,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ThreePlayer
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: ThreePlayers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5111,8 +5111,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Previous2
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: GoBackToCharacterSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5585,7 +5585,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1681600999}
         m_MethodName: GoMenu
         m_Mode: 1
         m_Arguments:
@@ -5850,7 +5850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 667, y: 95}
+  m_AnchoredPosition: {x: 635, y: 85}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217245658
@@ -5896,8 +5896,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Next2
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: GoToGameSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7969,7 +7969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1520684505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8322,6 +8322,7 @@ GameObject:
   - component: {fileID: 1681600997}
   - component: {fileID: 1681600998}
   - component: {fileID: 1681600999}
+  - component: {fileID: 1681601000}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -8403,6 +8404,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ee835027ec7f64e8f86d48481a4167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1681601000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681600996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375cfd20e3c37a541b883c4f0dae4330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  howManyPlayers: {fileID: 1520684504}
+  characterSelect: {fileID: 801218821}
+  settings: {fileID: 149920668}
+  gameSettings: {fileID: 11400000, guid: f4e43a4eebb28c84ba553a91bbe1e053, type: 2}
+  ErrorText: {fileID: 251917216}
 --- !u!1 &1715132596
 GameObject:
   m_ObjectHideFlags: 0
@@ -8485,8 +8503,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: TwoPlayer
+      - m_Target: {fileID: 1681601000}
+        m_MethodName: TwoPlayers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9383,7 +9401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 666.9999, y: -356}
+  m_AnchoredPosition: {x: 635.00006, y: -375}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953992229
@@ -9646,8 +9664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 712.5, y: 448.5}
-  m_SizeDelta: {x: 1920, y: 1208.5895}
+  m_AnchoredPosition: {x: 596.5, y: 335.5}
+  m_SizeDelta: {x: 1607.4, y: 904.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982510036
 MonoBehaviour:
