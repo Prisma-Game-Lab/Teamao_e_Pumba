@@ -8321,8 +8321,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1681600997}
   - component: {fileID: 1681600998}
+  - component: {fileID: 1681600999}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8351,27 +8352,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 1681600996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6d39608049d9247a76863fc8675b6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b170b5169a912418d2b3b582f1fe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Players: {fileID: 0}
-  Bases: {fileID: 0}
-  Espinhos: {fileID: 0}
-  HowManyPlayers: {fileID: 0}
-  CharacterSelect: {fileID: 0}
-  SettingsCanvas: {fileID: 0}
-  VictoryCanvas: {fileID: 0}
-  PointsCanvas: {fileID: 0}
-  AboveHeadCanvas: {fileID: 0}
-  ResultText: {fileID: 0}
-  ErrorText: {fileID: 0}
-  CountdownTimer: {fileID: 0}
-  Timer: {fileID: 0}
-  TimerCircle: {fileID: 0}
-  UIPlayers: []
-  ValueText: []
-  tempo: 999
-  Countdown: 4
+  Players: {fileID: 2904752202153849224, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
+  SelectPlayers:
+  - {fileID: 602014602}
+  - {fileID: 699173239}
+  - {fileID: 254787566}
+  - {fileID: 1140369254}
+  HMPButtons:
+  - {fileID: 1715132598}
+  - {fileID: 1044118693}
+  - {fileID: 304866287}
+  - {fileID: 1153357505}
+  CSButtons:
+  - {fileID: 289971875}
+  - {fileID: 1351623933}
+  - {fileID: 1493217596}
+  - {fileID: 1217245658}
+  - {fileID: 1953992229}
+  - {fileID: 213411992}
+  SettingsButtons:
+  - {fileID: 1252418689}
+  - {fileID: 1906627859}
+  - {fileID: 1499763624}
+  - {fileID: 1757097383}
+  - {fileID: 687095838}
+  - {fileID: 1139995374}
+  - {fileID: 1153207809}
+  - {fileID: 311596520}
+  - {fileID: 1336211750}
+  - {fileID: 712875993}
+  - {fileID: 1446896748}
+  - {fileID: 1469778414}
+  - {fileID: 835420221}
+  - {fileID: 1135043270}
+  CoordenadaPlayers: 
+  HowManyPlayers: 0
+  PlayersWithCharacter: 
+--- !u!114 &1681600999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681600996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ee835027ec7f64e8f86d48481a4167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1715132596
 GameObject:
   m_ObjectHideFlags: 0
