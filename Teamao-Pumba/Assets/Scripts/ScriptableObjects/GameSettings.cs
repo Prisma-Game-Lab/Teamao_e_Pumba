@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Settngs", menuName = "GameSettings")]
 public class GameSettings : ScriptableObject
 {
-    public int playerNumbers {get; set;}
-    private string[] personagens = { "", "", "", ""};
+    public int playerNumbers { get; set; }
+    private string[] personagens = { "", "", "", "" };
 
 
     public void setPlayerChoice(int jogador, string personagem)
@@ -21,7 +21,7 @@ public class GameSettings : ScriptableObject
 
     public bool allPlayersReady()
     {
-        for(int i = 0; i < playerNumbers; i++)
+        for (int i = 0; i < playerNumbers; i++)
         {
             if (personagens[i] == "")
                 return false;
@@ -31,7 +31,7 @@ public class GameSettings : ScriptableObject
 
     public void reset()
     {
-		personagens = { "", "", "", ""};
-		playerNumbers = -1;
+        // personagens = { "", "", "", ""};
+        playerNumbers = -1;
     }
 }

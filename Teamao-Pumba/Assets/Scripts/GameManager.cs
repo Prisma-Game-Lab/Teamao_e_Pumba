@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
     private float movespeed;
     private float MaxTimer = 999;
     private bool movizin = true;
-    private GameSettings gameSettings;
-  
-    public scriptableObject SO;
+
+
+    public GameSettings gameSettings;
 
 
     public void PlayGame()
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         CharacterSelect.transform.parent.gameObject.SetActive(false);
         PointsCanvas.SetActive(true);
 
-        for(int i=0;i<4;i++) 
+        for (int i = 0; i < 4; i++)
         { //Desliga componentes de todos os jogadores
 
 
@@ -60,12 +60,12 @@ public class GameManager : MonoBehaviour
             UIPlayers[i].gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < SO.playerNumbers; i++)
+        for (int i = 0; i < gameSettings.playerNumbers; i++)
         { //ativa componentes dos jogadores existentes
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
             Bases.transform.GetChild(i).gameObject.SetActive(true);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-            Players.transform.GetChild(i).SetCharacter(SO.getPlayerChoice(i));
+            // Players.transform.GetChild(i).SetCharacter(gameSettings.getPlayerChoice(i));
             SetCharacterImage();
             ResetaCoordenada();
         }
@@ -97,6 +97,19 @@ public class GameManager : MonoBehaviour
         Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+    }
+    public void TempoDeJogo(int Segundos)
+    {
+        tempo = Segundos;
+        MaxTimer = Segundos;
+        DefaultTempo = Segundos;
+        ErrorText.text = "";
+    }
+    public void SetVictoryByPoint(int Pontos)
+    {
+        VictoryByPoint = Pontos;
+        DefaultPontodeVitoria = Pontos;
+        ErrorText.text = "";
     }
     void Update()
     {
@@ -362,4 +375,5 @@ public class GameManager : MonoBehaviour
             ValueText[2].text = "Desligado";
         }
     }
+
 }

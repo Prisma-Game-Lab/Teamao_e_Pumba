@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 Author: Vinny
 */
-public class GameManager : MonoBehaviour
+public class GameManager_Copy : MonoBehaviour
 {
     public GameObject Players; // Os jogadores
     public GameObject Bases; // As bases
