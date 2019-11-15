@@ -6,15 +6,15 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public int playerNumbers {get; set;}
-    private int[] personagens = { -1, -1, -1, -1 };
+    private string[] personagens = { "", "", "", ""};
 
 
-    public void setPlayerChoice(int jogador, int personagem)
+    public void setPlayerChoice(int jogador, string personagem)
     {
         personagens[jogador] = personagem;
     }
 
-    public int getPlayerChoice(int jogador)
+    public string getPlayerChoice(int jogador)
     {
         return personagens[jogador];
     }
@@ -23,7 +23,7 @@ public class GameSettings : ScriptableObject
     {
         for(int i = 0; i < playerNumbers; i++)
         {
-            if (personagens[i] == -1)
+            if (personagens[i] == "")
                 return false;
         }
         return true;
@@ -31,7 +31,7 @@ public class GameSettings : ScriptableObject
 
     public void reset()
     {
-		personagens = { -1, -1, -1, -1 };
+		personagens = { "", "", "", ""};
 		playerNumbers = -1;
     }
 }
