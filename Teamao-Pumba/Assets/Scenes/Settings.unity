@@ -8392,6 +8392,7 @@ MonoBehaviour:
   CoordenadaPlayers: 
   HowManyPlayers: 0
   PlayersWithCharacter: 
+  gameSettings: {fileID: 11400000, guid: f4e43a4eebb28c84ba553a91bbe1e053, type: 2}
 --- !u!114 &1681600999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8421,6 +8422,11 @@ MonoBehaviour:
   settings: {fileID: 149920668}
   gameSettings: {fileID: 11400000, guid: f4e43a4eebb28c84ba553a91bbe1e053, type: 2}
   ErrorText: {fileID: 251917216}
+  UIPlayers:
+  - {fileID: 207413863}
+  - {fileID: 1989509388}
+  - {fileID: 205787554}
+  - {fileID: 206109836}
 --- !u!1 &1715132596
 GameObject:
   m_ObjectHideFlags: 0
