@@ -30,7 +30,7 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("ShootPlayer" + this.name[(this.name).Length - 1]))
+        if (Input.GetButton("ShootPlayer" + transform.parent.name[(transform.parent.name).Length - 1]))
         {
             Debug.Log("Aloha2");
             if (PodeAtirar())
@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
 
         if (gm.Countdown < 0)
         {
-            pontos = this.GetComponentInChildren<PointSystem>();
+            pontos = this.GetComponent<PointSystem>();
             if (pontos.VirtualPoints > 0)
             {
                 return (timeSinceLastShot >= shotCooldown);
@@ -62,7 +62,7 @@ public class Shooting : MonoBehaviour
     private void Atira()
     {
         Tiro.Play();
-        Transform personagem = this.gameObject.GetComponent<CharacterSelect>().personagem.GetComponent<Transform>();
+        Transform personagem = this.GetComponent<Transform>();
 
         float ms = personagem.GetComponent<MovimentAxis>().movementSpeed;
 
@@ -73,9 +73,9 @@ public class Shooting : MonoBehaviour
 
         p.GetComponent<ProjectileBehavior>().dono = personagem.gameObject;
         p.GetComponent<ProjectileBehavior>().projectileSpeed = (ms * projectileSpeedMultiplier) + projectileSpeedBase;
-        p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponent<Renderer>().material.GetColor("_Color"));
+        p.GetComponent<Renderer>().material.SetColor("_Color", this.GetComponentInParent<Renderer>().material.GetColor("_Color"));
 
-        anim = this.GetComponentInChildren<Animator>();
+        anim = this.GetComponent<Animator>();
         anim.SetTrigger("throw");
     }
 }
