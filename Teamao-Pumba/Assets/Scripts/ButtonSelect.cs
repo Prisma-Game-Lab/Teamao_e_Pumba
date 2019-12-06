@@ -109,6 +109,7 @@ public class ButtonSelect : MonoBehaviour
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
+                    gameSettings.setPlayerChoice(i, "Tucano");
                     PlayersWithCharacter[i] = true;
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "CapivaraButton")
@@ -118,6 +119,7 @@ public class ButtonSelect : MonoBehaviour
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(true);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
+                    gameSettings.setPlayerChoice(i, "Capivara");
                     PlayersWithCharacter[i] = true;
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "LicoButton")
@@ -127,6 +129,7 @@ public class ButtonSelect : MonoBehaviour
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(true);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
+                    gameSettings.setPlayerChoice(i, "Lico");
                     PlayersWithCharacter[i] = true;
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "CapsuleButton")
@@ -136,6 +139,7 @@ public class ButtonSelect : MonoBehaviour
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(true);
+                    gameSettings.setPlayerChoice(i, "Capsule");
                     PlayersWithCharacter[i] = true;
                 }
                 Buttons[CoordenadaPlayers[i]].onClick.Invoke();
