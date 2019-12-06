@@ -9,6 +9,8 @@ public class ItemSpawn : MonoBehaviour
     public int Item_qtd;
     public float Cooldown;
     private bool Game_started;
+
+    public Transform Itens_transform;
     
     void Start()
     {
@@ -38,8 +40,8 @@ public class ItemSpawn : MonoBehaviour
             {
                 float raio = Random.Range(0, 6.0f);                                                             //Escolhe distancia da origem do spawn
                 float angulo = Random.Range(0, 2 * Mathf.PI);                                                   //Escolhe direcao do spawn
-                Vector3 pos = new Vector3(Mathf.Sin(angulo) * raio, 0.45f, Mathf.Cos(angulo) * raio);
-                GameObject I = Instantiate(Item, this.transform);                                                  //Instancia copia de Item
+                Vector3 pos = new Vector3(Mathf.Sin(angulo) * raio, 0.542f, Mathf.Cos(angulo) * raio);
+                GameObject I = Instantiate(Item, Itens_transform);                                                  //Instancia copia de Item
                 I.transform.localPosition = pos;                                                                //Move a instancia para a posicao sorteada
             }
         }
