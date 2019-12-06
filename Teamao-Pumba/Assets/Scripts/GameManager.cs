@@ -212,10 +212,10 @@ public class GameManager : MonoBehaviour
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
             Bases.transform.GetChild(i).gameObject.SetActive(false);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(false);
-            Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            //Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            //Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            //Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+            //Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
@@ -235,10 +235,10 @@ public class GameManager : MonoBehaviour
             }
             if(movizin) {
                 for(int i=0;i<4;i++) {
-                    Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                    Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                    Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    //Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    //Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    //Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    //Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                 }
                 movizin = false;
             }
@@ -248,10 +248,10 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ShowVictoryCanvas());
                 CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
-                Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                //Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 ResultText.text = "Resultado\n\n<color=red>Player 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
                 ResultText.text += "<color=blue>Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
                 if(Players.transform.GetChild(2).gameObject.activeSelf) {
