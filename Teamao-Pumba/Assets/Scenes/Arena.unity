@@ -5642,6 +5642,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2978494446640341160, guid: f527bccc594b1774595af2e01fd16db5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 164cda3557cbb8041878caa4abaa2c14, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f527bccc594b1774595af2e01fd16db5, type: 3}
 --- !u!4 &907319551 stripped
@@ -7534,11 +7539,6 @@ PrefabInstance:
       propertyPath: m_OcclusionCulling
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3435091200307778116, guid: d5cda697ac2bf30459dcebf0a642ec26,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3435091200307778112, guid: d5cda697ac2bf30459dcebf0a642ec26,
         type: 3}
       propertyPath: m_Enabled
@@ -7708,6 +7708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: greenChannel.m_Curve.Array.data[0].outWeight
       value: 0.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435091200307778116, guid: d5cda697ac2bf30459dcebf0a642ec26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5cda697ac2bf30459dcebf0a642ec26, type: 3}
@@ -8689,6 +8694,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8051415255134806348, guid: 7f8e847d5012e514bb198cce2b287f70,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7f8e847d5012e514bb198cce2b287f70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8764,11 +8774,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 49f6cb50f198e834ab8660b4e715d452, type: 2}
-    - target: {fileID: 8051415255134806348, guid: 7f8e847d5012e514bb198cce2b287f70,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8304545770963488453, guid: 7f8e847d5012e514bb198cce2b287f70,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
