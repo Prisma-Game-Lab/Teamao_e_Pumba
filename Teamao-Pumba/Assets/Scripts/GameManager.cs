@@ -152,30 +152,29 @@ public class GameManager : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // if (!CharacterSelect.transform.parent.gameObject.activeSelf)
-        // {
-        //     CountdownTimer.gameObject.SetActive(true);
-        //     Countdown -= Time.deltaTime;
-        //     CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
-        //     if (Countdown - 1 <= 1 && tempo > 0)
-        //     {
-        //         CountdownTimer.text = "Start!";
-        //         CountdownAcabou = true;
-        //         Timer.gameObject.SetActive(true);
-        //         if (tempo != 999999)
-        //         {
-        //             Timer.text = Mathf.RoundToInt(tempo).ToString();
-        //         }
-        //         else
-        //         {
-        //             Timer.text = "∞";
-        //         }
-        //     }
-        //     if (Countdown - 1 <= 0 && tempo > 0)
-        //     {
-        //         CountdownTimer.gameObject.SetActive(false);
-        //     }
-        // }
+
+        CountdownTimer.gameObject.SetActive(true);
+        Countdown -= Time.deltaTime;
+        CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
+        if (Countdown - 1 <= 1 && tempo > 0)
+        {
+            CountdownTimer.text = "Start!";
+            CountdownAcabou = true;
+            Timer.gameObject.SetActive(true);
+            if (tempo != 999999)
+            {
+                Timer.text = Mathf.RoundToInt(tempo).ToString();
+            }
+            else
+            {
+                Timer.text = "∞";
+            }
+        }
+        if (Countdown - 1 <= 0 && tempo > 0)
+        {
+            CountdownTimer.gameObject.SetActive(false);
+        }
+
     }
 
     private string MaiorValor()
