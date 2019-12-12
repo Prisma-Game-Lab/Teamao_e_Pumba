@@ -490,7 +490,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1901941543}
-        m_MethodName: GoStartGame
+        m_MethodName: GoArena
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

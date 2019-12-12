@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62748a658f6c0b44d91c63eef9eb6554, type: 3}
   m_Name: Game Settngs
   m_EditorClassIdentifier: 
-  personagens:
-  - Lico
-  - Tucano
-  - 
-  - 
+  playerNumbers: 0
