@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject Players; // Os jogadores
     public GameObject Bases; // As bases
     public GameObject Espinhos; // Espinhos na Arena
-    public GameObject HowManyPlayers; // O canvas contendo quantos jogadores
-    public GameObject CharacterSelect; // O canvas contendo a seleção de personagem
-    public GameObject SettingsCanvas; // O canvas contendo as Settings do jogo
     public GameObject VictoryCanvas; // O canvas de fim de jogo
     public GameObject PointsCanvas; // O canvas de Pontos
     public GameObject AboveHeadCanvas; // O canvas em cima do Player
@@ -22,7 +19,6 @@ public class GameManager : MonoBehaviour
     public Text CountdownTimer; // Countdown antes de comecar o jogo
     public Text Timer; // Timer do Jogo
     public Image TimerCircle; // Imagem do circulo
-    public List<Image> UIPlayers;
     public List<Text> ValueText;
     static public int DefaultTempo = 90;
     static public float DefaultProbabilidade = 30;
@@ -37,38 +33,13 @@ public class GameManager : MonoBehaviour
     private float movespeed;
     private float MaxTimer = 999;
     private bool movizin = true;
-
-
     public GameSettings gameSettings;
 
 
     public void PlayGame()
     { // Começa o jogo
 
-        TempoDeJogo(DefaultTempo);
-        SetVictoryByPoint(DefaultPontodeVitoria);
-        gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
-        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
-        CharacterSelect.transform.parent.gameObject.SetActive(false);
-        PointsCanvas.SetActive(true);
 
-        for (int i = 0; i < 4; i++)
-        { //Desliga componentes de todos os jogadores
-
-
-            Players.transform.GetChild(i).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.SetActive(false);
-        }
-
-        for (int i = 0; i < gameSettings.playerNumbers; i++)
-        { //ativa componentes dos jogadores existentes
-            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
-            Bases.transform.GetChild(i).gameObject.SetActive(true);
-            AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-            // Players.transform.GetChild(i).SetCharacter(gameSettings.getPlayerChoice(i));
-            SetCharacterImage();
-            ResetaCoordenada();
-        }
 
     }
 
@@ -77,26 +48,35 @@ public class GameManager : MonoBehaviour
         PointsCanvas.SetActive(false);
         CountdownAcabou = false;
         PlayersSelected = false;
-        HowManyPlayers.SetActive(true);
-        CharacterSelect.SetActive(false);
         VictoryCanvas.SetActive(false);
         CountdownTimer.gameObject.transform.parent.gameObject.SetActive(false);
-        SettingsCanvas.SetActive(false);
         movespeed = Players.transform.GetChild(0).transform.GetChild(0).GetComponent<MovimentAxis>().movementSpeed;
         for (int i = 0; i < 4; i++)
         {
+            Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter(gameSettings.getPlayerChoice(i));
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(false);
             Bases.transform.GetChild(i).gameObject.SetActive(false);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(false);
-            Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-            Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
         }
         Players.transform.GetChild(0).gameObject.SetActive(true);
         Players.transform.GetChild(1).gameObject.SetActive(true);
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
+
+        TempoDeJogo(DefaultTempo);
+        SetVictoryByPoint(DefaultPontodeVitoria);
+        gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
+        CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
+        PointsCanvas.SetActive(true);
+
+        for (int i = 0; i < gameSettings.playerNumbers; i++)
+        { //ativa componentes dos jogadores existentes
+            PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+            Bases.transform.GetChild(i).gameObject.SetActive(true);
+            AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
+            SetCharacterImage();
+            // ResetaCoordenada();
+        }
     }
     public void TempoDeJogo(int Segundos)
     {
@@ -172,30 +152,30 @@ public class GameManager : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!CharacterSelect.transform.parent.gameObject.activeSelf)
-        {
-            CountdownTimer.gameObject.SetActive(true);
-            Countdown -= Time.deltaTime;
-            CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
-            if (Countdown - 1 <= 1 && tempo > 0)
-            {
-                CountdownTimer.text = "Start!";
-                CountdownAcabou = true;
-                Timer.gameObject.SetActive(true);
-                if (tempo != 999999)
-                {
-                    Timer.text = Mathf.RoundToInt(tempo).ToString();
-                }
-                else
-                {
-                    Timer.text = "∞";
-                }
-            }
-            if (Countdown - 1 <= 0 && tempo > 0)
-            {
-                CountdownTimer.gameObject.SetActive(false);
-            }
-        }
+        // if (!CharacterSelect.transform.parent.gameObject.activeSelf)
+        // {
+        //     CountdownTimer.gameObject.SetActive(true);
+        //     Countdown -= Time.deltaTime;
+        //     CountdownTimer.text = Mathf.RoundToInt((Countdown - 1)).ToString();
+        //     if (Countdown - 1 <= 1 && tempo > 0)
+        //     {
+        //         CountdownTimer.text = "Start!";
+        //         CountdownAcabou = true;
+        //         Timer.gameObject.SetActive(true);
+        //         if (tempo != 999999)
+        //         {
+        //             Timer.text = Mathf.RoundToInt(tempo).ToString();
+        //         }
+        //         else
+        //         {
+        //             Timer.text = "∞";
+        //         }
+        //     }
+        //     if (Countdown - 1 <= 0 && tempo > 0)
+        //     {
+        //         CountdownTimer.gameObject.SetActive(false);
+        //     }
+        // }
     }
 
     private string MaiorValor()
