@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
         howManyPlayers.SetActive(true);
         characterSelect.SetActive(false);
         settings.SetActive(false);
+        // gameSettings.reset();
     }
     // Start is called before the first frame update
     void Start()

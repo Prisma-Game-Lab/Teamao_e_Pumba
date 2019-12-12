@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public int playerNumbers { get; set; }
-    private string[] personagens = { "", "", "", "" };
+    public List<string> personagens;
 
 
     public void setPlayerChoice(int jogador, string personagem)
@@ -31,7 +31,7 @@ public class GameSettings : ScriptableObject
 
     public void reset()
     {
-        // personagens = { "", "", "", ""};
+        personagens.Clear();
         playerNumbers = -1;
     }
 }

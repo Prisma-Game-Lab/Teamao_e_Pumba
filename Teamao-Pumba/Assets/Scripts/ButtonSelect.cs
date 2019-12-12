@@ -104,7 +104,7 @@ public class ButtonSelect : MonoBehaviour
             {
                 if (Buttons[CoordenadaPlayers[i]].name == "TucanoButton")
                 {
-                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
+                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
@@ -114,7 +114,7 @@ public class ButtonSelect : MonoBehaviour
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "CapivaraButton")
                 {
-                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capivara");
+                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capivara");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(true);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
@@ -124,7 +124,7 @@ public class ButtonSelect : MonoBehaviour
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "LicoButton")
                 {
-                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Lico");
+                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Lico");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(true);
@@ -134,7 +134,7 @@ public class ButtonSelect : MonoBehaviour
                 }
                 if (Buttons[CoordenadaPlayers[i]].name == "CapsuleButton")
                 {
-                    Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capsule");
+                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capsule");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
