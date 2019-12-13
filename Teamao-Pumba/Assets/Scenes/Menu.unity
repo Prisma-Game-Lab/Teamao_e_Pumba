@@ -12918,8 +12918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ee835027ec7f64e8f86d48481a4167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arena: {fileID: 2055756879}
-  Chant: {fileID: 2055756878}
 --- !u!4 &1901941544
 Transform:
   m_ObjectHideFlags: 0
@@ -13689,11 +13687,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1184517419695869793, guid: 248563ddd481544b884a288830e3fce3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 248563ddd481544b884a288830e3fce3, type: 3}
 --- !u!114 &2038515638 stripped
@@ -13920,18 +13913,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ccba954624f053641ada23a2b804b830,
     type: 3}
   m_PrefabInstance: {fileID: 285506473}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2055756878 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1289377070, guid: 248563ddd481544b884a288830e3fce3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2038515637}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2055756879 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1184517419695869793, guid: 248563ddd481544b884a288830e3fce3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2038515637}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2064680855
 PrefabInstance:
