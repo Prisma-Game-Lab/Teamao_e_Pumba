@@ -16,16 +16,16 @@ public class SFXsTrigger : MonoBehaviour
     {
         switch (index)
         {
-            case 1:
+            case 0:
                 UI.Play();
                 break;
-            case 2:
+            case 1:
                 Tuco.Play();
                 break;
-            case 3:
+            case 2:
                 Lico.Play();
                 break;
-            case 4:
+            case 3:
                 Capi.Play();
                 break;
             default:
