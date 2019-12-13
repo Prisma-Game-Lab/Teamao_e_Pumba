@@ -17,7 +17,9 @@ public class MovimentAxis : MonoBehaviour
     Renderer renderer;
 
     public GameObject Steps;
+
     public ParticleSystem dust;
+    //public ParticleSystem splash;
 
     void Start(){
         renderer = corpo.GetComponent<Renderer> ();
