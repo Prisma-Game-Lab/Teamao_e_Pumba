@@ -37,13 +37,13 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
+            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess"))
             {
                 anim.SetBool("running", true);
             }
             else
             {
-                if (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico")
+                if (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess")
                 {
                     anim.SetBool("running", false);
                 }
@@ -59,7 +59,7 @@ public class MovimentAxis : MonoBehaviour
     void Update()
     {
         anim = this.GetComponent<Animator>();
-        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico"))
+        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess"))
         {
             anim.SetBool("running", false);
         }

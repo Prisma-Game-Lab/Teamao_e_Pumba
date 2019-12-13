@@ -8509,7 +8509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Capsula
+  m_Text: Jess
 --- !u!222 &1663300093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8578,6 +8578,7 @@ MonoBehaviour:
   - {fileID: 289971875}
   - {fileID: 1351623933}
   - {fileID: 1493217596}
+  - {fileID: 1974458226}
   - {fileID: 1217245658}
   - {fileID: 1953992229}
   - {fileID: 213411992}
@@ -9758,12 +9759,12 @@ GameObject:
   - component: {fileID: 1974458227}
   - component: {fileID: 1974458226}
   m_Layer: 5
-  m_Name: CapsuleButton
+  m_Name: JessButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1974458225
 RectTransform:
   m_ObjectHideFlags: 0

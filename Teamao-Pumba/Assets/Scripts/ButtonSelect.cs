@@ -132,14 +132,14 @@ public class ButtonSelect : MonoBehaviour
                     gameSettings.setPlayerChoice(i, "Lico");
                     PlayersWithCharacter[i] = true;
                 }
-                if (Buttons[CoordenadaPlayers[i]].name == "CapsuleButton")
+                if (Buttons[CoordenadaPlayers[i]].name == "JessButton")
                 {
-                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capsule");
+                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Jess");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(true);
-                    gameSettings.setPlayerChoice(i, "Capsule");
+                    gameSettings.setPlayerChoice(i, "Jess");
                     PlayersWithCharacter[i] = true;
                 }
                 Buttons[CoordenadaPlayers[i]].onClick.Invoke();
