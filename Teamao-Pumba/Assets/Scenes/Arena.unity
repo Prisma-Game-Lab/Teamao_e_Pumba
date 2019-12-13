@@ -13087,6 +13087,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2102622694440473934, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851174987218007276, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_Name
+      value: FADE PLACEHOLDER
+      objectReference: {fileID: 0}
+    - target: {fileID: 662188238444649110, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6425154420093215724, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_AnchoredPosition.y
