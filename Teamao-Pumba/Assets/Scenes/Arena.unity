@@ -3344,6 +3344,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 248563ddd481544b884a288830e3fce3, type: 3}
+--- !u!82 &530768335 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1289377070, guid: 248563ddd481544b884a288830e3fce3,
+    type: 3}
+  m_PrefabInstance: {fileID: 530768334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &530768336 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1184517419695869793, guid: 248563ddd481544b884a288830e3fce3,
+    type: 3}
+  m_PrefabInstance: {fileID: 530768334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &532315617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6314,6 +6326,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -7818995823042000460, guid: 8344faf8ee7e57d4381a8290b642242b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49f6cb50f198e834ab8660b4e715d452, type: 2}
+    - target: {fileID: -6506002207800185060, guid: 8344faf8ee7e57d4381a8290b642242b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49f6cb50f198e834ab8660b4e715d452, type: 2}
     - target: {fileID: -4216859302048453862, guid: 8344faf8ee7e57d4381a8290b642242b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6384,16 +6406,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: -7818995823042000460, guid: 8344faf8ee7e57d4381a8290b642242b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 49f6cb50f198e834ab8660b4e715d452, type: 2}
-    - target: {fileID: -6506002207800185060, guid: 8344faf8ee7e57d4381a8290b642242b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 49f6cb50f198e834ab8660b4e715d452, type: 2}
     - target: {fileID: -4040093896508266011, guid: 8344faf8ee7e57d4381a8290b642242b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12597,6 +12609,14 @@ PrefabInstance:
       propertyPath: MoveSpeedPlus
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 695164789, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: Arena
+      value: 
+      objectReference: {fileID: 530768336}
+    - target: {fileID: 695164789, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: Chant
+      value: 
+      objectReference: {fileID: 530768335}
     - target: {fileID: 2386142500795320216, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb,
         type: 3}
       propertyPath: Players
@@ -14347,66 +14367,6 @@ PrefabInstance:
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 22644688}
-    - target: {fileID: 6967863608030504718, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MyBase
-      value: 
-      objectReference: {fileID: 1339927222}
-    - target: {fileID: 6967863608030504718, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 247623840}
-    - target: {fileID: 2422325637350331577, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 730736002}
-    - target: {fileID: 9130383607346487991, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: nameLabel
-      value: 
-      objectReference: {fileID: 1172659918}
-    - target: {fileID: 7947850827725666045, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MyBase
-      value: 
-      objectReference: {fileID: 329481901}
-    - target: {fileID: 7947850827725666045, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 322452924}
-    - target: {fileID: 5850173185651686705, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 165226472}
-    - target: {fileID: 8631061575140795776, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: nameLabel
-      value: 
-      objectReference: {fileID: 58878103}
-    - target: {fileID: 254509632598466105, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: MyBase
-      value: 
-      objectReference: {fileID: 49556097}
-    - target: {fileID: 254509632598466105, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: BaseTimers
-      value: 
-      objectReference: {fileID: 1585473879}
-    - target: {fileID: 3241016842364493833, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: StunUI
-      value: 
-      objectReference: {fileID: 925529977}
-    - target: {fileID: 3191617040159282774, guid: 9c1c887a043ab9d4ab2db29dde58078b,
-        type: 3}
-      propertyPath: nameLabel
-      value: 
-      objectReference: {fileID: 1052217302}
     - target: {fileID: 8170362002880184316, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: MyBase
@@ -14422,10 +14382,70 @@ PrefabInstance:
       propertyPath: StunUI
       value: 
       objectReference: {fileID: 1371185613}
+    - target: {fileID: 7947850827725666045, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: MyBase
+      value: 
+      objectReference: {fileID: 329481901}
+    - target: {fileID: 7947850827725666045, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: BaseTimers
+      value: 
+      objectReference: {fileID: 322452924}
+    - target: {fileID: 5850173185651686705, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 165226472}
+    - target: {fileID: 254509632598466105, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: MyBase
+      value: 
+      objectReference: {fileID: 49556097}
+    - target: {fileID: 254509632598466105, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: BaseTimers
+      value: 
+      objectReference: {fileID: 1585473879}
+    - target: {fileID: 3241016842364493833, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 925529977}
+    - target: {fileID: 6967863608030504718, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: MyBase
+      value: 
+      objectReference: {fileID: 1339927222}
+    - target: {fileID: 6967863608030504718, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: BaseTimers
+      value: 
+      objectReference: {fileID: 247623840}
+    - target: {fileID: 2422325637350331577, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: StunUI
+      value: 
+      objectReference: {fileID: 730736002}
+    - target: {fileID: 8631061575140795776, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: nameLabel
+      value: 
+      objectReference: {fileID: 58878103}
+    - target: {fileID: 9130383607346487991, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: nameLabel
+      value: 
+      objectReference: {fileID: 1172659918}
     - target: {fileID: 3112653469111744720, guid: 9c1c887a043ab9d4ab2db29dde58078b,
         type: 3}
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 22644688}
+    - target: {fileID: 3191617040159282774, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: nameLabel
+      value: 
+      objectReference: {fileID: 1052217302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
