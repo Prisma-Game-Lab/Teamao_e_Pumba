@@ -17,6 +17,7 @@ public class MovimentAxis : MonoBehaviour
     Renderer renderer;
 
     public GameObject Steps;
+    public ParticleSystem dust;
 
     void Start(){
         renderer = corpo.GetComponent<Renderer> ();
@@ -45,7 +46,7 @@ public class MovimentAxis : MonoBehaviour
             {
                 if (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess")
                 {
-                    anim.SetBool("running", false);
+                    anim.SetBool("running", false);    
                 }
             }
         }
@@ -62,6 +63,7 @@ public class MovimentAxis : MonoBehaviour
         if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess"))
         {
             anim.SetBool("running", false);
+            dust.Play();
         }
         if(stunned) {
             StunUI.SetActive(true);
