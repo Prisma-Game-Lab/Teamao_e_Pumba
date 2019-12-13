@@ -61,7 +61,7 @@ MonoBehaviour:
     - {fileID: 586230265010453867}
     - {fileID: 1289377070}
     scene: Credits
-  duration: 0.15
+  duration: 0.25
 --- !u!82 &586230265010453867
 AudioSource:
   m_ObjectHideFlags: 0
