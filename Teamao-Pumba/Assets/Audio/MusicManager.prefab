@@ -50,7 +50,7 @@ MonoBehaviour:
     - {fileID: 586230265010453867}
     scene: Menu
   - music:
-    - {fileID: 1184517419695869793}
+    - {fileID: 586230265010453867}
     scene: Settings
   - music:
     - {fileID: 1184517419695869793}
@@ -58,7 +58,7 @@ MonoBehaviour:
   - music:
     - {fileID: 1184517419695869793}
     scene: Credits
-  duration: 0.2
+  duration: 0.15
 --- !u!82 &586230265010453867
 AudioSource:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 248f2e59ef6b1434284f45ddc578e12b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -165,7 +165,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 13521221a9cee40c6b97d12302895ef0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
