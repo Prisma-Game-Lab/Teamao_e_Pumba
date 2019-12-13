@@ -21,15 +21,20 @@ public class SFXsTrigger : MonoBehaviour
                 break;
             case 1:
                 Tuco.Play();
+                Tuco.Play();
                 break;
             case 2:
+                Lico.Play();
                 Lico.Play();
                 break;
             case 3:
                 Capi.Play();
+                Capi.Play();
                 break;
             default:
                 Jess.Play();
+                Jess.Play();
+
                 break;
         }
     }
