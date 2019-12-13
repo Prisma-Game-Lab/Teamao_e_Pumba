@@ -9,8 +9,6 @@ Author: Vinny
 Homsi brincou também*/
 public class SceneJumper : MonoBehaviour
 {
-   // public AudioSource Arena;
-   // public AudioSource Chant;
 
     public void GoArena()
     {
