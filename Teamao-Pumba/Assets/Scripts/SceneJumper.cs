@@ -27,9 +27,8 @@ public class SceneJumper : MonoBehaviour
     }
     public void GoMenu()
     {
-        if (Arena != null)
-
-            Chant.enabled = false;
+        if (Chant != null)
+        {Chant.enabled = false;}
         if (Arena != null)
         { Arena.enabled = false; }
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
@@ -37,7 +36,10 @@ public class SceneJumper : MonoBehaviour
     }
     public void QuitGame()
     {
-        Arena.enabled = false;
+        if (Arena != null)
+        {
+            Arena.enabled = false;
+        }
         Application.Quit();
     }
     public void Reload()
