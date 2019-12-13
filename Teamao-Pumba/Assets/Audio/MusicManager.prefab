@@ -48,7 +48,7 @@ MonoBehaviour:
   - music:
     - {fileID: 586230265010453867}
     scene: Arena
-  duration: 1
+  duration: 10
 --- !u!82 &586230265010453867
 AudioSource:
   m_ObjectHideFlags: 0
