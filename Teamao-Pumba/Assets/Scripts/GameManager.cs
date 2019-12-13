@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
             Bases.transform.GetChild(i).gameObject.SetActive(false);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(false);
         }
-        Players.transform.GetChild(0).gameObject.SetActive(true);
-        Players.transform.GetChild(1).gameObject.SetActive(true);
+        Players.transform.GetChild(0).gameObject.SetActive(false);
+        Players.transform.GetChild(1).gameObject.SetActive(false);
         Players.transform.GetChild(2).gameObject.SetActive(false);
         Players.transform.GetChild(3).gameObject.SetActive(false);
 
@@ -68,9 +68,11 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<RandomEvent>().ChanceDeEvento(DefaultProbabilidade);
         CountdownTimer.gameObject.transform.parent.gameObject.SetActive(true);
         PointsCanvas.SetActive(true);
-
+        print(gameSettings.playerNumbers);
         for (int i = 0; i < gameSettings.playerNumbers; i++)
         { //ativa componentes dos jogadores existentes
+            //Debug.log(gameSettings.playerNumbers);
+            Players.transform.GetChild(i).gameObject.SetActive(true);
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
             Bases.transform.GetChild(i).gameObject.SetActive(true);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
