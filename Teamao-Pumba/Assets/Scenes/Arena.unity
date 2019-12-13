@@ -14366,6 +14366,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7706177, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077227664952188591, guid: 81a407128f7daa44bbc739e22d6c4d61,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4069540159136555505, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_Sprite
@@ -14381,15 +14390,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.3529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706177, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2077227664952188591, guid: 81a407128f7daa44bbc739e22d6c4d61,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a407128f7daa44bbc739e22d6c4d61, type: 3}
@@ -15041,5 +15041,9 @@ PrefabInstance:
       propertyPath: nameLabel
       value: 
       objectReference: {fileID: 58878103}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7315081945119249252, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
+    - {fileID: 7315081945119249251, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
+    - {fileID: 7315081945119249250, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
+    - {fileID: 7315081945119249249, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
