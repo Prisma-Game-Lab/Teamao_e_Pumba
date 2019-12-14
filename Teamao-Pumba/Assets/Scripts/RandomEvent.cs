@@ -134,26 +134,26 @@ public class RandomEvent : MonoBehaviour
         //StartCoroutine(BlinkEventText()); //< PEDRO: COMENTEI AQUI PRA PARAR DE PISCAR O BAGULHO
         switch(GetEventNumber) {
             case 1:
-                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Bases Trocadas";
+                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Vamos trocar de lugar!";
                 yield return new WaitForSeconds(1);
                 EventChangeBase();
                 break;
             case 2:
-                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Velocidade Aumentada";
+                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Vamos acelerar!";
                 yield return new WaitForSeconds(1);
                 EventFastPlayer();
                 break;
             case 3:
-                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Bases Trocadas";
+                RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Vamos trocar de lugar!";
                 yield return new WaitForSeconds(1);
                 EventChangeBase();
                 break;
             case 4:
                 if(!RotatePermition) {
-                    RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Rotação do Estágio Ativada";
+                    RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Vamos rodar!";
                 }
                 else {
-                    RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Rotação do Estágio Aumentada";
+                    RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Vamos rodar mais rápido!";
                 }
                 yield return new WaitForSeconds(1);
                 EventRotatingStage();
