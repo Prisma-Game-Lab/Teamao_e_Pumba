@@ -129,7 +129,7 @@ public class RandomEvent : MonoBehaviour
     }
     IEnumerator ChooseEvent() {
         Permition = false;
-        int GetEventNumber = Random.Range(1,7);
+        int GetEventNumber = Random.Range(1,5);
         RandomEventCanvas.SetActive(true);
         //StartCoroutine(BlinkEventText()); //< PEDRO: COMENTEI AQUI PRA PARAR DE PISCAR O BAGULHO
         switch(GetEventNumber) {
@@ -158,21 +158,21 @@ public class RandomEvent : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 EventRotatingStage();
                 break;
-            case 5:
+            /*case 5:
                 RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Camera Girou";
                 yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertCamera());
-                break;
+                break;*/
             /*case 6:
                 RandomEventCanvas.transform.GetChild(0).GetComponent<Text>().text = "Evento: Movimentação Invertida";
                 yield return new WaitForSeconds(1);
                 StartCoroutine(EventInvertMovement());
                 break;*/
-            case 6:
+            /*case 6:
                 RandomEventCanvas.transform.GetChild(2).GetComponent<Text>().text = "Quantidade de Itens Dobrado";
                 yield return new WaitForSeconds(1);
                 EventDoubleItemSpawn();;
-                break;
+                break;*/
 
         }
         StartCoroutine(RemoveCanvas());
