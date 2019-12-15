@@ -7,7 +7,7 @@ public class MenuSelect : MonoBehaviour
 {
     public List<Image> SelectPlayers;
     public List<Button> MenuButtons;
-    private List<int> CoordenadaPlayers = new List<int>();
+    public List<int> CoordenadaPlayers = new List<int>();
     private List<bool> ControlAcess = new List<bool>();
 
     void Start()
