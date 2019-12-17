@@ -135,7 +135,7 @@ public class MenuSelect : MonoBehaviour
     }
     IEnumerator GrantAcess(int Player)
     {
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.3f);
         ControlAcess[Player] = true;
     }
 }
