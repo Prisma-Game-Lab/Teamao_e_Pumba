@@ -30,6 +30,8 @@ public class PointSystem : MonoBehaviour
     private bool invuneravel = false;
     private float TimeDeliver = 0; // Contador de tempo na base
 
+    private int PlayerNumber;
+
     public AudioSource Collect;
     public AudioSource BaseSound;
     public AudioSource GetShotSound;
@@ -41,26 +43,16 @@ public class PointSystem : MonoBehaviour
     {
         VirtualPoints = 0;
         RealPoints = 0;
+        string parentName = transform.parent.name;
+        PlayerNumber = (int)(parentName[parentName.Length - 1] - '0');
     }
     void Update()
     {
         GiveBase();
+        UpdateCol();
     }
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Item") {
-            if(VirtualPoints < MaxItem) {
-                if(VirtualPoints + Ammo > MaxItem) {
-                    VirtualPoints = MaxItem;
-                }
-                else {
-                    VirtualPoints += Ammo;
-                }
-                Destroy(other.gameObject);
-                Collect.Play();
-            }
-            
-        }
         if(other.gameObject == MyBase) {
             TouchingBase = true;
         }
@@ -72,6 +64,28 @@ public class PointSystem : MonoBehaviour
     {
         if(other.gameObject == MyBase) {
             TouchingBase = false;
+        }
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Item") {
+
+            if(VirtualPoints < MaxItem) 
+                {
+                if(VirtualPoints + Ammo > MaxItem) 
+                {
+                    VirtualPoints = MaxItem;
+                }
+                else
+                {
+                    VirtualPoints += Ammo;
+                }
+                Destroy(other.gameObject);
+                Collect.Play();
+            }
+            
         }
     }
     public void loosePoints()
@@ -128,5 +142,10 @@ public class PointSystem : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void UpdateCol()
+    {
+        Physics.IgnoreLayerCollision(PlayerNumber + 8,13,VirtualPoints == MaxItem);
     }
 }
