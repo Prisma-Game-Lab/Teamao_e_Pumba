@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
             Bases.transform.GetChild(i).gameObject.SetActive(true);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-            SetCharacterImage();
+            //SetCharacterImage();
             // ResetaCoordenada();
         }
         CountdownTimer.text="-";
@@ -280,7 +280,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            PointsCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
+            PointsCanvas.transform.GetChild(i).transform.GetChild(5).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
 
 
             AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString() + "/" + Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem;
