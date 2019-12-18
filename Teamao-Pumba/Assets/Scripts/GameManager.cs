@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             PointsCanvas.transform.GetChild(i).gameObject.SetActive(true);
             Bases.transform.GetChild(i).gameObject.SetActive(true);
             AboveHeadCanvas.transform.GetChild(i).gameObject.SetActive(true);
-            SetCharacterImage();
+            //SetCharacterImage();
             // ResetaCoordenada();
         }
         CountdownTimer.text="-";
