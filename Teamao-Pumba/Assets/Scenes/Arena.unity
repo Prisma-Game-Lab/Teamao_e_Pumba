@@ -15610,6 +15610,10 @@ PrefabInstance:
       propertyPath: Item_qtd
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 695164790, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: Itens_transform
+      value: 
+      objectReference: {fileID: 1085568915}
     - target: {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
       propertyPath: Players
       value: 
