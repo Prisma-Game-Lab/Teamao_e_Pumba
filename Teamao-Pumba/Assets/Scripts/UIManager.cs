@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
         UIPlayers[3].gameObject.SetActive(true);
         GoToCharacterSelect();
     }
-    private void GoToCharacterSelect()
+    public void GoToCharacterSelect()
     { // Vai para a tela de seleção de personagem
         if (isPlayerNumbersSelected)
         {
