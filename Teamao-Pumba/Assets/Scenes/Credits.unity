@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6707013, g: 0.84706056, b: 0.9056604, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49411768, g: 0.42352945, b: 0.1254902, a: 1}
+  m_Color: {r: 0.41960788, g: 0.27058825, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2182,8 +2182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.06819916, y: -41.039864}
-  m_SizeDelta: {x: 152.3, y: 57.4}
+  m_AnchoredPosition: {x: 52.9, y: -75.54}
+  m_SizeDelta: {x: 258.4, y: 126.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825663623
 MonoBehaviour:
@@ -2218,7 +2218,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Hugo Anquier\r\nLucas Thiers\r\nWerther Azevedo"
+  m_Text: "Hugo Anquier\r\nLucas Thiers\r\nWerther Azevedo\nE a todos que jogaram
+    o nosso jogo!"
 --- !u!222 &825663624
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2996,7 +2997,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Hugo Anquier\r\nLucas Thiers\r\nWerther Azevedo"
+  m_Text: "Hugo Anquier\r\nLucas Thiers\r\nWerther Azevedo\nE a todos que testaram
+    o nosso jogo!"
 --- !u!222 &1281917184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4105,7 +4107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.827451, b: 0.3019608, a: 1}
+  m_Color: {r: 0.9921569, g: 0.7294118, b: 0.3254902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4116,7 +4118,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: f8e413ca691318b4a9ace96ed656bc24, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
