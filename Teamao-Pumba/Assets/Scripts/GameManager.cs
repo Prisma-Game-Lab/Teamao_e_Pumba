@@ -111,10 +111,10 @@ public class GameManager : MonoBehaviour
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    /*Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                     Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
                     Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
-                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;*/
                 }
                 movizin = false;
             }
@@ -264,7 +264,17 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             PointsCanvas.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
+
+
             AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString() + "/" + Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem;
+
+            for(int j=0;j<6;j++)
+            {
+                AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(3).transform.GetChild(j).gameObject.SetActive(false);
+            }
+            int points = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints;
+            AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(3).transform.GetChild(points).gameObject.SetActive(true);
+
             if (Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints == Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem)
             {
                 //CarryCanvas.transform.GetChild(i+4).gameObject.SetActive(true);
