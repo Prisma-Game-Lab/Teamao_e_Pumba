@@ -15334,22 +15334,22 @@ PrefabInstance:
     - target: {fileID: 1730184258402707267, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1730184258691511151, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1730184259156222064, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1730184259818107732, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1730184258402707292, guid: 126751a229be69640b9eb37e0bb6e7dd,
         type: 3}

@@ -51,7 +51,7 @@ public class PointSystem : MonoBehaviour
         GiveBase();
         UpdateCol();
     }
-    void OnCollisionEnter(Collision other)
+    /*void OnCollisionEnter(Collision other)
     {
         if(other.gameObject == MyBase) {
             TouchingBase = true;
@@ -59,8 +59,8 @@ public class PointSystem : MonoBehaviour
         if(other.gameObject.tag == "Espinho") {
             
         }
-    }
-    void OnCollisionExit(Collision other)
+    }*/
+    void OnTriggerExit(Collider other)
     {
         if(other.gameObject == MyBase) {
             TouchingBase = false;
@@ -70,6 +70,9 @@ public class PointSystem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject == MyBase) {
+            TouchingBase = true;
+        }
         if(other.gameObject.tag == "Item") {
 
             if(VirtualPoints < MaxItem) 
