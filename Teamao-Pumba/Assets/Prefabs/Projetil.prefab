@@ -177,6 +177,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093476661016021116, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16495518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093476661016021116, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16495518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093476661016021116, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16495518
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078417905747344672, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 31226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078417905747344672, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 41056
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ee6801a1bdbd4bbd0258eeedf8d7f, type: 3}
 --- !u!4 &1540545164754077619 stripped
