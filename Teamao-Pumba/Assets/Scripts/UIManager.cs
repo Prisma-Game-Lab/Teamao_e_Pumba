@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject howManyPlayers;
+    // public GameObject howManyPlayers;
     public GameObject characterSelect;
     public GameObject settings;
 
@@ -17,8 +17,8 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        howManyPlayers.SetActive(true);
-        characterSelect.SetActive(false);
+        // howManyPlayers.SetActive(true);
+        characterSelect.SetActive(true);
         settings.SetActive(false);
         // gameSettings.reset();
     }
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     { // Vai para a tela de seleção de personagem
         if (isPlayerNumbersSelected)
         {
-            howManyPlayers.SetActive(false);
+            // howManyPlayers.SetActive(false);
             characterSelect.SetActive(true);
             ResetaCoordenada();
         }
@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour
 
         gameSettings.playerNumbers = 0;
         isPlayerNumbersSelected = false;
-        howManyPlayers.SetActive(true);
+        // howManyPlayers.SetActive(true);
         characterSelect.SetActive(false);
         ErrorText.text = "";
     }

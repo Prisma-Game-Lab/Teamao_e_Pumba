@@ -12,7 +12,7 @@ public class ButtonSelect : MonoBehaviour
     public List<Button> SettingsButtons;
     [HideInInspector]
     public List<int> CoordenadaPlayers = new List<int>();
-    private List<bool> ControlAcess = new List<bool>();
+    public List<bool> ControlAcess = new List<bool>();
     [HideInInspector]
     public int HowManyPlayers;
     [HideInInspector]
@@ -28,10 +28,22 @@ public class ButtonSelect : MonoBehaviour
     public Image NewSettingsCanvasImage;
     private List<int> OptionNewSettings = new List<int>();
 
+    public List<bool> isPlayerAbsent = new List<bool>();
+    public List<bool> isPlayetReady = new List<bool>();
+    public List<GameObject> players = new List<GameObject>();
+
+    public List<Sprite> playerImages1 = new List<Sprite>();
+    public List<Sprite> playerImages2 = new List<Sprite>();
+    public List<Sprite> playerImages3 = new List<Sprite>();
+    public List<Sprite> playerImages4 = new List<Sprite>();
+    private int selectedTime;
+
 
     void Start()
-    {   
+    {
 
+        UpdateCharacterSelectionUI();
+        gameSettings.playerNumbers = 0;
         SetOptionNewSettings();
         NewSettingsCanvasPos = 0;
         for (int i = 0; i < 4; i++)
@@ -39,22 +51,28 @@ public class ButtonSelect : MonoBehaviour
             CoordenadaPlayers.Add(0);
             PlayersWithCharacter.Add(false);
             ControlAcess.Add(true);
+            isPlayerAbsent.Add(true);
+            isPlayetReady.Add(false);
         }
         SelectPlayers[0].gameObject.SetActive(true);
 
     }
 
-    private void SetOptionNewSettings() {
-        for(int i = 0; i < TempoOptions.Count; i++) {
-            if(GameManager.DefaultTempo == TempoOptions[i])
+    private void SetOptionNewSettings()
+    {
+        for (int i = 0; i < TempoOptions.Count; i++)
+        {
+            if (GameManager.DefaultTempo == TempoOptions[i])
                 OptionNewSettings.Add(i);
         }
-        for(int i = 0; i < ProbabilidadeOptions.Count; i++) {
-            if(GameManager.DefaultProbabilidade == ProbabilidadeOptions[i])
+        for (int i = 0; i < ProbabilidadeOptions.Count; i++)
+        {
+            if (GameManager.DefaultProbabilidade == ProbabilidadeOptions[i])
                 OptionNewSettings.Add(i);
         }
-        for(int i = 0; i < VitoriaPointsOption.Count; i++) {
-            if(GameManager.DefaultPontodeVitoria == VitoriaPointsOption[i])
+        for (int i = 0; i < VitoriaPointsOption.Count; i++)
+        {
+            if (GameManager.DefaultPontodeVitoria == VitoriaPointsOption[i])
                 OptionNewSettings.Add(i);
         }
     }
@@ -62,9 +80,153 @@ public class ButtonSelect : MonoBehaviour
     void Update()
     {
         HMPCanvas();
+        SelectCharacters();
         CSCanvas();
         NewSettingsCanvas();
         ChangeSize();
+        GetStartPlayers();
+    }
+
+    public void GetStartPlayers()
+    {
+        for (int i = 0; i < CoordenadaPlayers.Count; i++)
+        {
+            if (Input.GetAxisRaw("ShootPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
+            {
+                if (isPlayerAbsent[i])
+                {
+                    players[i].transform.GetChild(4).gameObject.SetActive(false);
+                    isPlayerAbsent[i] = false;
+                    gameSettings.playerNumbers++;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
+                else
+                {
+                    players[i].transform.GetChild(5).gameObject.SetActive(true);
+                    isPlayetReady[i] = true;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
+            }
+        }
+    }
+
+    private void UpdateCharacterSelectionUI()
+    {
+
+        players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[0];
+        players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[0];
+        players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[0];
+        players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[0];
+
+    }
+
+    public void SelectCharacters()
+    {
+        for (int i = 0; i < CoordenadaPlayers.Count; i++)
+        {
+            HandleCharacterSprite(i);
+        }
+    }
+
+    private void HandleCharacterSprite(int i)
+    {
+        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayetReady[i] == false)
+        {
+            HandleRightClickInput(i);
+            ControlAcess[i] = false;
+            StartCoroutine(GrantAcess(i));
+
+        }
+        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) < 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayetReady[i] == false)
+        {
+            HandleLeftClickInput(i);
+            ControlAcess[i] = false;
+            StartCoroutine(GrantAcess(i));
+        }
+
+
+    }
+
+    private void HandleLeftClickInput(int i)
+    {
+        if ((i + 1).ToString() == "1")
+        {
+            selectedTime--;
+            if (selectedTime < 0)
+            {
+                selectedTime = playerImages1.Count - 1;
+            }
+            players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[selectedTime];
+        }
+        if ((i + 1).ToString() == "2")
+        {
+            selectedTime--;
+            if (selectedTime < 0)
+            {
+                selectedTime = playerImages1.Count - 1;
+            }
+            players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[selectedTime];
+        }
+        if ((i + 1).ToString() == "3")
+        {
+            selectedTime--;
+            if (selectedTime < 0)
+            {
+                selectedTime = playerImages1.Count - 1;
+            }
+            players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[selectedTime];
+        }
+        if ((i + 1).ToString() == "4")
+        {
+            selectedTime--;
+            if (selectedTime < 0)
+            {
+                selectedTime = playerImages1.Count - 1;
+            }
+            players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[selectedTime];
+        }
+    }
+
+    private void HandleRightClickInput(int i)
+    {
+        if ((i + 1).ToString() == "1")
+        {
+            selectedTime++;
+            if (selectedTime == playerImages1.Count)
+            {
+                selectedTime = 0;
+            }
+            players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[selectedTime];
+        }
+        if ((i + 1).ToString() == "2")
+        {
+            selectedTime++;
+            if (selectedTime == playerImages1.Count)
+            {
+                selectedTime = 0;
+            }
+            players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[selectedTime];
+        }
+        if ((i + 1).ToString() == "3")
+        {
+            selectedTime++;
+            if (selectedTime == playerImages1.Count)
+            {
+                selectedTime = 0;
+            }
+            players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[selectedTime];
+        }
+        if ((i + 1).ToString() == "4")
+        {
+            selectedTime++;
+            if (selectedTime == playerImages1.Count)
+            {
+                selectedTime = 0;
+            }
+            players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[selectedTime];
+        }
     }
 
     private void HMPCanvas()
@@ -109,9 +271,11 @@ public class ButtonSelect : MonoBehaviour
         CheckCoordinateValue(SettingsButtons.Count);
         PressButton(SettingsButtons);
     }
-    private void NewSettingsCanvas() {
-        if(CSButtons[0].transform.parent.gameObject.activeSelf || HMPButtons[0].transform.parent.gameObject.activeSelf) return;
-        for(int j = 0; j < SelectPlayers.Count; j++) {
+    private void NewSettingsCanvas()
+    {
+        if (CSButtons[0].transform.parent.gameObject.activeSelf || HMPButtons[0].transform.parent.gameObject.activeSelf) return;
+        for (int j = 0; j < SelectPlayers.Count; j++)
+        {
             SelectPlayers[j].gameObject.SetActive(false);
         }
         for (int i = 0; i < CoordenadaPlayers.Count; i++)
@@ -129,15 +293,15 @@ public class ButtonSelect : MonoBehaviour
                 StartCoroutine(GrantAcess(i));
             }
 
-            if(NewSettingsCanvasPos < 0) NewSettingsCanvasPos = 2;
-            if(NewSettingsCanvasPos > 2) NewSettingsCanvasPos = 0;
+            if (NewSettingsCanvasPos < 0) NewSettingsCanvasPos = 2;
+            if (NewSettingsCanvasPos > 2) NewSettingsCanvasPos = 0;
 
-            if(NewSettingsCanvasPos == 0) 
+            if (NewSettingsCanvasPos == 0)
                 NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[0].gameObject.transform.position;
-            if(NewSettingsCanvasPos == 1) 
+            if (NewSettingsCanvasPos == 1)
                 NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[1].gameObject.transform.position;
-            if(NewSettingsCanvasPos == 2) 
-                NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[2].gameObject.transform.position;    
+            if (NewSettingsCanvasPos == 2)
+                NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[2].gameObject.transform.position;
 
             if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i])
             {
@@ -152,16 +316,17 @@ public class ButtonSelect : MonoBehaviour
                 StartCoroutine(GrantAcess(i));
             }
 
-            if(OptionNewSettings[0] > 3) OptionNewSettings[0] = 0;
-            if(OptionNewSettings[1] > 4) OptionNewSettings[1] = 0;
-            if(OptionNewSettings[2] > 3) OptionNewSettings[2] = 0;
-            if(OptionNewSettings[0] < 0) OptionNewSettings[0] = 3;
-            if(OptionNewSettings[1] < 0) OptionNewSettings[1] = 4;
-            if(OptionNewSettings[2] < 0) OptionNewSettings[2] = 3;
+            if (OptionNewSettings[0] > 3) OptionNewSettings[0] = 0;
+            if (OptionNewSettings[1] > 4) OptionNewSettings[1] = 0;
+            if (OptionNewSettings[2] > 3) OptionNewSettings[2] = 0;
+            if (OptionNewSettings[0] < 0) OptionNewSettings[0] = 3;
+            if (OptionNewSettings[1] < 0) OptionNewSettings[1] = 4;
+            if (OptionNewSettings[2] < 0) OptionNewSettings[2] = 3;
 
             if (Input.GetAxis("VoltarPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
             {
-                for(int j = 0; j < gameSettings.playerNumbers; j++) {
+                for (int j = 0; j < gameSettings.playerNumbers; j++)
+                {
                     SelectPlayers[j].gameObject.SetActive(true);
                 }
                 GetComponent<UIManager>().GoBackToCharacterSelect();
@@ -176,8 +341,8 @@ public class ButtonSelect : MonoBehaviour
         NewSettingsCanvasTexts[0].text = $"{GameManager.DefaultTempo.ToString()} Segundos";
         NewSettingsCanvasTexts[1].text = $"{GameManager.DefaultProbabilidade.ToString()}%";
         NewSettingsCanvasTexts[2].text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
-        if(GameManager.DefaultTempo == 999999) NewSettingsCanvasTexts[0].text = "Infinito";
-        if(GameManager.DefaultPontodeVitoria == 999999) NewSettingsCanvasTexts[2].text = "Desligado";
+        if (GameManager.DefaultTempo == 999999) NewSettingsCanvasTexts[0].text = "Infinito";
+        if (GameManager.DefaultPontodeVitoria == 999999) NewSettingsCanvasTexts[2].text = "Desligado";
     }
     private void CheckCoordinateValue(int Count)
     {
@@ -201,6 +366,7 @@ public class ButtonSelect : MonoBehaviour
             {
                 if (Buttons[CoordenadaPlayers[i]].name == "TucanoButton")
                 {
+                    Debug.Log(" TEASDASDA");
                     // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
                     gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
