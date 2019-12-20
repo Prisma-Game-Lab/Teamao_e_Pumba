@@ -33,14 +33,19 @@ public class ButtonSelect : MonoBehaviour
     private List<int> OptionNewSettings = new List<int>();
 
     public List<bool> isPlayerAbsent = new List<bool>();
-    public List<bool> isPlayetReady = new List<bool>();
+    public List<bool> isPlayerReady = new List<bool>();
     public List<GameObject> players = new List<GameObject>();
 
     public List<Sprite> playerImages1 = new List<Sprite>();
     public List<Sprite> playerImages2 = new List<Sprite>();
     public List<Sprite> playerImages3 = new List<Sprite>();
     public List<Sprite> playerImages4 = new List<Sprite>();
-    public int selectedTime;
+    private int selectedTime;
+
+    public Text gameTimeText;
+    public Text gameEventsText;
+    public Text gamePointsText;
+
 
 
     void Start()
@@ -56,7 +61,7 @@ public class ButtonSelect : MonoBehaviour
             PlayersWithCharacter.Add(false);
             ControlAcess.Add(true);
             isPlayerAbsent.Add(true);
-            isPlayetReady.Add(false);
+            isPlayerReady.Add(false);
         }
         SelectPlayers[0].gameObject.SetActive(true);
 
@@ -116,7 +121,7 @@ public class ButtonSelect : MonoBehaviour
                     else
                     {
                         players[i].transform.GetChild(5).gameObject.SetActive(true);
-                        isPlayetReady[i] = true;
+                        isPlayerReady[i] = true;
                         ControlAcess[i] = false;
                         StartCoroutine(GrantAcess(i));
                     }
@@ -163,14 +168,14 @@ public class ButtonSelect : MonoBehaviour
 
     private void HandleCharacterSprite(int i)
     {
-        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayetReady[i] == false)
+        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayerReady[i] == false)
         {
             HandleRightClickInput(i);
             ControlAcess[i] = false;
             StartCoroutine(GrantAcess(i));
 
         }
-        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) < 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayetReady[i] == false)
+        if (Input.GetAxis("Horizontal" + (i + 1).ToString()) < 0 && ControlAcess[i] && isPlayerAbsent[i] == false && isPlayerReady[i] == false)
         {
             HandleLeftClickInput(i);
             ControlAcess[i] = false;
@@ -381,6 +386,9 @@ public class ButtonSelect : MonoBehaviour
         NewSettingsCanvasTexts[2].text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
         if (GameManager.DefaultTempo == 999999) NewSettingsCanvasTexts[0].text = "Infinito";
         if (GameManager.DefaultPontodeVitoria == 999999) NewSettingsCanvasTexts[2].text = "Desligado";
+        gameTimeText.text = $"{GameManager.DefaultTempo.ToString()} Segundos";
+        gameEventsText.text = $"{GameManager.DefaultProbabilidade.ToString()}%";
+        gamePointsText.text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
     }
     private void CheckCoordinateValue(int Count)
     {
