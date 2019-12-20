@@ -61,7 +61,6 @@ public class ButtonSelect : MonoBehaviour
             PlayersWithCharacter.Add(false);
             ControlAcess.Add(true);
             isPlayerAbsent.Add(true);
-            isPlayerReady.Add(false);
         }
         SelectPlayers[0].gameObject.SetActive(true);
 
@@ -114,6 +113,7 @@ public class ButtonSelect : MonoBehaviour
                     {
                         players[i].transform.GetChild(4).gameObject.SetActive(false);
                         isPlayerAbsent[i] = false;
+                        isPlayerReady.Add(false);
                         gameSettings.playerNumbers++;
                         ControlAcess[i] = false;
                         StartCoroutine(GrantAcess(i));
@@ -128,6 +128,11 @@ public class ButtonSelect : MonoBehaviour
                 }
             }
         }
+
+    }
+
+    private void GoToArena()
+    {
 
     }
 
@@ -151,6 +156,9 @@ public class ButtonSelect : MonoBehaviour
         gameSettings.setPlayerChoice(1, "Tucano");
         gameSettings.setPlayerChoice(2, "Tucano");
         gameSettings.setPlayerChoice(3, "Tucano");
+        gameTimeText.text = $"{GameManager.DefaultTempo.ToString()} Segundos";
+        gameEventsText.text = $"{GameManager.DefaultProbabilidade.ToString()}%";
+        gamePointsText.text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
 
     }
 
@@ -317,78 +325,82 @@ public class ButtonSelect : MonoBehaviour
     private void NewSettingsCanvas()
     {
         if (CSButtons[0].transform.parent.gameObject.activeSelf || HMPButtons[0].transform.parent.gameObject.activeSelf) return;
-        for (int j = 0; j < SelectPlayers.Count; j++)
+        if (newSettings.activeSelf)
         {
-            SelectPlayers[j].gameObject.SetActive(false);
-        }
-        for (int i = 0; i < CoordenadaPlayers.Count; i++)
-        {
-            if (Input.GetAxis("Vertical" + (i + 1).ToString()) > 0 && ControlAcess[i])
+            for (int j = 0; j < SelectPlayers.Count; j++)
             {
-                NewSettingsCanvasPos--;
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
+                SelectPlayers[j].gameObject.SetActive(false);
             }
-            if (Input.GetAxis("Vertical" + (i + 1).ToString()) < 0 && ControlAcess[i])
+            for (int i = 0; i < CoordenadaPlayers.Count; i++)
             {
-                NewSettingsCanvasPos++;
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
-            }
-
-            if (NewSettingsCanvasPos < 0) NewSettingsCanvasPos = 2;
-            if (NewSettingsCanvasPos > 2) NewSettingsCanvasPos = 0;
-
-            if (NewSettingsCanvasPos == 0)
-                NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[0].gameObject.transform.position;
-            if (NewSettingsCanvasPos == 1)
-                NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[1].gameObject.transform.position;
-            if (NewSettingsCanvasPos == 2)
-                NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[2].gameObject.transform.position;
-
-            if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i])
-            {
-                OptionNewSettings[NewSettingsCanvasPos]++;
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
-            }
-            if (Input.GetAxis("Horizontal" + (i + 1).ToString()) < 0 && ControlAcess[i])
-            {
-                OptionNewSettings[NewSettingsCanvasPos]--;
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
-            }
-
-            if (OptionNewSettings[0] > 3) OptionNewSettings[0] = 0;
-            if (OptionNewSettings[1] > 4) OptionNewSettings[1] = 0;
-            if (OptionNewSettings[2] > 3) OptionNewSettings[2] = 0;
-            if (OptionNewSettings[0] < 0) OptionNewSettings[0] = 3;
-            if (OptionNewSettings[1] < 0) OptionNewSettings[1] = 4;
-            if (OptionNewSettings[2] < 0) OptionNewSettings[2] = 3;
-
-            if (Input.GetAxis("VoltarPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
-            {
-                for (int j = 0; j < gameSettings.playerNumbers; j++)
+                if (Input.GetAxis("Vertical" + (i + 1).ToString()) > 0 && ControlAcess[i])
                 {
-                    SelectPlayers[j].gameObject.SetActive(true);
+                    NewSettingsCanvasPos--;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
                 }
-                GetComponent<UIManager>().GoBackToCharacterSelect();
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
-            }
-        }
-        GameManager.DefaultTempo = TempoOptions[OptionNewSettings[0]];
-        GameManager.DefaultProbabilidade = ProbabilidadeOptions[OptionNewSettings[1]];
-        GameManager.DefaultPontodeVitoria = VitoriaPointsOption[OptionNewSettings[2]];
+                if (Input.GetAxis("Vertical" + (i + 1).ToString()) < 0 && ControlAcess[i])
+                {
+                    NewSettingsCanvasPos++;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
 
-        NewSettingsCanvasTexts[0].text = $"{GameManager.DefaultTempo.ToString()} Segundos";
-        NewSettingsCanvasTexts[1].text = $"{GameManager.DefaultProbabilidade.ToString()}%";
-        NewSettingsCanvasTexts[2].text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
-        if (GameManager.DefaultTempo == 999999) NewSettingsCanvasTexts[0].text = "Infinito";
-        if (GameManager.DefaultPontodeVitoria == 999999) NewSettingsCanvasTexts[2].text = "Desligado";
-        gameTimeText.text = $"{GameManager.DefaultTempo.ToString()} Segundos";
-        gameEventsText.text = $"{GameManager.DefaultProbabilidade.ToString()}%";
-        gamePointsText.text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
+                if (NewSettingsCanvasPos < 0) NewSettingsCanvasPos = 2;
+                if (NewSettingsCanvasPos > 2) NewSettingsCanvasPos = 0;
+
+                if (NewSettingsCanvasPos == 0)
+                    NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[0].gameObject.transform.position;
+                if (NewSettingsCanvasPos == 1)
+                    NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[1].gameObject.transform.position;
+                if (NewSettingsCanvasPos == 2)
+                    NewSettingsCanvasImage.transform.position = NewSettingsCanvasTexts[2].gameObject.transform.position;
+
+                if (Input.GetAxis("Horizontal" + (i + 1).ToString()) > 0 && ControlAcess[i])
+                {
+                    OptionNewSettings[NewSettingsCanvasPos]++;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
+                if (Input.GetAxis("Horizontal" + (i + 1).ToString()) < 0 && ControlAcess[i])
+                {
+                    OptionNewSettings[NewSettingsCanvasPos]--;
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
+
+                if (OptionNewSettings[0] > 3) OptionNewSettings[0] = 0;
+                if (OptionNewSettings[1] > 4) OptionNewSettings[1] = 0;
+                if (OptionNewSettings[2] > 3) OptionNewSettings[2] = 0;
+                if (OptionNewSettings[0] < 0) OptionNewSettings[0] = 3;
+                if (OptionNewSettings[1] < 0) OptionNewSettings[1] = 4;
+                if (OptionNewSettings[2] < 0) OptionNewSettings[2] = 3;
+
+                if (Input.GetAxis("VoltarPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
+                {
+                    for (int j = 0; j < gameSettings.playerNumbers; j++)
+                    {
+                        SelectPlayers[j].gameObject.SetActive(true);
+                    }
+                    GetComponent<UIManager>().GoBackToCharacterSelect();
+                    ControlAcess[i] = false;
+                    StartCoroutine(GrantAcess(i));
+                }
+            }
+            GameManager.DefaultTempo = TempoOptions[OptionNewSettings[0]];
+            GameManager.DefaultProbabilidade = ProbabilidadeOptions[OptionNewSettings[1]];
+            GameManager.DefaultPontodeVitoria = VitoriaPointsOption[OptionNewSettings[2]];
+
+            NewSettingsCanvasTexts[0].text = $"{GameManager.DefaultTempo.ToString()} Segundos";
+            NewSettingsCanvasTexts[1].text = $"{GameManager.DefaultProbabilidade.ToString()}%";
+            NewSettingsCanvasTexts[2].text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
+            if (GameManager.DefaultTempo == 999999) NewSettingsCanvasTexts[0].text = "Infinito";
+            if (GameManager.DefaultPontodeVitoria == 999999) NewSettingsCanvasTexts[2].text = "Desligado";
+            gameTimeText.text = $"{GameManager.DefaultTempo.ToString()} Segundos";
+            gameEventsText.text = $"{GameManager.DefaultProbabilidade.ToString()}%";
+            gamePointsText.text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
+        }
+
     }
     private void CheckCoordinateValue(int Count)
     {
