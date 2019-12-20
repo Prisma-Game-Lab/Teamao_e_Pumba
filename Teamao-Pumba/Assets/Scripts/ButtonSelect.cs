@@ -46,6 +46,8 @@ public class ButtonSelect : MonoBehaviour
     public Text gameEventsText;
     public Text gamePointsText;
 
+    public int contador;
+
 
 
     void Start()
@@ -99,6 +101,8 @@ public class ButtonSelect : MonoBehaviour
         CSCanvas();
         NewSettingsCanvas();
         ChangeSize();
+        GoToArena();
+
 
         GoToSettings();
         if (Input.GetKeyDown(KeyCode.B))
@@ -126,6 +130,10 @@ public class ButtonSelect : MonoBehaviour
                     else
                     {
                         players[i].transform.GetChild(5).gameObject.SetActive(true);
+                        if (isPlayerReady[i] == false)
+                        {
+                            contador++;
+                        }
                         isPlayerReady[i] = true;
                         ControlAcess[i] = false;
                         StartCoroutine(GrantAcess(i));
@@ -138,7 +146,10 @@ public class ButtonSelect : MonoBehaviour
 
     private void GoToArena()
     {
-
+        if (contador == gameSettings.playerNumbers && isPlayerAbsent[0] == false && gameSettings.playerNumbers > 1)
+        {
+            SceneManager.LoadScene("Arena");
+        }
     }
 
     private void GoToSettings()
@@ -185,6 +196,9 @@ public class ButtonSelect : MonoBehaviour
         {
             isPlayerReady[i] = false;
             players[i].transform.GetChild(5).gameObject.SetActive(false);
+            contador--;
+            ControlAcess[i] = false;
+            StartCoroutine(GrantAcess(i));
 
         }
     }
