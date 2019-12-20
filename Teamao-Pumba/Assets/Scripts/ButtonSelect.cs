@@ -6,16 +6,12 @@ using UnityEngine.UI;
 
 public class ButtonSelect : MonoBehaviour
 {
-    public GameObject Players;
     public List<Image> SelectPlayers;
-    public List<Button> HMPButtons;
-    public List<Button> CSButtons;
-    public List<Button> SettingsButtons;
+
     [HideInInspector]
     public List<int> CoordenadaPlayers = new List<int>();
     public List<bool> ControlAcess = new List<bool>();
-    [HideInInspector]
-    public int HowManyPlayers;
+
     [HideInInspector]
     public List<bool> PlayersWithCharacter = new List<bool>();
     public GameSettings gameSettings;
@@ -95,10 +91,8 @@ public class ButtonSelect : MonoBehaviour
 
     void Update()
     {
-        HMPCanvas();
         SelectCharacters();
         GetStartPlayers();
-        CSCanvas();
         NewSettingsCanvas();
         ChangeSize();
         GoToArena();
@@ -121,7 +115,7 @@ public class ButtonSelect : MonoBehaviour
                 {
                     if (isPlayerAbsent[i])
                     {
-                        players[i].transform.GetChild(4).gameObject.SetActive(false);
+                        players[i].transform.GetChild(1).gameObject.SetActive(false);
                         isPlayerAbsent[i] = false;
                         gameSettings.playerNumbers++;
                         ControlAcess[i] = false;
@@ -129,7 +123,7 @@ public class ButtonSelect : MonoBehaviour
                     }
                     else
                     {
-                        players[i].transform.GetChild(5).gameObject.SetActive(true);
+                        players[i].transform.GetChild(2).gameObject.SetActive(true);
                         if (isPlayerReady[i] == false)
                         {
                             contador++;
@@ -195,7 +189,7 @@ public class ButtonSelect : MonoBehaviour
         if (Input.GetAxis("VoltarPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
         {
             isPlayerReady[i] = false;
-            players[i].transform.GetChild(5).gameObject.SetActive(false);
+            players[i].transform.GetChild(2).gameObject.SetActive(false);
             contador--;
             ControlAcess[i] = false;
             StartCoroutine(GrantAcess(i));
@@ -309,51 +303,10 @@ public class ButtonSelect : MonoBehaviour
         }
     }
 
-    private void HMPCanvas()
-    {
-        if (!HMPButtons[0].transform.parent.gameObject.activeSelf)
-        {
-            return;
-        }
-        for (int i = 1; i < gameSettings.playerNumbers; i++)
-        {
-            SelectPlayers[i].gameObject.SetActive(false);
-        }
-        MovePlayer(HMPButtons);
-        CheckCoordinateValue(HMPButtons.Count);
-        PressButton(HMPButtons);
-    }
-    private void CSCanvas()
-    {
-        if (!CSButtons[0].transform.parent.gameObject.activeSelf)
-        {
-            return;
-        }
-        for (int i = 1; i < gameSettings.playerNumbers; i++)
-        {
-            SelectPlayers[i].gameObject.SetActive(true);
-        }
-        MovePlayer(CSButtons);
-        CheckCoordinateValue(CSButtons.Count);
-        PressButton(CSButtons);
-    }
-    private void SettingsCanvas()
-    {
-        if (!SettingsButtons[0].transform.parent.gameObject.activeSelf)
-        {
-            return;
-        }
-        for (int i = 1; i < gameSettings.playerNumbers; i++)
-        {
-            SelectPlayers[i].gameObject.SetActive(false);
-        }
-        MovePlayerBetter(SettingsButtons);
-        CheckCoordinateValue(SettingsButtons.Count);
-        PressButton(SettingsButtons);
-    }
+
+
     private void NewSettingsCanvas()
     {
-        if (CSButtons[0].transform.parent.gameObject.activeSelf || HMPButtons[0].transform.parent.gameObject.activeSelf) return;
         if (newSettings.activeSelf)
         {
             for (int j = 0; j < SelectPlayers.Count; j++)
@@ -431,73 +384,8 @@ public class ButtonSelect : MonoBehaviour
         }
 
     }
-    private void CheckCoordinateValue(int Count)
-    {
-        for (int i = 0; i < CoordenadaPlayers.Count; i++)
-        {
-            if (CoordenadaPlayers[i] >= Count)
-            {
-                CoordenadaPlayers[i] = 0;
-            }
-            if (CoordenadaPlayers[i] < 0)
-            {
-                CoordenadaPlayers[i] = Count - 1;
-            }
-        }
-    }
-    private void PressButton(List<Button> Buttons)
-    {
-        for (int i = 0; i < CoordenadaPlayers.Count; i++)
-        {
-            if (Input.GetAxis("ShootPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i] && SelectPlayers[i].gameObject.activeSelf && Buttons[CoordenadaPlayers[i]].transform.parent.gameObject.activeSelf)
-            {
-                if (Buttons[CoordenadaPlayers[i]].name == "TucanoButton")
-                {
-                    Debug.Log(" TEASDASDA");
-                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Tucano");
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
-                    gameSettings.setPlayerChoice(i, "Tucano");
-                    PlayersWithCharacter[i] = true;
-                }
-                if (Buttons[CoordenadaPlayers[i]].name == "CapivaraButton")
-                {
-                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Capivara");
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(true);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
-                    gameSettings.setPlayerChoice(i, "Capivara");
-                    PlayersWithCharacter[i] = true;
-                }
-                if (Buttons[CoordenadaPlayers[i]].name == "LicoButton")
-                {
-                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Lico");
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(true);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(false);
-                    gameSettings.setPlayerChoice(i, "Lico");
-                    PlayersWithCharacter[i] = true;
-                }
-                if (Buttons[CoordenadaPlayers[i]].name == "JessButton")
-                {
-                    // Players.transform.GetChild(i).GetComponent<CharacterSelect>().SetCharacter("Jess");
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(0).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(1).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(2).gameObject.SetActive(false);
-                    gameObject.GetComponent<UIManager>().UIPlayers[i].transform.GetChild(3).gameObject.SetActive(true);
-                    gameSettings.setPlayerChoice(i, "Jess");
-                    PlayersWithCharacter[i] = true;
-                }
-                Buttons[CoordenadaPlayers[i]].onClick.Invoke();
-                ControlAcess[i] = false;
-                StartCoroutine(GrantAcess(i));
-            }
-        }
-    }
+
+
     private void MovePlayer(List<Button> Buttons)
     {
         for (int i = 0; i < CoordenadaPlayers.Count; i++)

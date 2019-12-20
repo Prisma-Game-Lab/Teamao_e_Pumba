@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
 
     public Text ErrorText;
     private bool isPlayerNumbersSelected;
-    public List<Image> UIPlayers;
+
 
     void Awake()
     {
@@ -38,10 +38,6 @@ public class UIManager : MonoBehaviour
     {
         gameSettings.playerNumbers = 2;
         isPlayerNumbersSelected = true;
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(false);
-        UIPlayers[3].gameObject.SetActive(false);
         GoToCharacterSelect();
 
 
@@ -50,20 +46,12 @@ public class UIManager : MonoBehaviour
     {
         gameSettings.playerNumbers = 3;
         isPlayerNumbersSelected = true;
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(true);
-        UIPlayers[3].gameObject.SetActive(false);
         GoToCharacterSelect();
     }
     public void FourPlayers()
     {
         gameSettings.playerNumbers = 4;
         isPlayerNumbersSelected = true;
-        UIPlayers[0].gameObject.SetActive(true);
-        UIPlayers[1].gameObject.SetActive(true);
-        UIPlayers[2].gameObject.SetActive(true);
-        UIPlayers[3].gameObject.SetActive(true);
         GoToCharacterSelect();
     }
     public void GoToCharacterSelect()
@@ -124,9 +112,6 @@ public class UIManager : MonoBehaviour
         {
             List<Image> selectPlayers = GetComponent<ButtonSelect>().SelectPlayers;
             transform.GetComponent<ButtonSelect>().PlayersWithCharacter[i] = false;
-            UIPlayers[i].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            UIPlayers[i].gameObject.transform.GetChild(2).gameObject.SetActive(false);
             selectPlayers[i].gameObject.SetActive(false);
             selectPlayers[i].gameObject.SetActive(false);
             selectPlayers[i].gameObject.SetActive(false);
