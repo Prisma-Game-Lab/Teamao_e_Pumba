@@ -55,15 +55,21 @@ public class ButtonSelect : MonoBehaviour
         gameSettings.playerNumbers = 0;
         SetOptionNewSettings();
         NewSettingsCanvasPos = 0;
+        SetupGame();
+        SelectPlayers[0].gameObject.SetActive(true);
+
+    }
+
+    private void SetupGame()
+    {
         for (int i = 0; i < 4; i++)
         {
             CoordenadaPlayers.Add(0);
             PlayersWithCharacter.Add(false);
             ControlAcess.Add(true);
             isPlayerAbsent.Add(true);
+            isPlayerReady.Add(false);
         }
-        SelectPlayers[0].gameObject.SetActive(true);
-
     }
 
     private void SetOptionNewSettings()
@@ -113,7 +119,6 @@ public class ButtonSelect : MonoBehaviour
                     {
                         players[i].transform.GetChild(4).gameObject.SetActive(false);
                         isPlayerAbsent[i] = false;
-                        isPlayerReady.Add(false);
                         gameSettings.playerNumbers++;
                         ControlAcess[i] = false;
                         StartCoroutine(GrantAcess(i));
@@ -142,7 +147,6 @@ public class ButtonSelect : MonoBehaviour
         {
             newSettings.gameObject.SetActive(true);
             newCharacterUI.gameObject.SetActive(false);
-
         }
     }
 
@@ -169,9 +173,20 @@ public class ButtonSelect : MonoBehaviour
             for (int i = 0; i < CoordenadaPlayers.Count; i++)
             {
                 HandleCharacterSprite(i);
+                HandleBackButtonClick(i);
             }
         }
 
+    }
+
+    private void HandleBackButtonClick(int i)
+    {
+        if (Input.GetAxis("VoltarPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
+        {
+            isPlayerReady[i] = false;
+            players[i].transform.GetChild(5).gameObject.SetActive(false);
+
+        }
     }
 
     private void HandleCharacterSprite(int i)
