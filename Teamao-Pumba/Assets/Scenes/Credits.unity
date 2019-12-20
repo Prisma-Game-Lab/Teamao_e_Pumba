@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Text: "<size=26><color=purple>Cr\xE9ditos</color></size>\n\n<size=20><color=purple>Game
     Design</color></size>\n<size=14><color=white>Bernardo Quental\nEduardo Wichrowski\nGabriel
     Medeiros\n</color></size>\n<size=20><color=purple>Programa\xE7\xE3o</color></size>\n<size=14><color=white>Nagib
-    Suaid\nRafael Ponce\nVinicius Cortat Btechs\n</color></size>\n<size=20><color=purple>Arte</color></size>\n<size=14><color=white>Juliana
+    Suaid\nRaphael Ponce\nVinicius Cortat Btechs\n</color></size>\n<size=20><color=purple>Arte</color></size>\n<size=14><color=white>Juliana
     S\xE1\nPedro Fernando\n</color></size>\n<size=20><color=purple>Sonoriza\xE7\xE3o</color></size>\n<size=14><color=white>Kassio
     Veras\nMatheus L. Homsi\n</color></size>\n<size=20><color=purple>Produ\xE7\xE3o</color></size>\n<size=14><color=white>Raphael
     Ramos\n</color></size>\n<size=20><color=purple>Dire\xE7\xE3o</color></size>\n<size=14><color=white>Andr\xE9
@@ -1608,7 +1608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.069000006}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.9299927, y: 108.100006}
+  m_AnchoredPosition: {x: 1.9299316, y: 108.100006}
   m_SizeDelta: {x: -437.63, y: -522.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741823887

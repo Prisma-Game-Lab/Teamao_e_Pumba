@@ -22,6 +22,9 @@ public class ButtonSelect : MonoBehaviour
 
     private int NewSettingsCanvasPos;
 
+    public GameObject newSettings;
+    public GameObject newCharacterUI;
+
     public List<int> TempoOptions;
     public List<float> ProbabilidadeOptions;
     public List<int> VitoriaPointsOption;
@@ -82,10 +85,12 @@ public class ButtonSelect : MonoBehaviour
     {
         HMPCanvas();
         SelectCharacters();
+        GetStartPlayers();
         CSCanvas();
         NewSettingsCanvas();
         ChangeSize();
-        GetStartPlayers();
+
+        GoToSettings();
         if (Input.GetKeyDown(KeyCode.B))
         {
             SceneManager.LoadScene("Arena");
@@ -94,40 +99,45 @@ public class ButtonSelect : MonoBehaviour
 
     public void GetStartPlayers()
     {
-        for (int i = 0; i < CoordenadaPlayers.Count; i++)
+        if (newCharacterUI.activeSelf)
         {
-            if (Input.GetAxisRaw("ShootPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
+            for (int i = 0; i < CoordenadaPlayers.Count; i++)
             {
-                if (isPlayerAbsent[i])
+                if (Input.GetAxisRaw("ShootPlayer" + (i + 1).ToString()) > 0 && ControlAcess[i])
                 {
-                    players[i].transform.GetChild(4).gameObject.SetActive(false);
-                    isPlayerAbsent[i] = false;
-                    gameSettings.playerNumbers++;
-                    ControlAcess[i] = false;
-                    StartCoroutine(GrantAcess(i));
-                }
-                else
-                {
-                    players[i].transform.GetChild(5).gameObject.SetActive(true);
-                    isPlayetReady[i] = true;
-                    ControlAcess[i] = false;
-                    StartCoroutine(GrantAcess(i));
+                    if (isPlayerAbsent[i])
+                    {
+                        players[i].transform.GetChild(4).gameObject.SetActive(false);
+                        isPlayerAbsent[i] = false;
+                        gameSettings.playerNumbers++;
+                        ControlAcess[i] = false;
+                        StartCoroutine(GrantAcess(i));
+                    }
+                    else
+                    {
+                        players[i].transform.GetChild(5).gameObject.SetActive(true);
+                        isPlayetReady[i] = true;
+                        ControlAcess[i] = false;
+                        StartCoroutine(GrantAcess(i));
+                    }
                 }
             }
         }
+
     }
 
-    // private void GoToSettings()
-    // {
-    //     if (Input.GetButtonDown("SettingsPlayer1"))
-    //     {
-    //         NewSettingsCanvas.gameObject.SetActive(true);
-    //     }
-    // }
+    private void GoToSettings()
+    {
+        if (Input.GetButtonDown("SettingsPlayer1"))
+        {
+            newSettings.gameObject.SetActive(true);
+            newCharacterUI.gameObject.SetActive(false);
+
+        }
+    }
 
     private void UpdateCharacterSelectionUI()
     {
-
         players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[0];
         players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[0];
         players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[0];
@@ -141,10 +151,14 @@ public class ButtonSelect : MonoBehaviour
 
     public void SelectCharacters()
     {
-        for (int i = 0; i < CoordenadaPlayers.Count; i++)
+        if (newCharacterUI.activeSelf)
         {
-            HandleCharacterSprite(i);
+            for (int i = 0; i < CoordenadaPlayers.Count; i++)
+            {
+                HandleCharacterSprite(i);
+            }
         }
+
     }
 
     private void HandleCharacterSprite(int i)

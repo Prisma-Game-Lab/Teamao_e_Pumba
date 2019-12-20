@@ -11617,6 +11617,8 @@ MonoBehaviour:
   HowManyPlayers: 0
   PlayersWithCharacter: 
   gameSettings: {fileID: 11400000, guid: f4e43a4eebb28c84ba553a91bbe1e053, type: 2}
+  newSettings: {fileID: 231874106}
+  newCharacterUI: {fileID: 801872720}
   TempoOptions: 3c0000005a000000780000003f420f00
   ProbabilidadeOptions:
   - 0
