@@ -282,6 +282,7 @@ public class GameManager : MonoBehaviour
         {
             PointsCanvas.transform.GetChild(i).transform.GetChild(5).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
 
+            PointsCanvas.transform.GetChild(i).transform.GetChild(6).GetComponent<Image>().fillAmount =Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints/100f ;
 
             AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString() + "/" + Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem;
 
