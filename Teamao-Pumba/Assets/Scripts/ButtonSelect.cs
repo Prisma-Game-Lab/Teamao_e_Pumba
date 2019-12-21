@@ -161,10 +161,10 @@ public class ButtonSelect : MonoBehaviour
         players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[0];
         players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[0];
         players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[0];
-        gameSettings.setPlayerChoice(0, "Tucano");
-        gameSettings.setPlayerChoice(1, "Tucano");
-        gameSettings.setPlayerChoice(2, "Tucano");
-        gameSettings.setPlayerChoice(3, "Tucano");
+        gameSettings.setPlayerChoice(0, "tucano");
+        gameSettings.setPlayerChoice(1, "tucano");
+        gameSettings.setPlayerChoice(2, "tucano");
+        gameSettings.setPlayerChoice(3, "tucano");
         gameTimeText.text = $"{GameManager.DefaultTempo.ToString()} Segundos";
         gameEventsText.text = $"{GameManager.DefaultProbabilidade.ToString()}%";
         gamePointsText.text = $"{GameManager.DefaultPontodeVitoria.ToString()} Pontos";
@@ -224,7 +224,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = playerImages1.Count - 1;
             }
             players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "2")
         {
@@ -234,7 +234,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = playerImages1.Count - 1;
             }
             players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "3")
         {
@@ -244,7 +244,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = playerImages1.Count - 1;
             }
             players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "4")
         {
@@ -254,7 +254,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = playerImages1.Count - 1;
             }
             players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
     }
 
@@ -269,7 +269,7 @@ public class ButtonSelect : MonoBehaviour
             }
             players[0].transform.GetChild(0).GetComponent<Image>().sprite = playerImages1[selectedTime];
             Debug.Log(playerImages1[selectedTime].name);
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "2")
         {
@@ -279,7 +279,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = 0;
             }
             players[1].transform.GetChild(0).GetComponent<Image>().sprite = playerImages2[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "3")
         {
@@ -289,7 +289,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = 0;
             }
             players[2].transform.GetChild(0).GetComponent<Image>().sprite = playerImages3[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
         if ((i + 1).ToString() == "4")
         {
@@ -299,7 +299,7 @@ public class ButtonSelect : MonoBehaviour
                 selectedTime = 0;
             }
             players[3].transform.GetChild(0).GetComponent<Image>().sprite = playerImages4[selectedTime];
-            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name);
+            gameSettings.setPlayerChoice(i, playerImages1[selectedTime].name.ToLower());
         }
     }
 

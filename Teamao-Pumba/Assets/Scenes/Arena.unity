@@ -18128,6 +18128,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3945177512769151337, guid: 9c1c887a043ab9d4ab2db29dde58078b,
+        type: 3}
+      propertyPath: m_Name
+      value: tucano
+      objectReference: {fileID: 0}
     - target: {fileID: 895285053, guid: 9c1c887a043ab9d4ab2db29dde58078b, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -6727,7 +6727,7 @@ GameObject:
   - component: {fileID: 9080558584474756963}
   - component: {fileID: 1411845629}
   m_Layer: 0
-  m_Name: Capivara
+  m_Name: capivara
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7047,7 +7047,7 @@ GameObject:
   - component: {fileID: 3329523190612846550}
   - component: {fileID: 5535436036337623155}
   m_Layer: 0
-  m_Name: Jess
+  m_Name: jess
   m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8114,7 +8114,7 @@ GameObject:
   - component: {fileID: 6914240929209084556}
   - component: {fileID: 698883967}
   m_Layer: 0
-  m_Name: Lico
+  m_Name: lico
   m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29482,7 +29482,7 @@ GameObject:
   - component: {fileID: 8711712363765081125}
   - component: {fileID: 1366212929}
   m_Layer: 0
-  m_Name: Tucano
+  m_Name: tucano
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29637,7 +29637,7 @@ GameObject:
   - component: {fileID: 4566969249782919558}
   - component: {fileID: 1410250222}
   m_Layer: 0
-  m_Name: Capivara
+  m_Name: capivara
   m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29791,7 +29791,7 @@ GameObject:
   - component: {fileID: 7242980771834687935}
   - component: {fileID: 446900914}
   m_Layer: 0
-  m_Name: Lico
+  m_Name: lico
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40585,7 +40585,7 @@ GameObject:
   - component: {fileID: 4148153924064710453}
   - component: {fileID: 1027107660}
   m_Layer: 0
-  m_Name: Capivara
+  m_Name: capivara
   m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50538,7 +50538,7 @@ GameObject:
   - component: {fileID: 7583958088554620564}
   - component: {fileID: 1294160859}
   m_Layer: 0
-  m_Name: Lico
+  m_Name: lico
   m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60579,7 +60579,7 @@ GameObject:
   - component: {fileID: 8238314142898178951}
   - component: {fileID: 416258430}
   m_Layer: 0
-  m_Name: Tucano
+  m_Name: tucano
   m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60733,7 +60733,7 @@ GameObject:
   - component: {fileID: 4650161674114003349}
   - component: {fileID: 242766096677469717}
   m_Layer: 0
-  m_Name: Jess
+  m_Name: jess
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65640,7 +65640,7 @@ GameObject:
   - component: {fileID: 2377863422838944392}
   - component: {fileID: 2032238999}
   m_Layer: 0
-  m_Name: Tucano
+  m_Name: tucano
   m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70780,7 +70780,7 @@ GameObject:
   - component: {fileID: 107832532040536194}
   - component: {fileID: 77154786}
   m_Layer: 0
-  m_Name: Tucano
+  m_Name: tucano
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80546,7 +80546,7 @@ GameObject:
   - component: {fileID: 4819654645328725934}
   - component: {fileID: 4420783415945926994}
   m_Layer: 0
-  m_Name: Jess
+  m_Name: jess
   m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86100,7 +86100,7 @@ GameObject:
   - component: {fileID: 5248374965632133290}
   - component: {fileID: 2122865286}
   m_Layer: 0
-  m_Name: Capivara
+  m_Name: capivara
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86420,7 +86420,7 @@ GameObject:
   - component: {fileID: 4524468567496248112}
   - component: {fileID: 898626972621991442}
   m_Layer: 0
-  m_Name: Jess
+  m_Name: jess
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86985,7 +86985,7 @@ GameObject:
   - component: {fileID: 3054275701101689295}
   - component: {fileID: 975066684}
   m_Layer: 0
-  m_Name: Lico
+  m_Name: lico
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
