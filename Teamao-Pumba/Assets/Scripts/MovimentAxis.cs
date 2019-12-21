@@ -13,7 +13,7 @@ public class MovimentAxis : MonoBehaviour
 
     //Troca de textura pro stun
     public Texture MainTexture, StunTexture;
-    public GameObject corpo; 
+    public GameObject corpo;
     Renderer renderer;
 
     public GameObject Steps;
@@ -21,8 +21,9 @@ public class MovimentAxis : MonoBehaviour
     public ParticleSystem dust;
     //public ParticleSystem splash;
 
-    void Start(){
-        renderer = corpo.GetComponent<Renderer> ();
+    void Start()
+    {
+        renderer = corpo.GetComponent<Renderer>();
     }
 
     void FixedUpdate()
@@ -40,21 +41,21 @@ public class MovimentAxis : MonoBehaviour
 
 
             }
-            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess"))
+            if (((translationV > 1 || translationV < -1) || (translationH > 1 || translationH < -1)) && (gameObject.name == "tucano" || gameObject.name == "capivara" || gameObject.name == "lico" || gameObject.name == "jess"))
             {
                 anim.SetBool("running", true);
             }
             else
             {
-                if (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess")
+                if (gameObject.name == "tucano" || gameObject.name == "capivara" || gameObject.name == "lico" || gameObject.name == "jess")
                 {
-                    anim.SetBool("running", false);    
+                    anim.SetBool("running", false);
                 }
             }
         }
         translationV *= Time.deltaTime;
         translationH *= Time.deltaTime;
-        
+
         transform.rotation = Rotation;
 
 
@@ -62,26 +63,29 @@ public class MovimentAxis : MonoBehaviour
     void Update()
     {
         anim = this.GetComponent<Animator>();
-        if (IsMoving == false && (gameObject.name == "Tucano" || gameObject.name == "Capivara" || gameObject.name == "Lico" || gameObject.name == "Jess"))
+        if (IsMoving == false && (gameObject.name == "tucano" || gameObject.name == "capivara" || gameObject.name == "lico" || gameObject.name == "jess"))
         {
             anim.SetBool("running", false);
             dust.Play();
         }
-        if(stunned) {
+        if (stunned)
+        {
             StunUI.SetActive(true);
             anim.SetBool("stunned", true);
             renderer.material.SetTexture("_MainTex", StunTexture);
         }
-        if (!stunned) {
+        if (!stunned)
+        {
             StunUI.SetActive(false);
             transform.position += Direction() * Time.deltaTime;
             anim.SetBool("stunned", false);
             renderer.material.SetTexture("_MainTex", MainTexture);
         }
-        if(IsMoving)
+        if (IsMoving)
         {
             Steps.SetActive(true);
-        } else Steps.SetActive(false);
+        }
+        else Steps.SetActive(false);
     }
 
     private bool IsMoving => Direction() != Vector3.zero;
