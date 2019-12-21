@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     private float MaxTimer = 999;
     private bool movizin = true;
     public GameSettings gameSettings;
+
+    public List<Sprite> telaVitoriaJogador1 = new List<Sprite>();
+    public List<Sprite> telaVitoriaJogador2 = new List<Sprite>();
+    public List<Sprite> telaVitoriaJogador3 = new List<Sprite>();
+    public List<Sprite> telaVitoriaJogador4 = new List<Sprite>();
+    public GameObject telaVitoria;
 
 
     public void PlayGame()
@@ -79,7 +85,7 @@ public class GameManager : MonoBehaviour
             //SetCharacterImage();
             // ResetaCoordenada();
         }
-        CountdownTimer.text="-";
+        CountdownTimer.text = "-";
     }
     public void TempoDeJogo(int Segundos)
     {
@@ -131,28 +137,108 @@ public class GameManager : MonoBehaviour
                 //Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 //Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
                 //Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                ResultText.text = "Resultado\n\n<color=red>Player 1: " + Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
-                ResultText.text += "<color=blue>Player 2: " + Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
-                if (Players.transform.GetChild(2).gameObject.activeSelf)
-                {
-                    ResultText.text += "<color=yellow>Player 3: " + Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints + "</color>\n\n";
-                    if (Players.transform.GetChild(3).gameObject.activeSelf)
-                    {
-                        ResultText.text += "<color=pink>Player 4: " + Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints + "</color>";
-                    }
-                }
-                if (!empate())
-                {
-                    ResultText.text += "\n\n\n Winner: " + MaiorValor();
-                }
-                else
-                {
-                    ResultText.text += "\n\n\n Empate!";
-                }
+                ShowVictoryScreen();
             }
         }
         ShowPoints();
     }
+
+    private void ShowVictoryScreen()
+    {
+        if (MaiorValor() == "Player1")
+        {
+            if (gameSettings.getPlayerChoice(0) == "tucano")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[0];
+            }
+            if (gameSettings.getPlayerChoice(0) == "capivara")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[1];
+            }
+            if (gameSettings.getPlayerChoice(0) == "lico")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[2];
+            }
+            if (gameSettings.getPlayerChoice(0) == "jess")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[3];
+            }
+        }
+        if (MaiorValor() == "Player2")
+        {
+            if (gameSettings.getPlayerChoice(1) == "tucano")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[0];
+            }
+            if (gameSettings.getPlayerChoice(1) == "capivara")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[1];
+            }
+            if (gameSettings.getPlayerChoice(1) == "lico")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[2];
+            }
+            if (gameSettings.getPlayerChoice(1) == "jess")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[3];
+            }
+        }
+        if (MaiorValor() == "Player3")
+        {
+            if (gameSettings.getPlayerChoice(2) == "tucano")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[0];
+            }
+            if (gameSettings.getPlayerChoice(2) == "capivara")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[1];
+            }
+            if (gameSettings.getPlayerChoice(2) == "lico")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[2];
+            }
+            if (gameSettings.getPlayerChoice(2) == "jess")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[3];
+            }
+        }
+        if (MaiorValor() == "Player4")
+        {
+            if (gameSettings.getPlayerChoice(3) == "tucano")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[0];
+            }
+            if (gameSettings.getPlayerChoice(3) == "capivara")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[1];
+            }
+            if (gameSettings.getPlayerChoice(3) == "lico")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[2];
+            }
+            if (gameSettings.getPlayerChoice(3) == "jess")
+            {
+
+                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[3];
+            }
+        }
+    }
+
     void FixedUpdate()
     {
         string oldText = CountdownTimer.text;
@@ -162,18 +248,18 @@ public class GameManager : MonoBehaviour
 
         string newText = Mathf.RoundToInt((Countdown - 1)).ToString();
 
-        if(oldText != newText) 
+        if (oldText != newText)
         {
             CountdownTimer.text = newText;
-            if(!CountdownAcabou)
+            if (!CountdownAcabou)
             {
-            // A Q U I   H O M S I
-            //passou um segundo
-            print("PASSOU");
-            print(newText);
+                // A Q U I   H O M S I
+                //passou um segundo
+                print("PASSOU");
+                print(newText);
             }
         }
- 
+
 
         if (Countdown - 1 <= 1 && tempo > 0)
         {
@@ -203,23 +289,24 @@ public class GameManager : MonoBehaviour
         if (Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints > maior)
         {
             maior = Players.transform.GetChild(0).GetComponent<PointSystemPai>().RealPoints;
-            nome = "<color=red>Player 1</color>";
+            nome = "Player1";
         }
         if (Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints > maior)
         {
             maior = Players.transform.GetChild(1).GetComponent<PointSystemPai>().RealPoints;
-            nome = "<color=blue>Player 2</color>";
+            nome = "Player2";
         }
         if (Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints > maior)
         {
             maior = Players.transform.GetChild(2).GetComponent<PointSystemPai>().RealPoints;
-            nome = "<color=yellow>Player 3</color>";
+            nome = "Player3";
         }
         if (Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints > maior)
         {
             maior = Players.transform.GetChild(3).GetComponent<PointSystemPai>().RealPoints;
-            nome = "<color=pink>Player 4</color>";
+            nome = "Player4";
         }
+        Debug.Log(nome);
         return nome;
     }
     private int SegundoMelhor()
@@ -282,11 +369,11 @@ public class GameManager : MonoBehaviour
         {
             PointsCanvas.transform.GetChild(i).transform.GetChild(5).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints.ToString();
 
-            PointsCanvas.transform.GetChild(i).transform.GetChild(6).GetComponent<Image>().fillAmount =Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints/100f ;
+            PointsCanvas.transform.GetChild(i).transform.GetChild(6).GetComponent<Image>().fillAmount = Players.transform.GetChild(i).GetComponent<PointSystemPai>().RealPoints / 100f;
 
             AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Players.transform.GetChild(i).GetComponent<PointSystemPai>().VirtualPoints.ToString() + "/" + Players.transform.GetChild(i).GetComponent<PointSystemPai>().MaxItem;
 
-            for(int j=0;j<6;j++)
+            for (int j = 0; j < 6; j++)
             {
                 AboveHeadCanvas.transform.GetChild(i).transform.GetChild(0).transform.GetChild(3).transform.GetChild(j).gameObject.SetActive(false);
             }

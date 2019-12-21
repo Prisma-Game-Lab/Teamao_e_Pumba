@@ -6,11 +6,11 @@ using UnityEngine.UI;
 /* Sistema de pontos no ponto de vista do player.
 
 Author: Vinny
-*/ 
+*/
 
 public class PointSystem : MonoBehaviour
 {
-    
+
     [HideInInspector]
     public int RealPoints; // Os pontos do Player
     [HideInInspector]
@@ -62,22 +62,25 @@ public class PointSystem : MonoBehaviour
     }*/
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject == MyBase) {
+        if (other.gameObject == MyBase)
+        {
             TouchingBase = false;
         }
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == MyBase) {
+        if (other.gameObject == MyBase)
+        {
             TouchingBase = true;
         }
-        if(other.gameObject.tag == "Item") {
+        if (other.gameObject.tag == "Item")
+        {
 
-            if(VirtualPoints < MaxItem) 
-                {
-                if(VirtualPoints + Ammo > MaxItem) 
+            if (VirtualPoints < MaxItem)
+            {
+                if (VirtualPoints + Ammo > MaxItem)
                 {
                     VirtualPoints = MaxItem;
                 }
@@ -88,60 +91,71 @@ public class PointSystem : MonoBehaviour
                 Destroy(other.gameObject);
                 Collect.Play();
             }
-            
+
         }
     }
     public void loosePoints()
     {
         VirtualPoints--;
     }
-    private void GiveBase() {
-        if(TouchingBase && VirtualPoints != 0) {
+    private void GiveBase()
+    {
+        if (TouchingBase && VirtualPoints != 0)
+        {
             BaseSound.Play();
             BaseTimers.transform.GetChild(0).gameObject.SetActive(true);
             BaseTimers.transform.GetChild(1).gameObject.SetActive(true);
-            BaseTimers.transform.GetChild(1).GetComponent<Image>().fillAmount = TimeDeliver/TimeToDeliver;
+            BaseTimers.transform.GetChild(1).GetComponent<Image>().fillAmount = TimeDeliver / TimeToDeliver;
             TimeDeliver += Time.deltaTime;
-            if(TimeDeliver >= TimeToDeliver) {
-                if(ItemDelivered > VirtualPoints) {
-                    RealPoints += VirtualPoints*Multiplier;
+            if (TimeDeliver >= TimeToDeliver)
+            {
+                if (ItemDelivered > VirtualPoints)
+                {
+                    RealPoints += VirtualPoints * Multiplier;
                     VirtualPoints = 0;
                 }
-                else {
-                    RealPoints += ItemDelivered*Multiplier;
+                else
+                {
+                    RealPoints += ItemDelivered * Multiplier;
                     VirtualPoints -= ItemDelivered;
                 }
                 TimeDeliver = 0;
             }
         }
-        else {
+        else
+        {
             BaseTimers.transform.GetChild(0).gameObject.SetActive(false);
             BaseTimers.transform.GetChild(1).gameObject.SetActive(false);
             TimeDeliver = 0;
         }
     }
 
-    public void GetShot() {
+    public void GetShot()
+    {
         GetShotSound.Play();
         Berro.Play();
-        VirtualPoints = (VirtualPoints)/3;
+        VirtualPoints = (VirtualPoints) / 3;
         PlayerPoints = PointsPerShoot;
         StartCoroutine(invunerabilidade());
     }
 
-    public void GivePoints(int Ponto) {
+    public void GivePoints(int Ponto)
+    {
         //RealPoints += Ponto;
         RealPoints += PointsPerShoot;
     }
 
-    IEnumerator invunerabilidade() {
+    IEnumerator invunerabilidade()
+    {
         invuneravel = true;
         yield return new WaitForSeconds(invunerabilidadeTimer);
         invuneravel = false;
     }
 
-    public bool IsInvuneravel() {
-        if(invuneravel) {
+    public bool IsInvuneravel()
+    {
+        if (invuneravel)
+        {
             return true;
         }
         return false;
@@ -149,6 +163,6 @@ public class PointSystem : MonoBehaviour
 
     private void UpdateCol()
     {
-        Physics.IgnoreLayerCollision(PlayerNumber + 8,13,VirtualPoints == MaxItem);
+        Physics.IgnoreLayerCollision(PlayerNumber + 8, 13, VirtualPoints == MaxItem);
     }
 }
