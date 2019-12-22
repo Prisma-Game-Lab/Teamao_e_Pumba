@@ -138,10 +138,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ShowVictoryCanvas());
                 CountdownTimer.gameObject.SetActive(true);
                 CountdownTimer.text = "Finish!";
-                //Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                //Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                //Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
-                //Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+
                 ShowVictoryScreen();
             }
         }
@@ -279,6 +276,14 @@ public class GameManager : MonoBehaviour
             CountdownTimer.text = newText;
             if (!CountdownAcabou)
             {
+                for (int i = 0; i < 4; i++)
+                {
+                    Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                    Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                    Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                    Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = 0;
+                }
+
                 // A Q U I   H O M S I
                 //passou um segundo
                 print("PASSOU");
@@ -289,6 +294,13 @@ public class GameManager : MonoBehaviour
 
         if (Countdown - 1 <= 1 && tempo > 0)
         {
+            for (int i = 0; i < 4; i++)
+            {
+                Players.transform.GetChild(0).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(1).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(2).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+                Players.transform.GetChild(3).transform.GetChild(i).GetComponent<MovimentAxis>().movementSpeed = movespeed;
+            }
             CountdownTimer.text = "Start!";
             CountdownAcabou = true;
             Timer.gameObject.SetActive(true);
