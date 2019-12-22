@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public AudioSource Win;
     public AudioSource MainMusic;
 
+    public Sprite spriteEmpate;
+
 
     public void PlayGame()
     { // Começa o jogo
@@ -148,111 +150,119 @@ public class GameManager : MonoBehaviour
 
     private void ShowVictoryScreen()
     {
-        if (MaiorValor() == "Player1")
+        if (!empate())
         {
-            if (gameSettings.getPlayerChoice(0) == "tucano")
+            if (MaiorValor() == "Player1")
             {
+                if (gameSettings.getPlayerChoice(0) == "tucano")
+                {
 
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[0];
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[0];
+                }
+                if (gameSettings.getPlayerChoice(0) == "capivara")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[1];
+
+                }
+                if (gameSettings.getPlayerChoice(0) == "lico")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[2];
+                }
+                if (gameSettings.getPlayerChoice(0) == "jess")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[3];
+                }
             }
-            if (gameSettings.getPlayerChoice(0) == "capivara")
+            if (MaiorValor() == "Player2")
             {
+                if (gameSettings.getPlayerChoice(1) == "tucano")
+                {
 
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[1];
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[0];
 
+                }
+                if (gameSettings.getPlayerChoice(1) == "capivara")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[1];
+
+                }
+                if (gameSettings.getPlayerChoice(1) == "lico")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[2];
+
+                }
+                if (gameSettings.getPlayerChoice(1) == "jess")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[3];
+
+                }
             }
-            if (gameSettings.getPlayerChoice(0) == "lico")
+            if (MaiorValor() == "Player3")
             {
+                if (gameSettings.getPlayerChoice(2) == "tucano")
+                {
 
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[2];
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[0];
+
+                }
+                if (gameSettings.getPlayerChoice(2) == "capivara")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[1];
+
+                }
+                if (gameSettings.getPlayerChoice(2) == "lico")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[2];
+
+                }
+                if (gameSettings.getPlayerChoice(2) == "jess")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[3];
+
+                }
             }
-            if (gameSettings.getPlayerChoice(0) == "jess")
+            if (MaiorValor() == "Player4")
             {
+                if (gameSettings.getPlayerChoice(3) == "tucano")
+                {
 
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador1[3];
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[0];
+
+                }
+                if (gameSettings.getPlayerChoice(3) == "capivara")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[1];
+
+                }
+                if (gameSettings.getPlayerChoice(3) == "lico")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[2];
+
+                }
+                if (gameSettings.getPlayerChoice(3) == "jess")
+                {
+
+                    telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[3];
+
+                }
             }
         }
-        if (MaiorValor() == "Player2")
+        else
         {
-            if (gameSettings.getPlayerChoice(1) == "tucano")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[0];
-
-            }
-            if (gameSettings.getPlayerChoice(1) == "capivara")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[1];
-
-            }
-            if (gameSettings.getPlayerChoice(1) == "lico")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[2];
-
-            }
-            if (gameSettings.getPlayerChoice(1) == "jess")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador2[3];
-
-            }
+            telaVitoria.GetComponent<Image>().sprite = spriteEmpate;
         }
-        if (MaiorValor() == "Player3")
-        {
-            if (gameSettings.getPlayerChoice(2) == "tucano")
-            {
 
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[0];
-
-            }
-            if (gameSettings.getPlayerChoice(2) == "capivara")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[1];
-
-            }
-            if (gameSettings.getPlayerChoice(2) == "lico")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[2];
-
-            }
-            if (gameSettings.getPlayerChoice(2) == "jess")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador3[3];
-
-            }
-        }
-        if (MaiorValor() == "Player4")
-        {
-            if (gameSettings.getPlayerChoice(3) == "tucano")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[0];
-
-            }
-            if (gameSettings.getPlayerChoice(3) == "capivara")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[1];
-
-            }
-            if (gameSettings.getPlayerChoice(3) == "lico")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[2];
-
-            }
-            if (gameSettings.getPlayerChoice(3) == "jess")
-            {
-
-                telaVitoria.GetComponent<Image>().sprite = telaVitoriaJogador4[3];
-
-            }
-        }
     }
 
     void FixedUpdate()

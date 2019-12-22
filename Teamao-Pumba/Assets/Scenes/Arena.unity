@@ -16762,6 +16762,12 @@ PrefabInstance:
       propertyPath: Win
       value: 
       objectReference: {fileID: 1176621584}
+    - target: {fileID: 2386142500795320216, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb,
+        type: 3}
+      propertyPath: spriteEmpate
+      value: 
+      objectReference: {fileID: 21300000, guid: d4d95f4db753b1542b3d6f175580a76b,
+        type: 3}
     - target: {fileID: 2386142500795320217, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb,
         type: 3}
       propertyPath: m_LocalPosition.x
