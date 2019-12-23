@@ -3110,7 +3110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -708, y: -313}
+  m_AnchoredPosition: {x: -664, y: -431}
   m_SizeDelta: {x: 521, y: 132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &344353743
@@ -11709,7 +11709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -708, y: -458}
+  m_AnchoredPosition: {x: 704, y: -433}
   m_SizeDelta: {x: 521, y: 132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580098801
@@ -16768,6 +16768,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d4d95f4db753b1542b3d6f175580a76b,
         type: 3}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: CoordenadaPlayers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: SelectPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1590590623}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: SelectPlayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1780617784}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: SelectPlayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 2055362858}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: SelectPlayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1775191052}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: MenuButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 344353743}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: MenuButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1580098801}
+    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2386142500795320217, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16951,38 +16983,6 @@ PrefabInstance:
       propertyPath: SettingsButtons.Array.data[13]
       value: 
       objectReference: {fileID: 1162936349}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: CoordenadaPlayers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: SelectPlayers.Array.data[0]
-      value: 
-      objectReference: {fileID: 1590590623}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: SelectPlayers.Array.data[1]
-      value: 
-      objectReference: {fileID: 1780617784}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: SelectPlayers.Array.data[2]
-      value: 
-      objectReference: {fileID: 2055362858}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: SelectPlayers.Array.data[3]
-      value: 
-      objectReference: {fileID: 1775191052}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: MenuButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 344353743}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: MenuButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 1580098801}
-    - target: {fileID: 695164792, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 695164791, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c2896ca5be4e8c4e9fd713f6cc9cbeb, type: 3}
