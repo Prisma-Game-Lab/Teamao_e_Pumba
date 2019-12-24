@@ -8,11 +8,11 @@ public class ChangeSpritesVictory : MonoBehaviour
     public List<Sprite> highlightedSprites = new List<Sprite>();
     public List<Sprite> buttonSprites = new List<Sprite>();
     public List<Button> menuButtons = new List<Button>();
-    public MenuSelect menuSelect;
+    public ScoreSelect menuSelect;
 
     void Awake()
     {
-        menuSelect = menuSelect.GetComponent<MenuSelect>();
+        menuSelect = menuSelect.GetComponent<ScoreSelect>();
     }
 
 
