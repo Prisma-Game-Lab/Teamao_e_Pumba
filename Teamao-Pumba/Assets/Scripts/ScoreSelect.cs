@@ -20,7 +20,6 @@ public class ScoreSelect : MonoBehaviour
             ControlAcess.Add(true);
         }
         SelectPlayers[0].gameObject.SetActive(true);
-        gameManager = gameManager.GetComponent<GameManager>().telaVitoria;
     }
 
 

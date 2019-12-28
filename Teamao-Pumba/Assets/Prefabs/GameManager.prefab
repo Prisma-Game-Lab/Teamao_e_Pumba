@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 695164789}
   - component: {fileID: 695164790}
   - component: {fileID: 695164791}
-  - component: {fileID: 695164792}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,9 +50,6 @@ MonoBehaviour:
   Players: {fileID: 0}
   Bases: {fileID: 0}
   Espinhos: {fileID: 0}
-  HowManyPlayers: {fileID: 0}
-  CharacterSelect: {fileID: 0}
-  SettingsCanvas: {fileID: 0}
   VictoryCanvas: {fileID: 0}
   PointsCanvas: {fileID: 0}
   AboveHeadCanvas: {fileID: 0}
@@ -62,17 +58,21 @@ MonoBehaviour:
   CountdownTimer: {fileID: 0}
   Timer: {fileID: 0}
   TimerCircle: {fileID: 0}
-  UIPlayers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   ValueText:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   tempo: 999
   Countdown: 4
+  gameSettings: {fileID: 0}
+  telaVitoriaJogador1: []
+  telaVitoriaJogador2: []
+  telaVitoriaJogador3: []
+  telaVitoriaJogador4: []
+  telaVitoria: {fileID: 0}
+  Win: {fileID: 0}
+  MainMusic: {fileID: 0}
+  spriteEmpate: {fileID: 0}
 --- !u!114 &695164788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 6802746376239672555, guid: f527bccc594b1774595af2e01fd16db5, type: 3}
-  Item_parent: {fileID: 0}
   Item_qtd: 5
   Cooldown: 6
+  Itens_transform: {fileID: 0}
 --- !u!114 &695164791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,59 +135,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b170b5169a912418d2b3b582f1fe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Players: {fileID: 0}
   SelectPlayers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  HMPButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  CSButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  SettingsButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   CoordenadaPlayers: 
-  HowManyPlayers: 0
+  ControlAcess: 
   PlayersWithCharacter: 
---- !u!114 &695164792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2386142500795320218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6e04a2bef6ad94a8d751db41b284b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SelectPlayers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  MenuButtons:
-  - {fileID: 0}
-  - {fileID: 0}
+  gameSettings: {fileID: 0}
+  newSettings: {fileID: 0}
+  newCharacterUI: {fileID: 0}
+  TempoOptions: 
+  ProbabilidadeOptions: []
+  VitoriaPointsOption: 
+  NewSettingsCanvasTexts: []
+  NewSettingsCanvasImage: {fileID: 0}
+  isPlayerAbsent: 
+  isPlayerReady: 
+  players: []
+  playerImages1: []
+  playerImages2: []
+  playerImages3: []
+  playerImages4: []
+  gameTimeText: {fileID: 0}
+  gameEventsText: {fileID: 0}
+  gamePointsText: {fileID: 0}
+  contador: 0

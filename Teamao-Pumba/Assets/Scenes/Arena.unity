@@ -11496,7 +11496,7 @@ MonoBehaviour:
   - {fileID: 344353743}
   - {fileID: 1580098801}
   CoordenadaPlayers: 
-  gameManager: {fileID: 1539153412}
+  gameManager: {fileID: 48951267}
 --- !u!1 &1539539877
 GameObject:
   m_ObjectHideFlags: 0
@@ -17042,7 +17042,7 @@ PrefabInstance:
     - target: {fileID: 4838943974393376563, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 688234822244620177, guid: 81a407128f7daa44bbc739e22d6c4d61,
         type: 3}
