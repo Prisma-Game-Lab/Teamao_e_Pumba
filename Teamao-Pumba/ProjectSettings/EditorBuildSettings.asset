@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Online Teste/MenuTeste.unity
     guid: 58f5ce7cbdaf0414fa84aaa226af673e
   - enabled: 1
-    path: Assets/Scenes/Online Teste/TesteOnline.unity
-    guid: 9ad41965394f22848a19ae2d022f2489
+    path: Assets/Scenes/Settings.unity
+    guid: a4c918b1f1efef64ebee9ddea4345321
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 572e3c0e16fa0fb4ebafd78d4f850742,
       type: 2}

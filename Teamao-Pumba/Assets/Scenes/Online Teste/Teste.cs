@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
 using UdpKit;
-using UnityEngine;
 
-public class Menu : Bolt.GlobalEventListener
+public class Teste : Bolt.GlobalEventListener
 {
     public void StartServer()
     {
