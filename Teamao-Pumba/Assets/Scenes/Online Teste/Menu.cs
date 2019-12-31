@@ -22,7 +22,7 @@ public class Menu : Bolt.GlobalEventListener
             string matchName = "Test Match";
 
             BoltNetwork.SetServerInfo(matchName, null);
-            BoltNetwork.LoadScene("Settings");
+            BoltNetwork.LoadScene("TesteOnline");
         }
     }
 
